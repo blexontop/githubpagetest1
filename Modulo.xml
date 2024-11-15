@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modulo>
+    <nombre>Lenguajes de Marcas y Sistemas de Gestión de Información</nombre>
+    <horasSemanales>4</horasSemanales>
+    <caracter>Obligatorio</caracter>
+    <periodo>
+        <inicio>2010-09-15</inicio>
+        <fin>2011-06-30</fin>
+    </periodo>
+    <alumnos>
+        <alumno>
+            <nombre>Ana Fernández Gutiérrez</nombre>
+            <nif>16965696L</nif>
+            <contacto>
+                <telefono>789654321</telefono>
+                <email>ana.fdezgtrrez@hotmail.com</email>
+            </contacto>
+            <direccion>
+                <calle>C/ El Percebe, 13</calle>
+                <ciudad>Santander</ciudad>
+                <codigoPostal>39302</codigoPostal>
+            </direccion>
+            <asistencia>No disponible</asistencia>
+            <nota>No disponible</nota>
+        </alumno>
+        <alumno>
+            <nombre>Pepito Grillo</nombre>
+            <nif>98765432H</nif>
+            <contacto>
+                <telefono>656566555</telefono>
+                <email>yhyh@yahoo.com</email>
+            </contacto>
+            <direccion>
+                <calle>Avd. El Pez, 5</calle>
+                <ciudad>Suances</ciudad>
+                <codigoPostal>39401</codigoPostal>
+            </direccion>
+            <asistencia>Sin faltas</asistencia>
+            <nota>Apto</nota>
+        </alumno>
+    </alumnos>
+</modulo>
