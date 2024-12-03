@@ -6,23 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lenguaje de Marcas 1 DAW</title>
     <style>
+        /* Estilos generales del body */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #6a1b9a, #d500f9);
+            background: linear-gradient(135deg, #ff6f61, #d500f9);
             color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             overflow: hidden;
+            box-sizing: border-box;
         }
 
+        /* Estilo del contenedor principal */
         .container {
-            background-color: rgba(28, 28, 28, 0.9);
+            background-color: rgba(28, 28, 28, 0.85);
             border-radius: 20px;
-            padding: 40px;
+            padding: 50px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             width: 100%;
             max-width: 900px;
@@ -35,19 +38,23 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
         }
 
+        /* Estilos para los encabezados */
         h1, h2 {
             color: #00d2ff;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
             margin-bottom: 20px;
+            font-size: 2.5em;
         }
 
+        /* Estilo de los párrafos */
         p {
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: #f0f0f0;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
         }
 
+        /* Estilo de las listas */
         ul {
             list-style-type: none;
             padding: 0;
@@ -55,32 +62,46 @@
         }
 
         li {
-            margin: 18px 0;
+            margin: 20px 0;
         }
 
+        /* Estilo de los enlaces */
         a {
-            color: #00d2ff;
-            font-size: 1.2em;
+            color: #fff;
+            font-size: 1.3em;
             text-decoration: none;
             display: block;
-            padding: 12px 20px;
-            border-radius: 12px;
-            background-color: rgba(0, 210, 255, 0.15);
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 15px 25px;
+            border-radius: 15px;
+            background-color: rgba(0, 210, 255, 0.2);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
         a:hover {
-            background-color: rgba(0, 210, 255, 0.25);
+            background-color: rgba(0, 210, 255, 0.4);
             transform: translateX(7px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
 
         a:focus, a:active {
-            background-color: rgba(0, 210, 255, 0.3);
+            background-color: rgba(0, 210, 255, 0.5);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
         }
 
+        /* Estilo para los temas */
+        h2 {
+            margin-top: 40px;
+            font-size: 2em;
+        }
+
+        /* Estilos para los enlaces cuando están en un tema */
+        ul li a {
+            font-size: 1.15em;
+            background-color: rgba(0, 210, 255, 0.15);
+        }
+
+        /* Adaptación a pantallas pequeñas */
         @media (max-width: 768px) {
             .container {
                 padding: 25px;
@@ -88,13 +109,29 @@
             }
 
             h1, h2 {
-                font-size: 1.5em;
+                font-size: 1.8em;
             }
 
             a {
                 font-size: 1.1em;
-                padding: 10px 15px;
+                padding: 12px 18px;
             }
+        }
+
+        /* Animación de entrada */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            animation: fadeIn 1s ease-out;
         }
     </style>
 </head>
@@ -120,6 +157,9 @@
         <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones </a></li>
     </ul>
 </div>
+
+</body>
+</html>
 
 </body>
 </html>
