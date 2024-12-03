@@ -5,124 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lenguaje de Marcas 1 DAW</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales del body */
+        /* General body style */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #ff6f61, #d500f9);
-            color: #fff;
+            background: #e2e2e2;
+            color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             overflow: hidden;
             box-sizing: border-box;
         }
 
-        /* Estilo del contenedor principal */
-        .container {
-            background-color: rgba(28, 28, 28, 0.85);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            width: 100%;
-            max-width: 900px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        /* Main container style */
+        .main-container {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1000px;
+            padding: 30px;
             text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .container:hover {
-            transform: scale(1.05);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        /* Hover effect */
+        .main-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
         }
 
-        /* Estilos para los encabezados */
-        h1, h2 {
-            color: #00d2ff;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        /* Header style */
+        h1 {
+            font-size: 2.8em;
+            color: #1a73e8;
             margin-bottom: 20px;
-            font-size: 2.5em;
+            font-weight: 700;
         }
 
-        /* Estilo de los párrafos */
+        /* Subheading style */
+        h2 {
+            font-size: 2em;
+            color: #444;
+            margin-top: 30px;
+            text-transform: uppercase;
+        }
+
+        /* Paragraphs */
         p {
             font-size: 1.2em;
-            color: #f0f0f0;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 20px;
         }
 
-        /* Estilo de las listas */
+        /* List styling */
         ul {
             list-style-type: none;
             padding: 0;
-            margin: 0;
         }
 
         li {
             margin: 20px 0;
         }
 
-        /* Estilo de los enlaces */
+        /* Links style */
         a {
-            color: #fff;
-            font-size: 1.3em;
+            font-size: 1.1em;
+            color: #1a73e8;
             text-decoration: none;
-            display: block;
-            padding: 15px 25px;
-            border-radius: 15px;
-            background-color: rgba(0, 210, 255, 0.2);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background-color: #f2f2f2;
+            padding: 12px 20px;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
 
         a:hover {
-            background-color: rgba(0, 210, 255, 0.4);
-            transform: translateX(7px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            background-color: #e0e0e0;
+            transform: translateX(5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         a:focus, a:active {
-            background-color: rgba(0, 210, 255, 0.5);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            background-color: #d0d0d0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        /* Estilo para los temas */
-        h2 {
-            margin-top: 40px;
-            font-size: 2em;
-        }
-
-        /* Estilos para los enlaces cuando están en un tema */
-        ul li a {
-            font-size: 1.15em;
-            background-color: rgba(0, 210, 255, 0.15);
-        }
-
-        /* Adaptación a pantallas pequeñas */
+        /* Media queries for responsiveness */
         @media (max-width: 768px) {
-            .container {
-                padding: 25px;
-                margin: 10px;
+            .main-container {
+                width: 90%;
+                padding: 20px;
             }
 
-            h1, h2 {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
                 font-size: 1.8em;
             }
 
             a {
-                font-size: 1.1em;
-                padding: 12px 18px;
+                font-size: 1em;
+                padding: 10px 15px;
             }
         }
 
-        /* Animación de entrada */
+        /* Animation for page entrance */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(30px);
             }
             100% {
                 opacity: 1;
@@ -130,33 +129,34 @@
             }
         }
 
-        .container {
+        .main-container {
             animation: fadeIn 1s ease-out;
         }
+
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Frederic Sadibou Sall Diaw</h1>
-    <p><strong>Lenguaje de Marcas 1 DAW</strong></p>
+    <div class="main-container">
+        <h1>Frederic Sadibou Sall Diaw</h1>
+        <p><strong>Lenguaje de Marcas 1 DAW</strong></p>
 
-    <h2>TEMA 1: Introducción al lenguaje de marcas</h2>
-    <ul>
-        <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml </a></li>
-        <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml </a></li>
-    </ul>
+        <h2>TEMA 1: Introducción al lenguaje de marcas</h2>
+        <ul>
+            <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a></li>
+            <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a></li>
+        </ul>
 
-    <h2>TEMA 2: HTML</h2>
-    <ul>
-        <li><a href="Listas.html">Ejercicio 1: Listas </a></li>
-        <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imagenes </a></li>
-        <li><a href="EJ3_Horario.html">Ejercicio 3: Horario </a></li>
-        <li><a href="EjercicioFrame.html">Ejercicio 4: Frame </a></li>
-        <li><a href="Formulario.html">Ejercicio 5: formulario </a></li>
-        <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones </a></li>
-    </ul>
-</div>
+        <h2>TEMA 2: HTML</h2>
+        <ul>
+            <li><a href="Listas.html">Ejercicio 1: Listas</a></li>
+            <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imagenes</a></li>
+            <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a></li>
+            <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a></li>
+            <li><a href="Formulario.html">Ejercicio 5: Formulario</a></li>
+            <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a></li>
+        </ul>
+    </div>
 
 </body>
 </html>
