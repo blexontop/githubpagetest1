@@ -10,66 +10,91 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            background: linear-gradient(135deg, #6a1b9a, #d500f9);
             color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
         }
 
         .container {
-            background-color: #1e1e1e;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background-color: rgba(28, 28, 28, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             width: 100%;
             max-width: 900px;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+            text-align: center;
         }
 
         .container:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
         }
 
         h1, h2 {
             color: #00d2ff;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
         }
 
         p {
-            font-size: 1.2em;
-            color: #fff;
+            font-size: 1.1em;
+            color: #f0f0f0;
             margin-bottom: 20px;
+            letter-spacing: 0.5px;
         }
 
         ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
 
         li {
-            margin: 15px 0;
+            margin: 18px 0;
         }
 
         a {
             color: #00d2ff;
-            font-size: 1.1em;
+            font-size: 1.2em;
             text-decoration: none;
             display: block;
-            padding: 10px;
-            border-radius: 8px;
-            background-color: rgba(0, 210, 255, 0.1);
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background-color: rgba(0, 210, 255, 0.15);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         a:hover {
-            background-color: rgba(0, 210, 255, 0.2);
-            transform: translateX(5px);
+            background-color: rgba(0, 210, 255, 0.25);
+            transform: translateX(7px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
 
         a:focus, a:active {
             background-color: rgba(0, 210, 255, 0.3);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 10px;
+            }
+
+            h1, h2 {
+                font-size: 1.5em;
+            }
+
+            a {
+                font-size: 1.1em;
+                padding: 10px 15px;
+            }
         }
     </style>
 </head>
@@ -92,10 +117,9 @@
         <li><a href="EJ3_Horario.html">Ejercicio 3: Horario </a></li>
         <li><a href="EjercicioFrame.html">Ejercicio 4: Frame </a></li>
         <li><a href="Formulario.html">Ejercicio 5: formulario </a></li>
-         <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones </a></li>
+        <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones </a></li>
     </ul>
 </div>
 
 </body>
 </html>
-
