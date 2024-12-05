@@ -4,31 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículum Vitae</title>
-    <link rel="stylesheet" type="text/css" href="styles_CV_Raul.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .cv-container {
+            display: flex;
+            flex-direction: row;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            background-color: #1a73e8;
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        header .photo img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        header .job-title {
+            font-size: 1.2em;
+            font-weight: normal;
+        }
+
+        .sidebar {
+            width: 30%;
+            padding: 20px;
+            background-color: #f0f4f7;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .sidebar .section {
+            margin-bottom: 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 1.5em;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .sidebar ul li {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .main-content {
+            width: 65%;
+            padding: 20px;
+        }
+
+        .main-content .section {
+            margin-bottom: 20px;
+        }
+
+        .main-content h2 {
+            font-size: 1.5em;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        .main-content .experience h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .main-content ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .main-content ul li {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #1a73e8;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        footer h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .main-content {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="photo">
-            <img src="IMG_1969.jpeg" alt="Foto">
-        </div>
-        <h1>Frederic Sadibou Sall</h1>
-        <p class="job-title">Desarrollador Web</p>
-    </header>
     <div class="cv-container">
+        <header>
+            <div class="photo">
+                <img src="IMG_1969.jpeg" alt="Foto">
+            </div>
+            <h1>Frederic Sadibou Sall</h1>
+            <p class="job-title">Desarrollador Web</p>
+        </header>
+        
         <aside class="sidebar">
             <section class="section">
                 <h2>Formación</h2>
-                <p>Titulo de bachillerato de ciencias tecnologicas(2022-2024)</p>
-                <p>Grado en DAW(2024 - 2026)</p>
+                <ul>
+                    <li>Título de bachillerato de ciencias tecnológicas (2022-2024)</li>
+                    <li>Grado en DAW (2024-2026)</li>
+                </ul>
             </section>
-            <section class="additional-info">
+            <section class="section">
                 <h2>Información</h2>
                 <ul>
                     <li>Carnet de conducir</li>
                     <li>Coche propio</li>
                     <li>Disponibilidad para viajar</li>
                     <li>Disponibilidad total para trabajar</li>
-                    <li></li>
                 </ul>
             </section>
         </aside>
@@ -38,50 +184,54 @@
                 <h2>Experiencia</h2>
                 <div class="experience">
                     <h3>ESTUDIOS (Actualidad)</h3>
-                    <p>Titulo de educacion secundaria cursado en el centro "La Salle Buenpastor" </p>
-                    <p>Titulo de bachillerato  tecnologico cursado en el centro "La Salle Buen Pastor"</p>
-                    <p>Titulo de B1 de ingles </p>
+                    <ul>
+                        <li>Título de educación secundaria cursado en "La Salle Buenpastor"</li>
+                        <li>Título de bachillerato tecnológico cursado en "La Salle Buen Pastor"</li>
+                        <li>Título de B1 de inglés</li>
+                    </ul>
                 </div>
                 <div class="experience">
-                    <h3>DEPORTES </h3>
-                    <p>Federado en Baloncesto en el equipo "DKV"-Jerez (2023-2024)</p>
-                    <p>Federado en Futbol en el equipo "San Benito"-Jerez (2024-2025)</p>
-
+                    <h3>DEPORTES</h3>
+                    <ul>
+                        <li>Federado en Baloncesto en el equipo "DKV"-Jerez (2023-2024)</li>
+                        <li>Federado en Fútbol en el equipo "San Benito"-Jerez (2024-2025)</li>
+                    </ul>
                 </div>
                 <div class="experience">
-                    <h3>PAISES VISITADOS</h3>
-                    <p>INGLATERRA</p>
-                    <p>AFRICA</p>
-                    <p>ESTADOS UNIDOS</p>
+                    <h3>PAÍSES VISITADOS</h3>
+                    <ul>
+                        <li>Inglaterra</li>
+                        <li>África</li>
+                        <li>Estados Unidos</li>
+                    </ul>
                 </div>
             </section>
 
             <section class="section">
-                <h2>HABILIDADES SOCIALES</h2>
+                <h2>Habilidades Sociales</h2>
                 <ul>
                     <li>Soy muy social</li>
-                    <li>Me dessarollo muy bien en todos los ambitos</li>
-                    <li>Trabajo muy bien equipo</li>
-                    <li>Soy un  buen lider y una persona optimista</li>
+                    <li>Me desarrollo muy bien en todos los ámbitos</li>
+                    <li>Trabajo muy bien en equipo</li>
+                    <li>Soy un buen líder y una persona optimista</li>
                     <li>Soy muy creativo y cautivador</li>
                     <li>Me encanta experimentar cosas nuevas y doy el 100% de mi esfuerzo</li>
-
-                    <li></li>
                 </ul>
             </section>
 
             <section class="section">
                 <h2>Idiomas</h2>
-                <p>Español, Inglés, Frances</p>
+                <p>Español, Inglés, Francés</p>
             </section>
         </main>
     </div>
+
     <footer>
         <section class="contact-info">
             <h2>Contacto</h2>
             <p>📞 675 088 255</p>
             <p>📧 fsal453@g.educaand.es / frede2000sall@gmail.com</p>
-            <p>📍 Plaza Puerta bahia Bloq 24 2A >CP 11408</p>
+            <p>📍 Plaza Puerta bahía Bloq 24 2A, CP 11408</p>
         </section>
     </footer>
 </body>
