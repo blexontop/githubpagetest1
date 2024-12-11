@@ -1,150 +1,180 @@
-
+/* Reglas generales */
 ul, ul li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  h1, h2, h3, p, form {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .clear {
-    clear: both;
-  }
-  
-  img {
-    border: none;
-  }
-  
-  /* Estilo base de la página */
-  body {
-    font-family: Arial, sans-serif;
-    font-size: 0.9em;
-    line-height: 1.4;
-    color: black;
-  }
-  
-  /* Contenedor principal */
-  #contenedor {
-    width: 90%;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  /* Cabecera */
-  #cabecera {
-    clear: both;
-  }
-  
-  #cabecera #logo {
-    float: left;
-  }
-  
-  #cabecera #buscador {
-    float: right;
-  }
-  
-  /* Menú */
-  #menu {
-    margin-right: 1em;
-  }
-  
-  #menu ul#menu_principal li {
-    display: inline;
-    float: left;
-  }
-  
-  #menu a {
-    color: white;
-    font-size: 1.3em;
-  }
-  
-  /* Lateral */
-  #lateral {
-    float: left;
-    width: 20%;
-  }
-  
-  #lateral * {
-    font-size: 0.9em;
-  }
-  
-  #lateral .fecha {
-    color: #999;
-    width: 100%;
-    display: block;
-  }
-  
-  #noticias {
-    color: #003366;
-  }
-  
-  /* Contenido principal */
-  #contenido {
-    float: right;
-    width: 78%;
-  }
-  
-  #contenido #principal {
-    float: left;
-    width: 78%;
-  }
-  
-  .articulo {
-    color: #CC6600;
-    font-size: 1.6em;
-    line-height: 1.2;
-    margin-bottom: 0.3em;
-  }
-  
-  .articulo a {
-    color: #CC6600;
-  }
-  
-  .articulo p {
-    margin: 0.3em 0;
-  }
-  
-  #contenido .articulo img {
-    width: 100px;
-    float: left;
-  }
-  
-  /* Publicidad */
-  #publicidad {
-    color: #555;
-  }
-  
-  #publicidad a {
-    color: #CC6600;
-  }
-  
-  /* Pie */
-  #pie {
-    clear: both;
-  }
-  
-  #pie .enlaces {
-    float: left;
-  }
-  
-  #pie .copyright {
-    float: right;
-  }
-  
-  /* Adaptación para dispositivos con pantalla mayor a 900px */
-  #contenedor {
-    width: expression(document.body.clientWidth > 901 ? "900px" : "auto");
-  }
-  
-  /* Agregar la ubicación de la página web */
-  #pie .ubicacion {
-    float: center;
-    width: 100%;
-    text-align: center;
-    font-size: 0.9em;
-    color: #333;
-  }
-  
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, p, form {
+  margin: 0;
+  padding: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+img {
+  border: none;
+}
+
+/* Estilo base de la página */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 0.9px;
+  line-height: 1.4;
+  color: black;
+}
+
+/* Contenedor principal */
+#contenedor {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid #ccc; /* Borde alrededor del contenedor */
+  padding: 10px;
+}
+
+/* Cabecera */
+#cabecera {
+  clear: both;
+  border-bottom: 1px solid #ccc; /* Borde inferior para separar */
+  padding-bottom: 10px;
+}
+
+#cabecera #logo {
+  float: left;
+}
+
+#cabecera #buscador {
+  float: right;
+}
+
+/* Menú */
+#menu {
+  margin-right: 1px;
+  font-size: 0.9px;
+  border: 2px solid #CC6600; /* Borde del menú */
+  padding: 5px;
+}
+
+#menu {
+  display: inline;
+  float: left;
+}
+
+#menu a {
+  color: white;
+  font-size: 1.3px;
+  padding: 5px;
+  display: block;
+  border: 1px solid transparent;
+}
+
+#menu a:hover {
+  background-color: #CC6600;
+  color: white;
+}
+
+/* Lateral */
+#lateral {
+  float: left;
+  width: 20%;
+  border-right: 1px solid #ccc; /* Borde derecho para separar */
+  padding-right: 10px;
+}
+
+#lateral * {
+  font-size: 0.9px;
+}
+
+#lateral .fecha {
+  color: #999;
+  width: 100%;
+  display: block;
+}
+
+#noticias {
+  color: #003366;
+}
+
+/* Contenido principal */
+#contenido {
+  float: right;
+  width: 78%;
+  padding-left: 10px;
+}
+
+#contenido #principal {
+  float: left;
+  width: 78%;
+}
+
+/* Artículo */
+.articulo {
+  color: #0c0c0c;
+  font-size: 1.6px;
+  line-height: 1.2;
+  margin-bottom: 0.3em;
+  border-bottom: 1px solid #ccc; /* Borde inferior en cada artículo */
+  padding-bottom: 10px;
+}
+
+.articulo a {
+  color: #CC6600;
+}
+
+.articulo p {
+  margin: 0.3px 0;
+}
+
+#contenido .articulo img {
+  width: 100px;
+  float: left;
+  margin-right: 10px;
+}
+
+/* Publicidad */
+#publicidad {
+  color: #555;
+  border-top: 1px solid #ccc; /* Borde superior en la sección de publicidad */
+  padding-top: 10px;
+}
+
+#publicidad a {
+  color: #CC6600;
+}
+
+/* Pie */
+#pie {
+  clear: both;
+  border-top: 1px solid #ccc; /* Borde superior en el pie */
+  padding-top: 10px;
+}
+
+#pie .enlaces {
+  float: left;
+}
+
+#pie .copyright {
+  float: right;
+}
+
+#pie .ubicacion {
+  clear: both;
+  text-align: center;
+  font-size: 0.9px;
+  color: #333;
+  padding-top: 10px;
+}
+
+/* Adaptación para dispositivos con pantalla mayor a 900px */
+#contenedor {
+  width: expression(document.body.clientWidth > 901 ? "900px" : "auto");
+}
+
+/* Agregar bordes */
+#cabecera, #lateral, #contenido, #pie {
+  border: 1px solid #ddd; /* Borde alrededor de las secciones principales */
+  margin-bottom: 10px;
+}
