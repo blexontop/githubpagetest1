@@ -1,0 +1,150 @@
+
+ul, ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  h1, h2, h3, p, form {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .clear {
+    clear: both;
+  }
+  
+  img {
+    border: none;
+  }
+  
+  /* Estilo base de la página */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: black;
+  }
+  
+  /* Contenedor principal */
+  #contenedor {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  /* Cabecera */
+  #cabecera {
+    clear: both;
+  }
+  
+  #cabecera #logo {
+    float: left;
+  }
+  
+  #cabecera #buscador {
+    float: right;
+  }
+  
+  /* Menú */
+  #menu {
+    margin-right: 1em;
+  }
+  
+  #menu ul#menu_principal li {
+    display: inline;
+    float: left;
+  }
+  
+  #menu a {
+    color: white;
+    font-size: 1.3em;
+  }
+  
+  /* Lateral */
+  #lateral {
+    float: left;
+    width: 20%;
+  }
+  
+  #lateral * {
+    font-size: 0.9em;
+  }
+  
+  #lateral .fecha {
+    color: #999;
+    width: 100%;
+    display: block;
+  }
+  
+  #noticias {
+    color: #003366;
+  }
+  
+  /* Contenido principal */
+  #contenido {
+    float: right;
+    width: 78%;
+  }
+  
+  #contenido #principal {
+    float: left;
+    width: 78%;
+  }
+  
+  .articulo {
+    color: #CC6600;
+    font-size: 1.6em;
+    line-height: 1.2;
+    margin-bottom: 0.3em;
+  }
+  
+  .articulo a {
+    color: #CC6600;
+  }
+  
+  .articulo p {
+    margin: 0.3em 0;
+  }
+  
+  #contenido .articulo img {
+    width: 100px;
+    float: left;
+  }
+  
+  /* Publicidad */
+  #publicidad {
+    color: #555;
+  }
+  
+  #publicidad a {
+    color: #CC6600;
+  }
+  
+  /* Pie */
+  #pie {
+    clear: both;
+  }
+  
+  #pie .enlaces {
+    float: left;
+  }
+  
+  #pie .copyright {
+    float: right;
+  }
+  
+  /* Adaptación para dispositivos con pantalla mayor a 900px */
+  #contenedor {
+    width: expression(document.body.clientWidth > 901 ? "900px" : "auto");
+  }
+  
+  /* Agregar la ubicación de la página web */
+  #pie .ubicacion {
+    float: center;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+    color: #333;
+  }
+  
