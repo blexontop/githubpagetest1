@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículum vitae</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1E1E1E;
+            color: white;
+            transition: 0.2s;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .light-theme {
+            background-color: #F0F0F0;
+            color: #333;
+            transition: 0.2s;
+        }
+
+        .container {
+            width: 40%;
+            height: 875px;
+            background-color: #2A2A2A;
+            border-radius: 40px;
+            border: 8px solid #4E4E4E;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s ease;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .light-container {
+            background-color: #E0E0E0;
+            border-color: #E4E4E4;
+            color: black;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            width: 95%;
+            height: 15%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: -10px;
+        }
+
+        .pfp {
+            width: 80px;
+            height: 80px;
+            border-radius: 100%;
+            margin-right: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 24px;
+            color: #FAFAFA;
+        }
+
+        .curriculum {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            transition: 0.2s;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            margin: 5px;
+            background-color: rgba(211, 255, 134, 0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: rgba(211, 255, 134, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .section {
+            width: 95%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .box {
+            width: 35%;
+            height: 100%;
+            background-color: rgba(211, 255, 134, 0.15);
+            border-radius: 30px;
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .box-light {
+            background-color: #E0E0E0;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .box-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .box-header img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .box-header-text {
+            font-weight: bold;
+            font-size: 16px;
+            color: #FAFAFA;
+        }
+
+        .box-body {
+            padding: 15px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .box-data-title {
+            font-weight: bold;
+        }
+
+        .box-data {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 672px) {
+            .container {
+                width: 100%;
+            }
+
+            .box {
+                width: 95%;
+                margin-right: 0;
+            }
+
+            .name {
+                font-size: 20px;
+            }
+
+            .curriculum {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img class="pfp" src="IMG_1969.jpeg" alt="Frederic Sadibou Sall - Perfil">
+            <div>
+                <p class="name">Frederic Sadibou Sall</p>
+                <p class="curriculum">Currículum vitae</p>
+            </div>
+            <div class="buttons">
+                <button class="button" id="download-btn" aria-label="Descargar CV">
+                    <img src="img/download.png" alt="Download">
+                </button>
+                <button class="button" id="theme-toggle" aria-label="Cambiar tema">
+                    <img src="img/sol.png" alt="Theme Toggle">
+                </button>
+                <a target="_blank" href="https://github.com/blexontop/githubpagetest1">
+                    <button class="button" aria-label="Ver GitHub">
+                        <img src="img/github.png" alt="GitHub">
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="section">
+            <div class="box">
+                <div class="box-header">
+                    <img src="img/contacto.png" alt="Contact Icon">
+                    <div class="box-header-text">Contacto</div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <span class="box-data-title">Teléfono:</span>
+                        <span class="box-data">675 088 255</span>
+                    </div>
+                    <div class="row">
+                        <span class="box-data-title">Correo:</span>
+                        <span class="box-data">frede2000sall@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-header">
+                    <img src="img/language.png" alt="Idiomas Icon">
+                    <div class="box-header-text">Idiomas</div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <span class="box-data-title">Español:</span>
+                        <span class="box-data">Nativo</span>
+                    </div>
+                    <div class="row">
+                        <span class="box-data-title">Inglés:</span>
+                        <span class="box-data">Comprensión: C1</span>
+                    </div>
+                    <div class="row">
+                        <span class="box-data">Comunicación verbal: B2</span>
+                    </div>
+                    <div class="row">
+                        <span class="box-data">Escrito: B2</span>
+                    </div>
+                    <div class="row">
+                        <span class="box-data-title">Francés:</span>
+                        <span class="box-data">Comprensión: C1</span>
+                    </div>
+                    <div class="row">
+                        <span class="box-data">Comunicación verbal: A2</span>
+                    </div>
+                    <div class="row">
+                        <span class="box-data">Escrito: B2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
