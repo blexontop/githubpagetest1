@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Grid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+        }
+
+        .container {
+            padding: 20px;
+            height: 100vh;
+            background-color: #2f06a1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+            grid-template-rows: repeat(3, 1fr); /* 3 filas */
+            gap: 5px;
+        }
+
+        .item {
+            background: #1ea1b3;
+            border-radius: 1rem;
+            color: #ffffff;
+            display: grid;
+            place-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+        <div class="item">Item 7</div>
+        <div class="item">Item 8</div>
+        <div class="item">Item 9</div>
+    </div>
+</body>
+</html>
