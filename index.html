@@ -5,204 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lenguaje de Marcas - DAW</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* General body style with animated background */
+        /* General body style */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: #121212;
-            color: #ffffff;
+            background: #f5f5f5;
+            color: #333;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
+            justify-content: flex-start;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background-color: #1a73e8;
+            color: white;
             height: 100vh;
-        }
-
-        /* Animated starry background */
-        @keyframes starsAnimation {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(50px, 50px); }
-            100% { transform: translate(0, 0); }
-        }
-
-        .starry-bg {
-            position: absolute;
+            padding: 30px 15px;
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, rgba(18,18,18,1) 100%);
-            animation: starsAnimation 15s ease-in-out infinite;
-            z-index: -1;
+            box-sizing: border-box;
         }
 
-        /* General container with glass effect */
-        .container {
-            position: relative;
-            width: 90%;
-            max-width: 1000px;
-            background: rgba(30, 30, 30, 0.7);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
-            margin-top: 50px;
-            backdrop-filter: blur(10px);
-            z-index: 1;
-        }
-
-        h1 {
-            font-size: 2.8em;
-            color: #00d4ff;
-            text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
-        }
-
-        p {
-            font-size: 1.2em;
-            color: #bbbbbb;
+        .sidebar h2 {
+            font-size: 1.8em;
             margin-bottom: 20px;
-            line-height: 1.6;
+            font-weight: 700;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            font-size: 1.3em;
-            color: #121212;
-            background: #00d4ff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: 0.3s;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            background: #008fb3;
-            color: #ffffff;
-            transform: scale(1.1);
-        }
-
-        .links {
-            margin-top: 20px;
-        }
-
-        .links a {
-            display: inline-block;
-            color: #00d4ff;
-            font-size: 1.1em;
-            text-decoration: none;
-            margin: 15px 0;
-            transition: 0.3s;
-        }
-
-        .links a:hover {
-            color: #008fb3;
-            transform: scale(1.1);
-        }
-
-        .section {
-            background: rgba(30, 30, 30, 0.7);
-            padding: 25px;
-            margin-top: 30px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 800px;
-            text-align: left;
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(5px);
-        }
-
-        .section h2 {
-            color: #00d4ff;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
-        }
-
-        .section ul {
-            list-style: none;
+        .sidebar ul {
+            list-style-type: none;
             padding: 0;
         }
 
-        .section li {
-            margin: 12px 0;
-            font-size: 1.1em;
+        .sidebar li {
+            margin: 20px 0;
         }
 
-        .section a {
-            color: #00d4ff;
+        .sidebar a {
+            color: white;
             text-decoration: none;
-            transition: 0.3s;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
         }
 
-        .section a:hover {
-            color: #008fb3;
-            transform: scale(1.1);
+        .sidebar a:hover {
+            color: #ffcc00;
+            padding-left: 10px;
         }
 
-        footer {
-            margin-top: 40px;
-            padding: 10px;
-            background: rgba(30, 30, 30, 0.8);
-            width: 100%;
+        /* Main content container */
+        .content {
+            margin-left: 260px;
+            padding: 30px;
+            width: calc(100% - 260px);
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* Section styles */
+        section {
+            background-color: #fff;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #1a73e8;
+            font-weight: 700;
+        }
+
+        section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        section li {
+            margin-bottom: 15px;
+        }
+
+        section a {
+            font-size: 1.1em;
+            color: #1a73e8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+            background-color: #f0f0f0;
+        }
+
+        section a:hover {
+            background-color: #1a73e8;
+            color: white;
+        }
+
+        /* Footer style */
+        .footer {
+            background-color: #1a73e8;
+            color: white;
+            padding: 15px;
             text-align: center;
-            position: relative;
-            z-index: 1;
-            font-size: 0.9em;
+            font-size: 1em;
+            margin-top: 30px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .content {
+                margin-left: 200px;
+                width: calc(100% - 200px);
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            section h2 {
+                font-size: 1.6em;
+            }
+
+            .sidebar h2 {
+                font-size: 1.5em;
+            }
+
+            .sidebar a {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="starry-bg"></div>
-    <div class="container">
-        <h1>Frederic Sadibou Sall Diaw</h1>
-        <p><strong>Lenguaje de Marcas 1 DAW</strong></p>
-        <div class="links">
-            <a href="#tema1">TEMA 1: Introducción</a>
-            <a href="#tema2">TEMA 2: HTML</a>
-            <a href="#tema3">TEMA 3: CSS y Grid</a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Lenguaje de Marcas - DAW</h2>
+        <ul>
+            <li><a href="#tema1">Introducción</a></li>
+            <li><a href="#tema2">HTML</a></li>
+            <li><a href="#tema3">CSS y Grid</a></li> <!-- Nuevo Tema 3 -->
+        </ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="header">
+            <h1>Frederic Sadibou Sall Diaw</h1>
+            <p><strong>Lenguaje de Marcas 1 DAW</strong></p>
+        </div>
+
+        <!-- Tema 1: Introducción -->
+        <section id="tema1">
+            <h2>TEMA 1: Introducción al Lenguaje de Marcas</h2>
+            <ul>
+                <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a></li>
+                <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a></li>
+            </ul>
+        </section>
+
+        <!-- Tema 2: HTML -->
+        <section id="tema2">
+            <h2>TEMA 2: HTML</h2>
+            <ul>
+                <li><a href="Listas.html">Ejercicio 1: Listas</a></li>
+                <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a></li>
+                <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a></li>
+                <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a></li>
+                <li><a href="Formulario.html">Ejercicio 5: Formulario</a></li>
+                <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a></li>
+                <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a></li>
+                <li><a href="ejercicio3.html">Ejercicio 7: Examen</a></li>
+                <li><a href="CurriculumVitae.html">Ejercicio 8: CurriculumVitae(css)</a></li>
+            </ul>
+        </section>
+
+        <!-- Tema 3: JavaScript -->
+        <section id="tema3">
+            <h2>TEMA 3</h2>
+            <ul>
+                <li><a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a></li> 
+                <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page </a></li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 Frederic Sadibou Sall Diaw. 1º DAW (24-26).</p>
         </div>
     </div>
 
-    <div class="section" id="tema1">
-        <h2>TEMA 1: Introducción al Lenguaje de Marcas</h2>
-        <ul>
-            <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a></li>
-            <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a></li>
-        </ul>
-    </div>
-
-    <div class="section" id="tema2">
-        <h2>TEMA 2: HTML</h2>
-        <ul>
-            <li><a href="Listas.html">Ejercicio 1: Listas</a></li>
-            <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a></li>
-            <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a></li>
-            <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a></li>
-            <li><a href="Formulario.html">Ejercicio 5: Formulario</a></li>
-            <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a></li>
-            <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a></li>
-            <li><a href="ejercicio3.html">Ejercicio 8: Examen</a></li>
-            <li><a href="CurriculumVitae.html">Ejercicio 9: CurriculumVitae (CSS)</a></li>
-        </ul>
-    </div>
-
-    <div class="section" id="tema3">
-        <h2>TEMA 3: CSS y Grid</h2>
-        <ul>
-            <li><a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a></li>
-            <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page</a></li>
-            <li><a href="Bootstrap_Ejercicio2.html">Ejercicio 3: Bootstrap Ejercicio 2</a></li>
-        </ul>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Frederic Sadibou Sall Diaw. 1º DAW (24-26).</p>
-    </footer>
 </body>
 </html>
