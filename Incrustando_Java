@@ -1,0 +1,5 @@
+"use strict"
+let una_variable
+una_variable
+document.write(una_variable)
+
