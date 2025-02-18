@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT</title>
+</head>
+<body>
+
+    <h1>Ejecutando código en JavaScript</h1>
+    <button onclick="analizarNumeros()">Ingresar números</button>
+
+    <script>
+    const sumatorioVector = () => {
+        let vector = Array.from({length: 100}, () => Math.floor(Math.random() * 100) + 1);
+        return vector.reduce((acc, num) => acc + num, 0);
+    };
+    
+    const analizarNumeros = () => {
+        let numeros = [];
+        let input;
+    
+        while (true) {
+            input = prompt("Introduce un número (0 para terminar):");
+            if (input === null || input === "0" || isNaN(input)) break;
+            numeros.push(Number(input));
+        }
+    
+        let pares = numeros.filter(num => num % 2 === 0).length;
+        let impares = numeros.length - pares;
+    
+        alert(`Array de entrada: [${numeros}]\nCantidad de pares: ${pares}\nCantidad de impares: ${impares}`);
+    };
+    
+    console.log(`Sumatorio del vector: ${sumatorioVector()}`);
+    </script>
+
+</body>
+</html>

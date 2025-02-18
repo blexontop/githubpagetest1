@@ -1,0 +1,35 @@
+<!DOCTYPE JAVASCRIPT>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        let una_variable;
+        una_variable = 42;
+        document.write(una_variable + "<br>");
+
+        // Vectores o Arrays
+        document.write("<h2>Vectores o Arrays</h2>");
+        document.write("<p>En Javascript los arrays pueden almacenar elementos de distinto tipo. Al crearlos podemos indicar el tamaño o no, pero no habrá problemas si queremos almacenar más elementos de los previstos.</p>");
+
+        /* Una forma de crear un array */
+        let vector_nombres = new Array();
+        vector_nombres[0] = "Juan Perez";
+        vector_nombres[1] = "Pedro Diaz";
+        document.write("El primer nombre es: " + vector_nombres[0] + "<br>");
+
+        /* Otra forma de crearlos */
+        let vector_numeros = new Array(2);
+        vector_numeros[0] = 23;
+        vector_numeros[1] = -45.23;
+        vector_numeros[2] = 45e2;
+        document.write("Números en el array: " + vector_numeros.join(", "));
+    </script>
+</body>
+</html>
+
+
