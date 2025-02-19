@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartado 1: Suma de 100 números</title>
+  <style>
+    /* Estilos para Apartado 1 */
+    body {
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .button {
+      background: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: #45a049;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #333;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Apartado 1: Suma de 100 números</h1>
+    <p>Genera un vector de 100 números y calcula su sumatorio.</p>
+    <button class="button" onclick="generarVectorYCalcularSuma()">Generar y Calcular Suma</button>
+    <div id="resultado" class="result"></div>
+  </div>
+  
+  <script>
+    function generarVectorYCalcularSuma() {
+      const vector = [];
+      let suma = 0;
+      for (let i = 0; i < 100; i++) {
+        const num = Math.floor(Math.random() * 100) + 1;
+        vector.push(num);
+        suma += num;
+      }
+      document.getElementById('resultado').innerHTML = 
+        `<p><strong>Vector generado:</strong> [${vector.join(', ')}]</p>
+         <p><strong>Sumatorio:</strong> ${suma}</p>`;
+    }
+  </script>
+</body>
+</html>

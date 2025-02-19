@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apartado 2: Conteo de Números Pares e Impares</title>
+  <style>
+    /* Estilos para Apartado 2 */
+    body {
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      max-width: 500px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 70%;
+      margin-bottom: 10px;
+    }
+    .button {
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: #45a049;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #333;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Apartado 2: Conteo de Números Pares e Impares</h1>
+    <p>Introduce números. La entrada finaliza al ingresar 0 o un valor no numérico.</p>
+    <input type="text" id="numeroInput" placeholder="Introduce un número">
+    <button class="button" onclick="agregarNumero()">Agregar Número</button>
+    <div id="numerosIngresados" class="result"></div>
+    <div id="resultado" class="result"></div>
+  </div>
+
+  <script>
+    let arrayNumeros = [];
+
+    function agregarNumero() {
+      const input = document.getElementById('numeroInput');
+      const valor = input.value.trim();
+      input.value = ''; // Limpiar campo de entrada
+      const num = Number(valor);
+
+      // Finaliza la entrada si es un valor no numérico, vacío o 0
+      if (valor === "" || isNaN(num) || num === 0) {
+        mostrarResultados();
+        arrayNumeros = []; // Reinicia el array para una nueva ejecución
+        return;
+      }
+      
+      arrayNumeros.push(num);
+      document.getElementById('numerosIngresados').innerHTML = 
+        `<p><strong>Números ingresados:</strong> [${arrayNumeros.join(', ')}]</p>`;
+    }
+
+    function mostrarResultados() {
+      let pares = 0;
+      let impares = 0;
+      arrayNumeros.forEach(num => {
+        if (num % 2 === 0) {
+          pares++;
+        } else {
+          impares++;
+        }
+      });
+      document.getElementById('resultado').innerHTML = 
+        `<p><strong>Array de entrada:</strong> [${arrayNumeros.join(', ')}]</p>
+         <p><strong>Números pares:</strong> ${pares}</p>
+         <p><strong>Números impares:</strong> ${impares}</p>`;
+    }
+  </script>
+</body>
+</html>
+
