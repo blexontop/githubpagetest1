@@ -12,278 +12,230 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #0d1f2d, #1a3a5f);
+            background: #121212;
             color: #e0e0e0;
             display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
+            flex-direction: column;
             min-height: 100vh;
             box-sizing: border-box;
-            overflow-x: hidden;
         }
 
-        /* Sidebar styles */
-        .sidebar {
-            width: 280px;
-            background-color: #1a73e8;
-            color: #fff;
-            height: 100vh;
-            padding: 40px 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            box-sizing: border-box;
-            transition: all 0.4s ease;
-            box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .sidebar h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar li {
-            margin: 25px 0;
-        }
-
-        .sidebar a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.3em;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .sidebar a:hover {
-            color: #ffcc00;
-            padding-left: 10px;
-        }
-
-        .sidebar a::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: #ffcc00;
-            bottom: 0;
-            left: 0;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-        }
-
-        .sidebar a:hover::before {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        /* Main content container */
-        .content {
-            margin-left: 280px;
-            padding: 40px;
-            width: calc(100% - 280px);
-            transition: margin-left 0.4s ease;
-        }
-
-        /* Header styles */
+        /* Header */
         .header {
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            border-radius: 10px;
-            transition: all 0.4s ease;
-        }
-
-        .header h1 {
-            font-size: 3em;
-            color: #333;
-            margin: 0;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        /* Section styles */
-        section {
-            background-color: #20232a;
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s ease;
-        }
-
-        section h2 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            color: #1a73e8;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        section li {
-            margin-bottom: 20px;
-        }
-
-        section a {
-            font-size: 1.2em;
-            color: #1a73e8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 10px 20px;
-            border-radius: 8px;
-            background-color: #2c3e50;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        section a:hover {
-            background-color: #1a73e8;
-            color: #fff;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Footer style */
-        .footer {
             background-color: #1a73e8;
             color: white;
             padding: 20px;
             text-align: center;
-            font-size: 1.2em;
-            margin-top: 40px;
+            font-size: 2em;
+            font-weight: 700;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Responsive design */
+        /* Navigation Bar */
+        .navbar {
+            background-color: #20232a;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            color: white;
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .navbar .menu-icon {
+            display: none;
+            font-size: 2em;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #1a73e8;
+            border-radius: 5px;
+            color: white;
+        }
+
+        /* Main Content */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 10%;
+            gap: 30px;
+        }
+
+        /* Section Card */
+        .card {
+            background-color: #1c1f26;
+            color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 800px;
+            transition: all 0.3s ease;
+        }
+
+        .card h2 {
+            color: #1a73e8;
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .card a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: block;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #333;
+        }
+
+        .card a:hover {
+            background-color: #1a73e8;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #20232a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 30px;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
-            .sidebar {
-                width: 220px;
+            .navbar ul {
+                display: none;
+            }
+
+            .navbar .menu-icon {
+                display: block;
+            }
+
+            .navbar .active {
+                display: flex;
+                flex-direction: column;
+                background-color: #20232a;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                width: 200px;
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+            .navbar .active a {
+                padding: 15px;
             }
 
             .content {
-                margin-left: 220px;
-                width: calc(100% - 220px);
+                padding: 20px 5%;
             }
 
-            .header h1 {
-                font-size: 2.2em;
-            }
-
-            section h2 {
-                font-size: 1.8em;
-            }
-
-            .sidebar h2 {
-                font-size: 1.7em;
-            }
-
-            .sidebar a {
-                font-size: 1.1em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .sidebar {
-                width: 180px;
-            }
-
-            .content {
-                margin-left: 180px;
-                width: calc(100% - 180px);
-            }
-
-            .header h1 {
-                font-size: 1.8em;
-            }
-
-            section h2 {
-                font-size: 1.5em;
-            }
-
-            .sidebar h2 {
-                font-size: 1.4em;
-            }
-
-            .sidebar a {
-                font-size: 1em;
+            .card {
+                width: 100%;
+                max-width: none;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>Lenguaje de Marcas - DAW</h2>
-        <ul>
+    <!-- Header -->
+    <div class="header">
+        <p>Frederic Sadibou Sall Diaw</p>
+        <p><strong>Lenguaje de Marcas 1 DAW</strong></p>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>Lenguaje de Marcas</h1>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <ul id="menu">
             <li><a href="#tema1">Introducción</a></li>
             <li><a href="#tema2">HTML</a></li>
-            <li><a href="#tema3">CSS y Grid</a></li> <!-- Nuevo Tema 3 -->
+            <li><a href="#tema3">CSS y Grid</a></li>
         </ul>
     </div>
 
-    <!-- Main content -->
+    <!-- Main Content -->
     <div class="content">
-        <div class="header">
-            <h1>Frederic Sadibou Sall Diaw</h1>
-            <p><strong>Lenguaje de Marcas 1 DAW</strong></p>
-        </div>
-
         <!-- Tema 1: Introducción -->
-        <section id="tema1">
+        <div id="tema1" class="card">
             <h2>TEMA 1: Introducción al Lenguaje de Marcas</h2>
-            <ul>
-                <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a></li>
-                <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a></li>
-            </ul>
-        </section>
+            <a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a>
+            <a href="Modulo.xml">Ejercicio 2: Modulo.xml</a>
+        </div>
 
         <!-- Tema 2: HTML -->
-        <section id="tema2">
+        <div id="tema2" class="card">
             <h2>TEMA 2: HTML</h2>
-            <ul>
-                <li><a href="Listas.html">Ejercicio 1: Listas</a></li>
-                <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a></li>
-                <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a></li>
-                <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a></li>
-                <li><a href="Formulario.html">Ejercicio 5: Formulario</a></li>
-                <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a></li>
-                <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a></li>
-                <li><a href="ejercicio3.html">Ejercicio 7: Examen</a></li>
-                <li><a href="CurriculumVitae.html">Ejercicio 8: CurriculumVitae(css)</a></li>
-            </ul>
-        </section>
+            <a href="Listas.html">Ejercicio 1: Listas</a>
+            <a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a>
+            <a href="EJ3_Horario.html">Ejercicio 3: Horario</a>
+            <a href="EjercicioFrame.html">Ejercicio 4: Frame</a>
+            <a href="Formulario.html">Ejercicio 5: Formulario</a>
+            <a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a>
+            <a href="Curriculum.html">Ejercicio 7: Curriculum</a>
+            <a href="ejercicio3.html">Ejercicio 7: Examen</a>
+            <a href="CurriculumVitae.html">Ejercicio 8: CurriculumVitae(css)</a>
+        </div>
 
         <!-- Tema 3: JavaScript -->
-        <section id="tema3">
-            <h2>TEMA 3</h2>
-            <ul>
-                <li><a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a></li> 
-                <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page </a></li>
-                <li><a href="Ejercicio 1_javascript.html">Ejercicio 3: SUMA DE 100 NUMEROS</a></li>
-                <li><a href="Ejercicio 2_javascript copy.html">Ejercicio 4: CONTEO DE NUMEROS IMPARES</a></li>
-            </ul>
-        </section>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2024 Frederic Sadibou Sall Diaw. 1º DAW (24-26).</p>
+        <div id="tema3" class="card">
+            <h2>TEMA 3: JavaScript</h2>
+            <a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a>
+            <a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page</a>
+            <a href="Ejercicio 1_javascript.html">Ejercicio 3: SUMA DE 100 NUMEROS</a>
+            <a href="Ejercicio 2_javascript copy.html">Ejercicio 4: CONTEO DE NUMEROS IMPARES</a>
         </div>
     </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Frederic Sadibou Sall Diaw. 1º DAW (24-26).</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
