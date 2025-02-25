@@ -4,223 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lenguaje de Marcas - DAW</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Portafolio de Lenguaje de Marcas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        /* General body style */
+        /* Estilos generales */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f5f5f5;
-            color: #333;
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            min-height: 100vh;
-            box-sizing: border-box;
+            background: #1e1e2f;
+            color: #fff;
+            line-height: 1.6;
         }
 
-        /* Sidebar styles */
-        .sidebar {
-            width: 250px;
-            background-color: #1a73e8;
-            color: white;
-            height: 100vh;
-            padding: 30px 15px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            box-sizing: border-box;
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .sidebar h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar li {
-            margin: 20px 0;
-        }
-
-        .sidebar a {
-            color: white;
+        a {
+            color: #00d1b2;
             text-decoration: none;
-            font-size: 1.2em;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
         }
 
-        .sidebar a:hover {
-            color: #ffcc00;
-            padding-left: 10px;
+        a:hover {
+            color: #ffdd57;
         }
 
-        /* Main content container */
-        .content {
-            margin-left: 260px;
-            padding: 30px;
-            width: calc(100% - 260px);
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        /* Header styles */
+        /* Encabezado */
         .header {
-            background-color: #fff;
-            padding: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #00d1b2, #3273dc);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 40px;
         }
 
         .header h1 {
-            font-size: 2.5em;
-            color: #333;
+            font-size: 3em;
             margin: 0;
             font-weight: 700;
         }
 
-        /* Section styles */
-        section {
-            background-color: #fff;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        .header p {
+            font-size: 1.2em;
+            margin: 10px 0 0;
         }
 
-        section h2 {
-            font-size: 2em;
+        /* Tarjetas de contenido */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #2a2a40;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            font-size: 1.8em;
+            color: #00d1b2;
             margin-bottom: 15px;
-            color: #1a73e8;
-            font-weight: 700;
         }
 
-        section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        section li {
-            margin-bottom: 15px;
-        }
-
-        section a {
-            font-size: 1.1em;
-            color: #1a73e8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 6px;
-            background-color: #f0f0f0;
-        }
-
-        section a:hover {
-            background-color: #1a73e8;
-            color: white;
-        }
-
-        /* Footer style */
-        .footer {
-            background-color: #1a73e8;
-            color: white;
-            padding: 15px;
+        .card a {
+            display: block;
+            padding: 10px;
+            margin: 10px 0;
+            background: #39394f;
+            border-radius: 5px;
             text-align: center;
-            font-size: 1em;
-            margin-top: 30px;
+            transition: background 0.3s ease;
         }
 
-        /* Responsive design */
+        .card a:hover {
+            background: #00d1b2;
+            color: #1e1e2f;
+        }
+
+        /* Pie de página */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #2a2a40;
+            color: white;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .sidebar {
-                width: 200px;
-            }
-
-            .content {
-                margin-left: 200px;
-                width: calc(100% - 200px);
-            }
-
             .header h1 {
                 font-size: 2em;
             }
 
-            section h2 {
-                font-size: 1.6em;
-            }
-
-            .sidebar h2 {
-                font-size: 1.5em;
-            }
-
-            .sidebar a {
-                font-size: 1em;
+            .card-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>Lenguaje de Marcas - DAW</h2>
-        <ul>
-            <li><a href="#tema1">Introducción</a></li>
-            <li><a href="#tema2">HTML</a></li>
-            <li><a href="#tema3">CSS y Grid</a></li> <!-- Nuevo Tema 3 -->
-        </ul>
+    <!-- Encabezado -->
+    <div class="header">
+        <h1>Frederic Sadibou Sall Diaw</h1>
+        <p>Lenguaje de Marcas 1 DAW</p>
     </div>
 
-    <!-- Main content -->
-    <div class="content">
-        <div class="header">
-            <h1>Frederic Sadibou Sall Diaw</h1>
-            <p><strong>Lenguaje de Marcas 1 DAW</strong></p>
-        </div>
-
+    <!-- Contenedor principal -->
+    <div class="container">
         <!-- Tema 1: Introducción -->
-        <section id="tema1">
-            <h2>TEMA 1: Introducción al Lenguaje de Marcas</h2>
-            <ul>
-                <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a></li>
-                <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a></li>
-            </ul>
-        </section>
+        <div class="card-grid">
+            <div class="card">
+                <h2>TEMA 1: Introducción al Lenguaje de Marcas</h2>
+                <a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a>
+                <a href="Modulo.xml">Ejercicio 2: Modulo.xml</a>
+            </div>
 
-        <!-- Tema 2: HTML -->
-        <section id="tema2">
-            <h2>TEMA 2: HTML</h2>
-            <ul>
-                <li><a href="Listas.html">Ejercicio 1: Listas</a></li>
-                <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a></li>
-                <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a></li>
-                <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a></li>
-                <li><a href="Formulario.html">Ejercicio 5: Formulario</a></li>
-                <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a></li>
-                <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a></li>
-                <li><a href="ejercicio3.html">Ejercicio 7: Examen</a></li>
-                <li><a href="CurriculumVitae.html">Ejercicio 8: CurriculumVitae(css)</a></li>
-            </ul>
-        </section>
+            <!-- Tema 2: HTML -->
+            <div class="card">
+                <h2>TEMA 2: HTML</h2>
+                <a href="Listas.html">Ejercicio 1: Listas</a>
+                <a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a>
+                <a href="EJ3_Horario.html">Ejercicio 3: Horario</a>
+                <a href="EjercicioFrame.html">Ejercicio 4: Frame</a>
+                <a href="Formulario.html">Ejercicio 5: Formulario</a>
+                <a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a>
+                <a href="Curriculum.html">Ejercicio 7: Curriculum</a>
+                <a href="ejercicio3.html">Ejercicio 7: Examen</a>
+                <a href="CurriculumVitae.html">Ejercicio 8: CurriculumVitae(css)</a>
+            </div>
 
-        <!-- Tema 3: JavaScript -->
-        <section id="tema3">
-            <h2>TEMA 3</h2>
-            <ul>
-                <li><a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a></li> 
-                <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page </a></li>
-                <li><a href="Ejercicio 1_javascript.html">Ejercicio 3: SUMA DE 100 NUMEROS</a></li>
-                <li><a href="Ejercicio 2_javascript copy.html">Ejercicio 4: CONTEO DE NUMEROS IMPARES</a></li>
-            </ul>
-        </section>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2024 Frederic Sadibou Sall Diaw. 1º DAW (24-26).</p>
+            <!-- Tema 3: JavaScript -->
+            <div class="card">
+                <h2>TEMA 3: JavaScript</h2>
+                <a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a>
+                <a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page</a>
+                <a href="Ejercicio 1_javascript.html">Ejercicio 3: SUMA DE 100 NÚMEROS</a>
+                <a href="Ejercicio 2_javascript.html">Ejercicio 4: CONTEO DE NÚMEROS IMPARES</a>
+            </div>
         </div>
+    </div>
+
+    <!-- Pie de página -->
+    <div class="footer">
+        <p>&copy; 2024 Frederic Sadibou Sall Diaw. 1º DAW (24-26).</p>
     </div>
 
 </body>
