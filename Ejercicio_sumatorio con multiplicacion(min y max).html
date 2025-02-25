@@ -2,78 +2,43 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio del Vector</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .result {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-        }
-    </style>
+    <title>Estadísticas de Vector</title>
 </head>
 <body>
     <h1>Estadísticas de Vector</h1>
-    <label for="numbers">Ingresa números separados por comas (ej: 1, 2, 3, 4):</label>
+    <label>Ingresa números separados por comas (ej: 1, 2, 3, 4):</label>
     <input type="text" id="numbers" placeholder="1, 2, 3, 4">
     <button onclick="calculateStats()">Calcular</button>
-    <div id="result" class="result"></div>
+    <div id="result"></div>
 
     <script>
-        class VectorStats {
-            constructor() {
-                this.vector_numeros = [];
-            }
-
-            setDatos(vector) {
-                this.vector_numeros = vector.map(num => parseFloat(num));
-            }
-
-            getSumatorio() {
-                return this.vector_numeros.reduce((sum, num) => sum + num, 0);
-            }
-
-            getProductorio() {
-                return this.vector_numeros.reduce((prod, num) => prod * num, 1);
-            }
-
-            getMaximo() {
-                return Math.max(...this.vector_numeros);
-            }
-
-            getMinimo() {
-                return Math.min(...this.vector_numeros);
-            }
-        }
-
         function calculateStats() {
             const input = document.getElementById('numbers').value;
-            const numbers = input.split(',').map(num => num.trim()).filter(num => !isNaN(num));
+            const numbers = input.split(',').map(num => parseFloat(num.trim())).filter(num => !isNaN(num));
             
             if (numbers.length === 0) {
                 alert("Por favor, ingresa al menos un número válido.");
                 return;
             }
 
-            const vector = new VectorStats();
-            vector.setDatos(numbers);
+            let sumatorio = 0;
+            let productorio = 1;
+            let maximo = numbers[0];
+            let minimo = numbers[0];
 
-            const sumatorio = vector.getSumatorio();
-            const productorio = vector.getProductorio();
-            const maximo = vector.getMaximo();
-            const minimo = vector.getMinimo();
+            for (let num of numbers) {
+                sumatorio += num;
+                productorio *= num;
+                if (num > maximo) maximo = num;
+                if (num < minimo) minimo = num;
+            }
 
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `
-                <p>Sumatorio: ${sumatorio}</p>
-                <p>Productorio (multiplicación): ${productorio}</p>
-                <p>Máximo: ${maximo}</p>
-                <p>Mínimo: ${minimo}</p>
+                Sumatorio: ${sumatorio}<br>
+                Productorio: ${productorio}<br>
+                Máximo: ${maximo}<br>
+                Mínimo: ${minimo}
             `;
         }
     </script>
