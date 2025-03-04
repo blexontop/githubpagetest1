@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Incluir jQuery desde un CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Ejemplos</title>
+    <style>
+        div#texto {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="button" value="fadeOut" id="botonizq">
+        <input type="button" value="fadeIn" id="botonder">
+    </form>
+    <div id="texto">
+        Texto texto texto
+    </div>
+
+    <!-- JavaScript usando jQuery -->
+    <script>
+        let obj_documento = $(document);
+
+        /* Cuando esté cargado ejecutaremos la función cuyo nombre aparezca aquí */
+        obj_documento.ready(inicio);
+
+        function inicio() {
+            let obj_izq = $("#botonizq");
+            obj_izq.click(fn_click_izq);
+            let obj_der = $("#botonder");
+            obj_der.click(fn_click_der);
+        }
+
+        function fn_click_izq() {
+            let obj_div = $("#texto");
+            obj_div.fadeOut();
+        }
+
+        function fn_click_der() {
+            let obj_div = $("#texto");
+            obj_div.fadeIn();
+        }
+    </script>
+</body>
+</html>
