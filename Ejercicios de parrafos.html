@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de párrafos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        div p {
+            background: white;
+            padding: 10px;
+            margin: 10px auto;
+            width: 50%;
+            border-left: 5px solid #007BFF;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .caja {
+            width: 250px;
+            height: 120px;
+            background-color: #ffcccb;
+            text-align: center;
+            line-height: 120px;
+            font-weight: bold;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.4s ease, transform 0.2s;
+        }
+
+        .caja:hover {
+            background-color: #ff6b6b;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Ejercicio de párrafos</h2>
+
+    <button id="ocultarPares">Ocultar pares</button>
+    <button id="ocultarImpares">Ocultar impares</button>
+    <button id="mostrarPares">Mostrar pares</button>
+    <button id="mostrarImpares">Mostrar impares</button>
+
+    <div>
+        <p>Este es el párrafo 1</p>
+        <p>Este es el párrafo 2</p>
+        <p>Este es el párrafo 3</p>
+        <p>Este es el párrafo 4</p>
+        <p>Este es el párrafo 5</p>
+        <p>Este es el párrafo 6</p>
+    </div>
+
+    <h2>Ejercicio de caja con cambio de color</h2>
+    <div class="caja">Pasa el ratón</div>
+
+    <script>
+        $(document).ready(function(){
+            $("#ocultarPares").click(function(){
+                $("p:even").hide();
+            });
+
+            $("#ocultarImpares").click(function(){
+                $("p:odd").hide();
+            });
+
+            $("#mostrarPares").click(function(){
+                $("p:even").show();
+            });
+
+            $("#mostrarImpares").click(function(){
+                $("p:odd").show();
+            });
+        });
+    </script>
+
+</body>
+</html>
