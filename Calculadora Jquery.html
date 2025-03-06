@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Sencilla</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .calculadora {
+            width: 250px;
+            margin: auto;
+        }
+        input[type="text"], input[type="button"] {
+            width: 100%;
+            height: 40px;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .resultado {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculadora">
+        <h2>Calculadora Sencilla</h2>
+        <input type="text" class="num1" placeholder="Primer número">
+        <input type="text" class="num2" placeholder="Segundo número">
+        <input type="button" class="sumar" value="Sumar">
+        <input type="button" class="restar" value="Restar">
+        <input type="button" class="multiplicar" value="Multiplicar">
+        <input type="button" class="dividir" value="Dividir">
+        <div class="resultado"></div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Función para calcular la operación
+            function calcular(operacion) {
+                var num1 = parseFloat($(".num1").val());
+                var num2 = parseFloat($(".num2").val());
+                var resultado;
+
+                // Validación de entrada
+                if (isNaN(num1) || isNaN(num2)) {
+                    $(".resultado").html("<p>Por favor, introduce números válidos.</p>");
+                    return;
+                }
+
+                // Realizar operación
+                switch(operacion) {
+                    case 'sumar':
+                        resultado = num1 + num2;
+                        break;
+                    case 'restar':
+                        resultado = num1 - num2;
+                        break;
+                    case 'multiplicar':
+                        resultado = num1 * num2;
+                        break;
+                    case 'dividir':
+                        if (num2 === 0) {
+                            $(".resultado").html("<p>No se puede dividir por 0.</p>");
+                            return;
+                        }
+                        resultado = num1 / num2;
+                        break;
+                    default:
+                        $(".resultado").html("<p>Operación no válida.</p>");
+                        return;
+                }
+
+                // Mostrar resultado
+                $(".resultado").html("<p>Resultado: " + resultado + "</p>");
+            }
+
+            // Eventos de los botones
+            $(".sumar").click(function() {
+                calcular('sumar');
+            });
+
+            $(".restar").click(function() {
+                calcular('restar');
+            });
+
+            $(".multiplicar").click(function() {
+                calcular('multiplicar');
+            });
+
+            $(".dividir").click(function() {
+                calcular('dividir');
+            });
+        });
+    </script>
+</body>
+</html>
