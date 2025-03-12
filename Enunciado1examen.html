@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>primer enunciado del examen (ejercicio 4 )</title>
+    <style>
+        /* Aqui pongo el contenido inicial para que no se muestre todo del tiron es decir inicialmente*/
+        .contenido-adicional {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="contenido_1">[1] Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis
+        enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec,
+        commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede.
+        Pellentesque massa ante, omare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet
+        nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut,
+        honcus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio uma consequat
+        arcu, at posuere ante quam non dolor. Lorem ipsurm dolor sit amet, consectetuer adipiscing
+        elit. Duis scelerisque.</p><a href="#" class="muestra-oculta">Mostrar contenido</a>
+    <span class="contenido-adicional">YIL ES EL MEJOR PROFESOR DE LENGUAJE DE MARCA DE TODO LOS TIEMPOS</span></p>
+
+    <p id="contenido_1">[2] Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis
+        enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec,
+        commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede.
+        Pellentesque massa ante, omare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet
+        nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut,
+        honcus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio uma consequat
+        arcu, at posuere ante quam non dolor. Lorem ipsurm dolor sit amet, consectetuer adipiscing
+        elit. Duis scelerisque.</p><a href="#" class="muestra-oculta">Mostrar contenido</a>
+    <span class="contenido-adicional">YIL ES EL MEJOR PROFESOR DE LENGUAJE DE MARCA DE TODO LOS TIEMPOS</span></p>
+
+    <p id="contenido_1">[3] Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis
+        enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec,
+        commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede.
+        Pellentesque massa ante, omare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet
+        nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut,
+        honcus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio uma consequat
+        arcu, at posuere ante quam non dolor. Lorem ipsurm dolor sit amet, consectetuer adipiscing
+        elit. Duis scelerisque.</p><a href="#" class="muestra-oculta">Mostrar contenido</a>
+    <span class="contenido-adicional">YIL ES EL MEJOR PROFESOR DE LENGUAJE DE MARCA DE TODO LOS TIEMPOS</span></p>
+
+    <script>
+        function muestraOculta() {
+            const enlaces = document.getElementsByClassName('muestra-oculta');
+            for (let i = 0; i < enlaces.length; i++) {
+                enlaces[i].addEventListener('click', function(e) {
+                    e.preventDefault(); // INTENTO DE BASICAMENTE EVITAR EL ENLACE POR DEFAULT
+                    const contenido = this.nextElementSibling; // TENER EL CONTENIDO QUE SE LE ASOCIA 
+                    if (contenido.style.display === 'none' || contenido.style.display === '') {
+                        // Mostrar contenido y cambiar texto a "Ocultar este contenido"
+                        contenido.style.display = 'block';
+                        this.textContent = 'Ocultar este contenido';
+                    } else {
+                        // Ocultar contenido y cambiar texto a "Mostrar el siguiente  contenido"
+                        contenido.style.display = 'none';
+                        this.textContent = 'Mostrar el siguiente contenido';
+                    }
+                });
+            }
+        }
+
+        // Llama a la función cuando se carga la pagina 
+        window.onload = muestraOculta;
+    </script>
+</body>
+</html>

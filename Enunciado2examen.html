@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablas de Multiplicar</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        td {
+            border: 1px solid rgb(0, 255, 128);
+            padding: 5px;
+            text-align: center;
+        }
+        .container {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Generar Tablas de Multiplicar</h2>
+        <label for="numero">Hasta qué número quieres las tablas (máximo 10): </label>
+        <input type="number" id="numero" min="1" max="10" required>
+        <button onclick="generarTablas()">Generar tablas</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function generarTablas() {
+            // Esta funcion es para obtener  el numero ingresado por la persona que lo ponga
+            let numero = parseInt(document.getElementById("numero").value);
+            
+            // aqui estamos validando que el numero no puede ser menor de 1 y no mayor que 10 , es decir que tiene que estar entre 1 y 10
+            if (isNaN(numero) || numero < 1 || numero > 10) {
+                alert("Por favor, ingresa un número entre 1 y 10.");
+                return;
+            }
+
+            // aqui obtenemos el contenedor de los resultados 
+            let resultado = document.getElementById("resultado");
+            resultado.innerHTML = ""; // Limpiar resultados anteriores
+
+            // aqui en estas funciones intento que las tablas vayan desde el 1 al 10 , claro dependiendo de el numero que ingreses
+            for (let i = 1; i <= 10; i++) {
+                let tabla = `<h3>Tabla de ${i}</h3>`;
+                tabla += `<table>`;
+                for (let j = 1; j <= 10; j++) {
+                    tabla += `<tr><td>${i} x ${j} = ${i * j}</td></tr>`;
+                }
+                tabla += `</table>`;
+                resultado.innerHTML += tabla;
+            }
+        }
+    </script>
+</body>
+</html>
