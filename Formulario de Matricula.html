@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Matrícula Flexible</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    .precio {
+      margin-top: 15px;
+      padding: 10px;
+      background: #eafaf1;
+      border: 1px solid #2ecc71;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Matrícula</h2>
+
+  <form id="formularioMatricula">
+    <label>Horas semanales:
+      <input type="number" id="horas" min="1" value="1">
+    </label>
+    <br><br>
+
+    <label>
+      <input type="checkbox" id="antiguoAlumno">
+      Soy antiguo alumno
+    </label>
+    <br>
+
+    <label>
+      <input type="checkbox" id="beca">
+      Tengo beca
+    </label>
+    <br><br>
+
+    <fieldset>
+      <legend>Primera asignatura</legend>
+      <label><input type="checkbox" class="materia" value="mat1" id="mat1"> Matemáticas I</label><br>
+      <label><input type="checkbox" class="materia" value="historia"> Historia</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Segunda asignatura</legend>
+      <label><input type="checkbox" class="materia" value="mat2" id="mat2"> Matemáticas II</label><br>
+      <label><input type="checkbox" class="materia" value="fisica"> Física</label>
+    </fieldset>
+
+    <br>
+    <button type="button" onclick="calcularPrecio()">Calcular Precio</button>
+  </form>
+
+  <div id="mensajeError" class="error" style="display:none;"></div>
+  <div id="precioFinal" class="precio" style="display:none;"></div>
+
+  <script>
+    function calcularPrecio() {
+      const horas = parseInt(document.getElementById("horas").value) || 0;
+      const esAntiguo = document.getElementById("antiguoAlumno").checked;
+      const tieneBeca = document.getElementById("beca").checked;
+      const mat1 = document.getElementById("mat1").checked;
+      const mat2 = document.getElementById("mat2").checked;
+
+      const mensajeError = document.getElementById("mensajeError");
+      const precioFinal = document.getElementById("precioFinal");
+      mensajeError.style.display = "none";
+      precioFinal.style.display = "none";
+
+      // Reglas de validación
+      if (mat2 && !mat1) {
+        mensajeError.textContent = "Error: No se puede elegir Matemáticas II sin haber seleccionado Matemáticas I.";
+        mensajeError.style.display = "block";
+        return;
+      }
+
+      let precioBase = horas * 20;
+
+      let precioConDescuento = precioBase;
+      if (esAntiguo) {
+        precioConDescuento *= 0.65; // 35% de descuento
+      }
+
+      let precioConBeca = precioConDescuento;
+      if (tieneBeca) {
+        precioConBeca *= 0.20; // 80% de beca
+      }
+
+      // Mostrar precios
+      let resultado = `Precio mensual sin beca: ${precioConDescuento.toFixed(2)}€`;
+      if (tieneBeca) {
+        resultado += `<br>Precio mensual con beca: ${precioConBeca.toFixed(2)}€`;
+      }
+
+      precioFinal.innerHTML = resultado;
+      precioFinal.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
