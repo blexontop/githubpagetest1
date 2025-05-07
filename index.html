@@ -10,15 +10,24 @@
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-      color: #333;
+      background: url('1366_2000.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      position: relative;
+    }
+
+    /* Capa oscura encima del fondo */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
     }
 
     .header {
       text-align: center;
       padding: 50px 20px;
-      background: #ffffff;
-      border-bottom: 1px solid #ddd;
     }
 
     .header h1 {
@@ -30,7 +39,7 @@
     .header p {
       margin-top: 10px;
       font-size: 1.1em;
-      color: #666;
+      color: #cccccc;
     }
 
     .container {
@@ -40,10 +49,10 @@
     }
 
     .accordion-section {
-      border: 1px solid #e0e0e0;
+      border: 1px solid rgba(255,255,255,0.2);
       border-radius: 6px;
       margin-bottom: 15px;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.05);
       overflow: hidden;
     }
 
@@ -51,12 +60,13 @@
       cursor: pointer;
       padding: 16px 20px;
       font-size: 1.2em;
-      background: #fafafa;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
       transition: background 0.2s;
     }
 
     .accordion-header:hover {
-      background: #f0f0f0;
+      background: rgba(255, 255, 255, 0.2);
     }
 
     .accordion-content {
@@ -76,7 +86,7 @@
 
     .accordion-content a {
       text-decoration: none;
-      color: #007acc;
+      color: #66ccff;
       font-weight: 500;
     }
 
@@ -87,9 +97,7 @@
     .footer {
       text-align: center;
       padding: 30px 20px;
-      background: #ffffff;
-      border-top: 1px solid #ddd;
-      color: #999;
+      color: #cccccc;
       font-size: 0.95em;
       margin-top: 40px;
     }
@@ -104,7 +112,6 @@
 
   <div class="container">
 
-    <!-- Tema 1 -->
     <div class="accordion-section">
       <div class="accordion-header">TEMA 1: Introducción al Lenguaje de Marcas</div>
       <div class="accordion-content">
@@ -115,7 +122,6 @@
       </div>
     </div>
 
-    <!-- Tema 2 -->
     <div class="accordion-section">
       <div class="accordion-header">TEMA 2: HTML</div>
       <div class="accordion-content">
@@ -133,7 +139,6 @@
       </div>
     </div>
 
-    <!-- Tema 3 -->
     <div class="accordion-section">
       <div class="accordion-header">TEMA 3: JavaScript</div>
       <div class="accordion-content">
@@ -164,18 +169,15 @@
   </div>
 
   <script>
-    // Script de acordeón
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const content = header.nextElementSibling;
         const isVisible = content.style.display === 'block';
 
-        // Cerrar todos
         document.querySelectorAll('.accordion-content').forEach(section => {
           section.style.display = 'none';
         });
 
-        // Abrir el actual si estaba cerrado
         if (!isVisible) {
           content.style.display = 'block';
         }
@@ -185,5 +187,3 @@
 
 </body>
 </html>
-
-
