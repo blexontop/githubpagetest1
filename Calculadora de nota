@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Nota</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 500px; margin: auto; }
+        label, input, button { display: block; margin: 10px 0; }
+        .result { font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Nota</h1>
+        <label for="correctas">Preguntas correctas (de 27):</label>
+        <input type="number" id="correctas" min="0" max="27" value="0">
+        
+        <label for="tiempo">Tiempo de entrega:</label>
+        <select id="tiempo">
+            <option value="0">Menos de 1 hora</option>
+            <option value="12">Más de 12 horas</option>
+            <option value="24">Más de 1 día</option>
+            <option value="no-entregado">No entregado</option>
+        </select>
+        
+        <button onclick="calcularNota()">Calcular Nota</button>
+        
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function calcularNota() {
+            const correctas = parseInt(document.getElementById("correctas").value);
+            const tiempo = document.getElementById("tiempo").value;
+            const totalPreguntas = 27;
+            
+            // Validación
+            if (correctas < 0 || correctas > totalPreguntas) {
+                alert("¡Número de preguntas incorrecto!");
+                return;
+            }
+            
+            // Nota base sobre 10
+            let notaBase = (correctas / totalPreguntas) * 10;
+            
+            // Penalización por tiempo y fallos
+            let penalizacion = 0;
+            const fallos = totalPreguntas - correctas;
+            
+            switch (tiempo) {
+                case "0": // Menos de 1 hora
+                    penalizacion = 0;
+                    break;
+                case "12": // Más de 12 horas
+                    penalizacion = fallos * 0.1;
+                    break;
+                case "24": // Más de 1 día
+                    penalizacion = fallos * 0.2;
+                    break;
+                case "no-entregado": // No entregado
+                    penalizacion = fallos * 0.3;
+                    break;
+            }
+            
+            // Nota final (mínimo 0)
+            let notaFinal = Math.max(0, notaBase - penalizacion).toFixed(2);
+            
+            // Mostrar resultado
+            document.getElementById("resultado").innerHTML = `
+                <p>Nota base: ${(notaBase).toFixed(2)}</p>
+                <p>Penalización: -${penalizacion.toFixed(2)}</p>
+                <p>Nota final: <span style="color: ${notaFinal >= 5 ? 'green' : 'red'}">${notaFinal}</span></p>
+            `;
+        }
+    </script>
+</body>
+</html>
