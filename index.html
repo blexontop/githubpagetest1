@@ -1,439 +1,217 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portafolio DAW — Frederic</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portafolio DAW - Frederic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0b1220;
-      --card:#0f1724;
-      --muted:#9aa6b2;
-      --accent:#00c3ff;
-      --glass: rgba(255,255,255,0.04);
-      --radius:12px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background:
-        radial-gradient(800px 400px at 10% 10%, rgba(0,195,255,0.04), transparent 10%),
-        linear-gradient(180deg,#061219 0%, #081427 50%, #0f2430 100%);
-      color:#e6f0f5;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      min-height:100vh;
+    /* ======= ESTILO GLOBAL ======= */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #eee;
+      line-height: 1.6;
     }
 
-    /* HEADER + NAV */
-    header{
-      padding:28px 20px;
-      display:flex;
-      gap:20px;
-      align-items:center;
-      justify-content:space-between;
-      max-width:1200px;
-      margin:0 auto;
-    }
-    .brand{
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
-    .logo{
-      width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6be1ff);
-      display:flex;align-items:center;justify-content:center;font-weight:700;color:#022;
-      box-shadow: 0 6px 18px rgba(0,195,255,0.06);
-    }
-    h1{font-size:20px;margin:0}
-    p.sub{margin:0;color:var(--muted);font-size:13px}
-
-    nav.main{
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
-    nav.main a{
-      color:var(--muted);
-      padding:10px 14px;border-radius:10px;font-weight:500;text-decoration:none;
-    }
-    nav.main a.active, nav.main a:hover{
-      color: #021d27;
-      background:var(--accent);
-      box-shadow: 0 6px 18px rgba(0,195,255,0.08);
+    h1, h2, h3 {
+      font-weight: 700;
     }
 
-    /* LAYOUT */
-    .wrap{max-width:1200px;margin:18px auto;padding:0 18px;display:grid;grid-template-columns: 300px 1fr;gap:22px}
-    @media (max-width:900px){ .wrap{grid-template-columns:1fr} nav.main{display:none} header{flex-direction:column;align-items:flex-start;gap:8px} }
+    a {
+      color: #00c3ff;
+      text-decoration: none;
+    }
 
-    /* SIDEBAR */
-    aside.sidebar{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      padding:18px;border-radius:var(--radius);backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.03);
-      height:fit-content;
+    a:hover {
+      text-decoration: underline;
     }
-    .profile{
-      display:flex;gap:12px;align-items:center;margin-bottom:14px;
-    }
-    .avatar{width:56px;height:56px;border-radius:10px;background:#06202a;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
-    .meta small{display:block;color:var(--muted);font-size:13px}
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .skill{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
 
-    /* MAIN content */
-    main{
-      display:flex;flex-direction:column;gap:18px;
+    /* ======= HEADER ======= */
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: rgba(0,0,0,0.5);
     }
-    .section{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 6px 20px rgba(2,10,18,0.35);
-    }
-    .section h2{margin:0 0 12px 0;color:var(--accent)}
-    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
 
-    .card{
-      background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(255,255,255,0.02));
-      padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
-      transition: transform .18s ease, box-shadow .18s;
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      color: #00c3ff;
     }
-    .card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(2,10,18,0.5)}
-    .card h3{margin:0 0 8px 0;font-size:16px}
-    .card ul{margin:0;padding-left:16px;color:var(--muted);font-size:14px}
 
-    /* Ejercicios específicos (estilos de formulario / demo) */
-    .demo{display:flex;flex-direction:column;gap:10px}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
-    input[type="text"], select, button{
-      padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);
-      background:rgba(255,255,255,0.02);color:inherit;font-size:14px;
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #bbb;
     }
-    button{
-      cursor:pointer;background:var(--accent);border:none;color:#021f26;font-weight:600;
-    }
-    .output{padding:12px;border-radius:8px;background:rgba(0,0,0,0.35);min-height:38px}
 
-    /* footer */
-    footer{max-width:1200px;margin:26px auto;padding:18px;color:var(--muted);font-size:13px;text-align:center}
-    /* small helpers */
-    .hint{color:var(--muted);font-size:13px;margin-top:6px}
+    /* ======= NAV ======= */
+    nav {
+      display: flex;
+      justify-content: center;
+      background: rgba(0,0,0,0.8);
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-weight: 500;
+      color: #eee;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00c3ff;
+    }
+
+    /* ======= CONTENEDOR ======= */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* ======= TARJETAS DE TEMAS ======= */
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      margin-bottom: 25px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #00c3ff;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card ul li {
+      margin: 8px 0;
+    }
+
+    /* ======= SECCIONES ======= */
+    section {
+      margin-bottom: 60px;
+    }
+
+    section h2 {
+      margin-bottom: 20px;
+      border-bottom: 2px solid #00c3ff;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* ======= FOOTER ======= */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: rgba(0,0,0,0.7);
+      color: #999;
+      margin-top: 60px;
+    }
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
-    <div class="brand">
-      <div class="logo">FS</div>
-      <div>
-        <h1>Frederic — Portafolio DAW</h1>
-        <p class="sub">1º DAW &middot; Preparando 2º DAW (Desarrollo Entorno Cliente)</p>
-      </div>
-    </div>
-
-    <nav class="main" aria-label="Navegación principal">
-      <a href="#daw1" class="active" data-tab="daw1">1º DAW</a>
-      <a href="#daw2" data-tab="daw2">2º DAW</a>
-      <a href="#sobre-mi" data-tab="sobre-mi">Sobre mí</a>
-    </nav>
+    <h1>Frederic Sadibou Sall Diaw</h1>
+    <p>Portafolio DAW (2024-2026)</p>
   </header>
 
-  <div class="wrap">
-    <!-- SIDEBAR -->
-    <aside class="sidebar" aria-label="Barra lateral">
-      <div class="profile">
-        <div class="avatar">FS</div>
-        <div class="meta">
-          <strong>Frederic Sadibou</strong>
-          <small class="sub">Estudiante 1º DAW (24-26)</small>
-        </div>
+  <!-- NAV -->
+  <nav>
+    <a href="#daw1">1º DAW</a>
+    <a href="#daw2">2º DAW</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- 1º DAW -->
+    <section id="daw1">
+      <h2>📘 1º DAW</h2>
+
+      <div class="card">
+        <h3>Tema 1: Introducción al Lenguaje de Marcas</h3>
+        <ul>
+          <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a></li>
+          <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a></li>
+        </ul>
       </div>
-      <div>
-        <div class="hint">Tecnologías</div>
-        <div class="skills">
-          <div class="skill">HTML</div>
-          <div class="skill">CSS</div>
-          <div class="skill">JavaScript</div>
-          <div class="skill">JSON</div>
-          <div class="skill">Bootstrap</div>
-        </div>
+
+      <div class="card">
+        <h3>Tema 2: HTML</h3>
+        <ul>
+          <li><a href="Listas.html">Ejercicio 1: Listas</a></li>
+          <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a></li>
+          <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a></li>
+          <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a></li>
+          <li><a href="Formulario.html">Ejercicio 5: Formulario</a></li>
+          <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a></li>
+          <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a></li>
+          <li><a href="ejercicio3.html">Ejercicio 8: Examen</a></li>
+          <li><a href="CurriculumVitae.html">Ejercicio 9: Curriculum Vitae (CSS)</a></li>
+        </ul>
       </div>
-      <div style="margin-top:14px">
-        <div class="hint">Consejo</div>
-        <div class="hint">Abre este archivo en Visual Studio Code y usa <strong>Live Server</strong> para ver los cambios en tiempo real.</div>
+
+      <div class="card">
+        <h3>Tema 3: JavaScript</h3>
+        <ul>
+          <li><a href="Calculadora.html">Ejercicio 1: Calculadora (Diseño)</a></li>
+          <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page</a></li>
+          <li><a href="Ejercicio 1_javascript.html">Ejercicio 3: Suma de 100 números</a></li>
+          <li><a href="Ejercicio 2_javascript.html">Ejercicio 4: Conteo de impares</a></li>
+          <li><a href="Ejercicio_sumatorio con multiplicacion(min y max).html">Ejercicio 5: GestorVectores</a></li>
+          <li><a href="Clicks.html">Ejercicio 6: Clicks</a></li>
+          <li><a href="Gestor_de_eventos.html">Ejercicio 7: Gestor de eventos</a></li>
+          <li><a href="Ejercicios de parrafos.html">Ejercicio 8: Párrafos</a></li>
+          <li><a href="Calculadora Jquery.html">Ejercicio 9: Calculadora JQuery</a></li>
+          <li><a href="Enunciado1examen.html">Examen 1</a></li>
+          <li><a href="Enunciado1examen.html">Examen 2</a></li>
+          <li><a href="ejercicioIA.html">Consulta IA</a></li>
+          <li><a href="Formulario de Matricula.html">Formulario Matrícula</a></li>
+          <li><a href="empleados.html">Empleados</a></li>
+          <li><a href="feed.json">Feed JSON</a></li>
+          <li><a href="Calculadora de nota.html">Nota de examen</a></li>
+          <li><a href="web_mal_echa.html">Prueba</a></li>
+        </ul>
       </div>
-    </aside>
+    </section>
 
-    <!-- MAIN -->
-    <main>
+    <!-- 2º DAW -->
+    <section id="daw2">
+      <h2>💻 2º DAW</h2>
 
-      <!-- 1º DAW -->
-      <section id="daw1" class="section tabcontent">
-        <h2>📘 1º DAW — Lenguaje de Marcas</h2>
-
-        <div class="cards">
-          <div class="card">
-            <h3>Tema 1 — Introducción al Lenguaje de Marcas</h3>
-            <ul>
-              <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a></li>
-              <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Tema 2 — HTML</h3>
-            <ul>
-              <li><a href="Listas.html">Listas</a></li>
-              <li><a href="EJ2_Imagenes.html">Imágenes</a></li>
-              <li><a href="EJ3_Horario.html">Horario</a></li>
-              <li><a href="EjercicioFrame.html">Frame</a></li>
-              <li><a href="Formulario.html">Formulario</a></li>
-              <li><a href="Cajas-Botones.html">Caja - Botones</a></li>
-              <li><a href="Curriculum.html">Currículum</a></li>
-              <li><a href="ejercicio3.html">Examen</a></li>
-              <li><a href="CurriculumVitae.html">Currículum (CSS)</a></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Tema 3 — JavaScript</h3>
-            <ul>
-              <li><a href="Calculadora.html">Calculadora (diseño)</a></li>
-              <li><a href="Bootstrap_Ejercicio.html">Landing Page</a></li>
-              <li><a href="Ejercicio 1_javascript.html">Suma de 100 números</a></li>
-              <li><a href="Ejercicio 2_javascript.html">Conteo de números impares</a></li>
-              <li><a href="Ejercicio_sumatorio con multiplicacion(min y max).html">GestorVectores</a></li>
-              <li><a href="Clicks.html">Clicks</a></li>
-              <li><a href="Gestor_de_eventos.html">Gestor de eventos</a></li>
-              <li><a href="Ejercicios de parrafos.html">Ejercicios de párrafos</a></li>
-              <li><a href="Calculadora Jquery.html">Calculadora (jQuery)</a></li>
-              <li><a href="Enunciado1examen.html">Examen 1 & 2</a></li>
-              <li><a href="ejercicioIA.html">Consulta IA</a></li>
-              <li><a href="Formulario de Matricula.html">Formulario Matrícula</a></li>
-              <li><a href="empleados.html">Empleados</a></li>
-              <li><a href="feed.json">Feed (JSON)</a></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- 2º DAW -->
-      <section id="daw2" class="section tabcontent" style="display:none">
-        <h2>💻 2º DAW — Desarrollo en Entorno Cliente</h2>
-        <p class="hint">Aquí irás guardando los ejercicios del 2º año. Debajo tienes implementados los ejercicios 1.1 - 1.5 (funcionan en el navegador).</p>
-
-        <!-- EJ 1.1 -->
-        <article class="card">
-          <h3>Ejercicio 1.1 — Pedir dato con ventana emergente y mostrar en &lt;p&gt;</h3>
-          <div class="demo">
-            <div class="row">
-              <button id="btnE11">Pedir dato (prompt)</button>
-              <button id="btnE11b">Limpiar</button>
-            </div>
-            <p class="output" id="outE11">Aquí aparecerá el texto introducido.</p>
-            <small class="hint">Funciona con <code>prompt()</code>.</small>
-          </div>
-        </article>
-
-        <!-- EJ 1.2 -->
-        <article class="card">
-          <h3>Ejercicio 1.2 — Seleccionar color y mostrar en consola</h3>
-          <div class="demo">
-            <label>
-              Elige un color:
-              <select id="selColor">
-                <option value="">-- seleccionar --</option>
-                <option value="Rojo">Rojo</option>
-                <option value="Verde">Verde</option>
-                <option value="Azul">Azul</option>
-                <option value="Amarillo">Amarillo</option>
-                <option value="Naranja">Naranja</option>
-              </select>
-            </label>
-            <div class="hint">Abre la consola del navegador (F12) para ver el color seleccionado.</div>
-          </div>
-        </article>
-
-        <!-- EJ 1.3 -->
-        <article class="card">
-          <h3>Ejercicio 1.3 — Input + botón → mostrar en &lt;div&gt;</h3>
-          <div class="demo">
-            <div class="row">
-              <input id="txtE13" type="text" placeholder="Escribe algo..." />
-              <button id="btnE13">Mostrar en capa</button>
-              <button id="btnE13c">Borrar</button>
-            </div>
-            <div class="output" id="outE13">El texto escrito aparecerá aquí al pulsar Mostrar.</div>
-          </div>
-        </article>
-
-        <!-- EJ 1.4 -->
-        <article class="card">
-          <h3>Ejercicio 1.4 — Lista de imágenes locales y vista previa</h3>
-          <div class="demo">
-            <label>
-              Selecciona imagen:
-              <select id="selImg">
-                <option value="">-- seleccionar imagen (local) --</option>
-                <!-- NOMBRES DE EJEMPLO: coloca img1.jpg, img2.jpg, img3.jpg en la misma carpeta -->
-                <option value="img1.jpg">Imagen 1 (img1.jpg)</option>
-                <option value="img2.jpg">Imagen 2 (img2.jpg)</option>
-                <option value="img3.jpg">Imagen 3 (img3.jpg)</option>
-              </select>
-            </label>
-            <div class="hint">Coloca los ficheros <code>img1.jpg</code>, <code>img2.jpg</code>, <code>img3.jpg</code> en la misma carpeta que este HTML. Si no existen, se mostrará un aviso.</div>
-            <div style="display:flex;gap:12px;align-items:flex-start;margin-top:8px">
-              <div style="width:240px">
-                <img id="previewImg" src="" alt="Previsualización" style="width:100%;border-radius:8px;display:none;border:1px solid rgba(255,255,255,0.04)" />
-              </div>
-              <div style="flex:1">
-                <div class="output" id="outE14">Vista previa de la imagen seleccionada.</div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- EJ 1.5 -->
-        <article class="card">
-          <h3>Ejercicio 1.5 — Texto con dos listas plegables: negrita y cursiva</h3>
-          <div class="demo">
-            <div class="row">
-              <label>Texto:
-                <input id="txtE15" type="text" placeholder="Escribe un texto..." value="Texto de ejemplo" />
-              </label>
-            </div>
-            <div class="row">
-              <label>Negrita:
-                <select id="optBold">
-                  <option value="normal">Normal</option>
-                  <option value="bold">Negrita</option>
-                </select>
-              </label>
-              <label>Cursiva:
-                <select id="optItalic">
-                  <option value="normal">Normal</option>
-                  <option value="italic">Cursiva</option>
-                </select>
-              </label>
-              <button id="btnE15">Aplicar</button>
-            </div>
-            <div class="output" id="outE15" style="font-size:16px;margin-top:6px">Aquí se mostrará el texto con los estilos seleccionados.</div>
-            <div class="hint">Edítalo en Visual Studio Code y prueba seleccionar las opciones.</div>
-          </div>
-        </article>
-
-      </section>
-
-      <!-- SOBRE MI -->
-      <section id="sobre-mi" class="section tabcontent" style="display:none">
-        <h2>Sobre mí</h2>
-        <p class="hint">Soy estudiante de DAW. Este portafolio recoge prácticas de 1º curso y prepara una sección para 2º curso (Desarrollo en Entorno Cliente). Puedes modificar y añadir ejercicios fácilmente.</p>
-      </section>
-
-    </main>
+      <div class="card">
+        <h3>Desarrollo en Entorno Cliente</h3>
+        <p>Aquí irán los ejercicios de este curso (2º DAW).</p>
+        <ul>
+          <li><em>Próximamente...</em></li>
+        </ul>
+      </div>
+    </section>
   </div>
 
+  <!-- FOOTER -->
   <footer>
-    &copy; 2024 Frederic Sadibou Sall Diaw — Proyecto educativo. Abre en Visual Studio Code (Live Server) para ver actualizaciones instantáneas.
+    <p>&copy; 2024-2026 | Portafolio DAW - Frederic Sadibou Sall Diaw</p>
   </footer>
-
-  <script>
-    // NAVEGACIÓN de pestañas (1º / 2º / Sobre mí)
-    document.querySelectorAll('nav.main a').forEach(a=>{
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        const tab = this.dataset.tab;
-        // activar link
-        document.querySelectorAll('nav.main a').forEach(x=>x.classList.remove('active'));
-        this.classList.add('active');
-        // mostrar sección
-        document.querySelectorAll('.tabcontent').forEach(sec=>sec.style.display='none');
-        const el = document.getElementById(tab);
-        if(el) el.style.display = 'block';
-        // saltar (solo en ancla)
-        window.location.hash = '#' + tab;
-      });
-    });
-
-    // Mostrar por defecto daw1 si no hay hash
-    (function(){
-      const h = location.hash.replace('#','');
-      const valid = ['daw1','daw2','sobre-mi'];
-      if(valid.includes(h)){
-        document.querySelector('[data-tab="'+h+'"]').click();
-      } else {
-        document.querySelector('[data-tab="daw1"]').click();
-      }
-    })();
-
-
-    /* ===== Ejercicio 1.1 ===== */
-    const outE11 = document.getElementById('outE11');
-    document.getElementById('btnE11').addEventListener('click', ()=>{
-      const dato = prompt('Introduce un dato:');
-      outE11.textContent = dato === null ? 'Operación cancelada.' : dato;
-    });
-    document.getElementById('btnE11b').addEventListener('click', ()=> outE11.textContent = 'Aquí aparecerá el texto introducido.');
-
-    /* ===== Ejercicio 1.2 ===== */
-    const selColor = document.getElementById('selColor');
-    selColor.addEventListener('change', ()=>{
-      const val = selColor.value;
-      if(val) console.log('Color seleccionado:', val);
-      else console.log('No hay color seleccionado');
-    });
-
-    /* ===== Ejercicio 1.3 ===== */
-    const txtE13 = document.getElementById('txtE13');
-    const outE13 = document.getElementById('outE13');
-    document.getElementById('btnE13').addEventListener('click', ()=>{
-      outE13.textContent = txtE13.value || '(vacío)';
-    });
-    document.getElementById('btnE13c').addEventListener('click', ()=>{
-      txtE13.value = '';
-      outE13.textContent = 'El texto escrito aparecerá aquí al pulsar Mostrar.';
-    });
-
-    /* ===== Ejercicio 1.4 ===== */
-    const selImg = document.getElementById('selImg');
-    const previewImg = document.getElementById('previewImg');
-    const outE14 = document.getElementById('outE14');
-    selImg.addEventListener('change', ()=>{
-      const img = selImg.value;
-      if(!img){
-        previewImg.style.display='none';
-        previewImg.src='';
-        outE14.textContent = 'Vista previa de la imagen seleccionada.';
-        return;
-      }
-      // Intentamos cargar la imagen local; si falla, mostramos mensaje
-      previewImg.src = img;
-      previewImg.onload = () => {
-        previewImg.style.display='block';
-        outE14.textContent = 'Imagen cargada: ' + img;
-      };
-      previewImg.onerror = () => {
-        previewImg.style.display='none';
-        previewImg.src = '';
-        outE14.textContent = 'No se ha encontrado "'+img+'". Asegúrate de poner el archivo en la misma carpeta que este HTML.';
-      };
-    });
-
-    /* ===== Ejercicio 1.5 ===== */
-    const txtE15 = document.getElementById('txtE15');
-    const optBold = document.getElementById('optBold');
-    const optItalic = document.getElementById('optItalic');
-    const outE15 = document.getElementById('outE15');
-    document.getElementById('btnE15').addEventListener('click', ()=>{
-      const text = txtE15.value || '';
-      outE15.textContent = text;
-      outE15.style.fontWeight = optBold.value === 'bold' ? '700' : '400';
-      outE15.style.fontStyle = optItalic.value === 'italic' ? 'italic' : 'normal';
-    });
-  </script>
 
 </body>
 </html>
