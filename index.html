@@ -3,317 +3,189 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portafolio DAW — Frederic Sadibou Sall Diaw</title>
-
-  <!-- Fuente -->
+  <title>Portafolio DAW — Frederic</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
-      --bg-1: linear-gradient(135deg,#0f1724 0%, #12263a 50%, #14384a 100%);
-      --glass: rgba(255,255,255,0.06);
-      --accent: #00c6ff;
-      --muted: #aebac6;
-      --card-radius: 14px;
-      --glass-strong: rgba(255,255,255,0.04);
+      --bg:#0b1220;
+      --card:#0f1724;
+      --muted:#9aa6b2;
+      --accent:#00c3ff;
+      --glass: rgba(255,255,255,0.04);
+      --radius:12px;
     }
-    /* LIGHT MODE variables (toggled by .light on body) */
-    body.light{
-      --bg-1: linear-gradient(135deg,#f7fafc 0%, #eef8ff 100%);
-      --glass: rgba(10,20,30,0.03);
-      --glass-strong: rgba(10,20,30,0.06);
-      --accent: #0b7fff;
-      --muted: #444d55;
-      color: #0b1720;
-    }
-
     *{box-sizing:border-box}
-    html,body{height:100%; margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:var(--bg-1); color:#e9f2f7;}
     body{
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:
+        radial-gradient(800px 400px at 10% 10%, rgba(0,195,255,0.04), transparent 10%),
+        linear-gradient(180deg,#061219 0%, #081427 50%, #0f2430 100%);
+      color:#e6f0f5;
+      min-height:100vh;
     }
 
-    /* LAYOUT */
-    .wrap{
-      max-width:1100px;
-      margin:32px auto;
-      padding:28px;
-      display:grid;
-      grid-template-columns: 300px 1fr;
-      gap:28px;
+    header{
+      padding:28px 20px;
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:space-between;
+      max-width:1200px;
+      margin:0 auto;
     }
-
-    /* SIDEBAR */
-    .card.profile{
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border-radius:var(--card-radius);
-      padding:22px;
-      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
-      backdrop-filter: blur(6px);
-      position:relative;
+    .brand{display:flex;gap:14px;align-items:center;}
+    .logo{
+      width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6be1ff);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#022;
+      box-shadow: 0 6px 18px rgba(0,195,255,0.06);
     }
-    .avatar{
-      width:80px; height:80px; border-radius:14px; background:linear-gradient(135deg,var(--accent),#6f8cff);
-      display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px; color:#06202a;
-      margin-bottom:14px;
+    h1{font-size:20px;margin:0}
+    p.sub{margin:0;color:var(--muted);font-size:13px}
+
+    nav.main{display:flex;gap:14px;align-items:center;}
+    nav.main a{color:var(--muted);padding:10px 14px;border-radius:10px;font-weight:500;text-decoration:none;}
+    nav.main a.active, nav.main a:hover{color:#021d27;background:var(--accent);}
+
+    .wrap{max-width:1200px;margin:18px auto;padding:0 18px;display:grid;grid-template-columns: 300px 1fr;gap:22px}
+    @media (max-width:900px){ .wrap{grid-template-columns:1fr} nav.main{display:none} header{flex-direction:column;align-items:flex-start;gap:8px} }
+
+    aside.sidebar{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:18px;border-radius:var(--radius);backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.03);
+      height:fit-content;
     }
-    .name{font-size:1.15rem; font-weight:700; margin:0 0 6px}
-    .role{color:var(--muted); margin:0 0 14px; font-size:0.95rem}
-    .meta{display:flex; gap:10px; flex-wrap:wrap}
-    .badge{background:var(--glass); padding:6px 10px; border-radius:999px; color:var(--muted); font-size:0.85rem}
+    .profile{display:flex;gap:12px;align-items:center;margin-bottom:14px;}
+    .avatar{width:56px;height:56px;border-radius:10px;background:#06202a;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+    .meta small{display:block;color:var(--muted);font-size:13px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .skill{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
 
-    .profile hr{border:0; height:1px; background:var(--glass-strong); margin:16px 0}
+    main{display:flex;flex-direction:column;gap:18px;}
+    .section{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow: 0 6px 20px rgba(2,10,18,0.35);}
+    .section h2{margin:0 0 12px 0;color:var(--accent)}
+    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+    .card{background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(255,255,255,0.02));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition: transform .18s ease;}
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(2,10,18,0.5)}
+    .card h3{margin:0 0 8px 0;font-size:16px}
+    .card ul{margin:0;padding-left:16px;color:var(--muted);font-size:14px}
 
-    .links a{display:flex; gap:8px; align-items:center; color:inherit; text-decoration:none;padding:8px;border-radius:10px;}
-    .links a:hover{background:rgba(255,255,255,0.02)}
-
-    /* MAIN */
-    .main{
-      min-height:520px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-      border-radius:var(--card-radius);
-      padding:22px;
-      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
-      backdrop-filter: blur(4px);
-    }
-
-    /* NAV TABS */
-    .tabs{display:flex; gap:8px; margin-bottom:18px}
-    .tab{
-      padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600; font-size:0.95rem;
-      background:transparent; color:var(--muted); border:1px solid transparent;
-    }
-    .tab.active{
-      background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      color:var(--accent);
-      border:1px solid rgba(255,255,255,0.04);
-      box-shadow: 0 6px 18px rgba(2,6,23,0.4);
-    }
-
-    /* SEARCH */
-    .controls{display:flex; gap:12px; align-items:center; margin-bottom:14px; flex-wrap:wrap}
-    .search{
-      flex:1; min-width:220px;
-      display:flex; gap:8px; align-items:center;
-      background:var(--glass); padding:8px 10px; border-radius:10px;
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .search input{border:0; outline:0; background:transparent; color:inherit; width:100%; font-size:0.95rem}
-    .controls button{background:transparent; border:1px solid rgba(255,255,255,0.06); padding:8px 12px; border-radius:10px; cursor:pointer; color:var(--muted); font-weight:600}
-    .controls button.primary{background:linear-gradient(90deg,var(--accent),#6f8cff); color:#04202a; border:0}
-
-    /* GRID of cards (1º DAW items grouped by Tema) */
-    .grid{display:grid; gap:14px}
-    @media (min-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:900px){ .wrap{grid-template-columns: 1fr; padding:18px} .profile{order:2} .main{order:1} }
-
-    .topic{
-      background:rgba(255,255,255,0.03);
-      padding:14px; border-radius:12px; transition:transform .18s, box-shadow .18s;
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .topic:hover{transform:translateY(-6px); box-shadow:0 10px 30px rgba(2,6,23,0.45)}
-    .topic h4{margin:0 0 8px; color:var(--accent)}
-    .topic ul{margin:0; padding:0; list-style:none}
-    .topic li{padding:8px 0; border-bottom:1px dashed rgba(255,255,255,0.02); display:flex; justify-content:space-between; gap:8px; align-items:center}
-    .topic li:last-child{border-bottom:0}
-    .topic a{color:inherit; text-decoration:none}
-    .tiny{font-size:0.85rem; color:var(--muted)}
-
-    /* 2º DAW area: form and list */
-    .form{
-      display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;
-    }
-    .form input{padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit; min-width:150px}
-    .list-2{background:rgba(255,255,255,0.02); padding:12px; border-radius:10px; max-height:300px; overflow:auto}
-
-    /* FOOTER */
-    footer{margin-top:18px; text-align:center; color:var(--muted); font-size:0.9rem; padding-top:10px;}
-
-    /* TINY UTIL */
-    .muted{color:var(--muted)}
-    .pill{padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.03); font-weight:600; font-size:0.85rem}
-    .small{font-size:0.9rem}
-
-    /* transition for mode toggle */
-    .transition { transition: all .28s ease-in-out; }
+    footer{max-width:1200px;margin:26px auto;padding:18px;color:var(--muted);font-size:13px;text-align:center}
   </style>
 </head>
-<body class="transition">
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="logo">FS</div>
+      <div>
+        <h1>Frederic — Portafolio DAW</h1>
+        <p class="sub">1º DAW &middot; Preparando 2º DAW</p>
+      </div>
+    </div>
+
+    <nav class="main" aria-label="Navegación principal">
+      <a href="#daw1" class="active" data-tab="daw1">1º DAW</a>
+      <a href="#daw2" data-tab="daw2">2º DAW</a>
+      <a href="#sobre-mi" data-tab="sobre-mi">Sobre mí</a>
+    </nav>
+  </header>
 
   <div class="wrap">
-
     <!-- SIDEBAR -->
-    <aside class="card profile transition" aria-label="Información personal">
-      <div style="display:flex;gap:12px;align-items:center">
+    <aside class="sidebar">
+      <div class="profile">
         <div class="avatar">FS</div>
-        <div style="flex:1">
-          <p class="name">Frederic Sadibou Sall Diaw</p>
-          <p class="role">Estudiante 1º & 2º DAW — Portafolio</p>
-          <div class="meta">
-            <span class="badge">2024–2026</span>
-            <span class="badge">Lenguaje de Marcas</span>
-          </div>
+        <div class="meta">
+          <strong>Frederic Sadibou</strong>
+          <small class="sub">Estudiante DAW (24-26)</small>
         </div>
       </div>
-
-      <hr>
-
-      <div class="links small">
-        <a href="Curriculum.html" title="Curriculum">➡️ Curriculum</a>
-        <a href="feed.json" title="Feed JSON">📡 Feed (JSON)</a>
-        <a href="empleados.html" title="Empleados">👥 Empleados</a>
-      </div>
-
-      <hr>
-
-      <div style="display:flex; gap:8px; align-items:center; justify-content:space-between">
-        <div>
-          <div class="tiny">Modo</div>
-          <div style="margin-top:8px">
-            <button id="toggleTheme" class="pill">Cambiar tema</button>
-          </div>
-        </div>
-        <div style="text-align:right">
-          <div class="tiny">Curso</div>
-          <div style="margin-top:8px" class="pill">1º & 2º DAW</div>
-        </div>
+      <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
       </div>
     </aside>
 
     <!-- MAIN -->
-    <main class="main transition" role="main" aria-live="polite">
+    <main>
 
-      <!-- Tabs -->
-      <nav class="tabs" role="tablist" aria-label="Secciones principales">
-        <button class="tab active" data-tab="daw1" role="tab" aria-selected="true">1º DAW</button>
-        <button class="tab" data-tab="daw2" role="tab" aria-selected="false">2º DAW</button>
-      </nav>
-
-      <!-- CONTROLS -->
-      <div class="controls">
-        <div class="search" aria-hidden="false">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-          <input id="search" placeholder="Buscar ejercicios (ej. Calculadora, Lists, Formulario...)" aria-label="Buscar ejercicios">
-        </div>
-
-        <div style="margin-left:auto; display:flex; gap:8px">
-          <button id="expandAll" title="Mostrar todo">Expandir</button>
-          <button id="collapseAll" title="Ocultar todo">Ocultar</button>
-          <button id="downloadAll" class="primary">Descargar lista (JSON)</button>
-        </div>
-      </div>
-
-      <!-- 1º DAW (por defecto visible) -->
-      <section id="daw1" class="section" aria-labelledby="tab-daw1">
-        <h3 class="muted" id="tab-daw1">Contenido — 1º DAW</h3>
-
-        <div class="grid" id="topics">
-
-          <!-- TEMA 1 -->
-          <article class="topic" data-title="Introducción al Lenguaje de Marcas" data-tags="xml estilo fechas modulo">
-            <h4>TEMA 1 — Introducción al Lenguaje de Marcas</h4>
-            <p class="tiny">Ejercicios de marcado y esquemas XML</p>
+      <!-- 1º DAW -->
+      <section id="daw1" class="section tabcontent">
+        <h2>📘 1º DAW — Lenguaje de Marcas</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Tema 1</h3>
             <ul>
-              <li>
-                <a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a>
-                <span class="tiny">XML</span>
-              </li>
-              <li>
-                <a href="Modulo.xml">Ejercicio 2: Modulo.xml</a>
-                <span class="tiny">XML</span>
-              </li>
+              <li><a href="Estilo-fechas..xml">Estilo-fechas.xml</a></li>
+              <li><a href="Modulo.xml">Modulo.xml</a></li>
             </ul>
-          </article>
-
-          <!-- TEMA 2 -->
-          <article class="topic" data-title="HTML" data-tags="html listas imagenes horario frame formulario cajas botones curriculum examen css">
-            <h4>TEMA 2 — HTML</h4>
-            <p class="tiny">Estructura y contenido (páginas HTML)</p>
+          </div>
+          <div class="card">
+            <h3>Tema 2</h3>
             <ul>
-              <li><a href="Listas.html">Ejercicio 1: Listas</a> <span class="tiny">HTML</span></li>
-              <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a> <span class="tiny">HTML</span></li>
-              <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a> <span class="tiny">HTML</span></li>
-              <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a> <span class="tiny">HTML</span></li>
-              <li><a href="Formulario.html">Ejercicio 5: Formulario</a> <span class="tiny">HTML</span></li>
-              <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a> <span class="tiny">HTML</span></li>
-              <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a> <span class="tiny">HTML/CSS</span></li>
-              <li><a href="ejercicio3.html">Ejercicio 7: Examen</a> <span class="tiny">HTML</span></li>
-              <li><a href="CurriculumVitae.html">Ejercicio 8: CurriculumVitae (CSS)</a> <span class="tiny">CSS</span></li>
+              <li><a href="Listas.html">Listas</a></li>
+              <li><a href="EJ2_Imagenes.html">Imágenes</a></li>
+              <li><a href="EJ3_Horario.html">Horario</a></li>
             </ul>
-          </article>
-
-          <!-- TEMA 3 -->
-          <article class="topic" data-title="JavaScript" data-tags="javascript calculadora landing suma contadores gestor clicks eventos parrafos jquery examen ia formulario matricula empleados json">
-            <h4>TEMA 3 — JavaScript</h4>
-            <p class="tiny">Interactividad, DOM y pequeños proyectos</p>
+          </div>
+          <div class="card">
+            <h3>Tema 3</h3>
             <ul>
-              <li><a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a></li>
-              <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page</a></li>
-              <li><a href="Ejercicio 1_javascript.html">Ejercicio 3: SUMA DE 100 NÚMEROS</a></li>
-              <li><a href="Ejercicio 2_javascript.html">Ejercicio 4: CONTEO DE NÚMEROS IMPARES</a></li>
-              <li><a href="Ejercicio_sumatorio con multiplicacion(min y max).html">Ejercicio 5: GestorVectores</a></li>
-              <li><a href="Clicks.html">Ejercicio 6: Clicks</a></li>
-              <li><a href="Gestor_de_eventos.html">Ejercicio 7: Gestor de eventos</a></li>
-              <li><a href="Ejercicios de parrafos.html">Ejercicio 8: Ejercicios de párrafos</a></li>
-              <li><a href="Calculadora Jquery.html">Ejercicio 9: Calculadora (jQuery)</a></li>
-              <li><a href="Enunciado1examen.html">Examen: enunciado1</a></li>
-              <li><a href="Enunciado1examen.html">Examen: enunciado2</a></li>
-              <li><a href="ejercicioIA.html">IA: CONSULTA IA</a></li>
-              <li><a href="Formulario de Matricula.html">Matrícula: formulario</a></li>
-              <li><a href="empleados.html">Empleados</a></li>
-              <li><a href="feed.json">Feed (JSON)</a></li>
-              <li><a href="Calculadora de nota.html">Nota de examen</a></li>
-              <li><a href="web_mal_echa.html">Prueba / Feed (JSON)</a></li>
+              <li><a href="Calculadora.html">Calculadora</a></li>
+              <li><a href="Bootstrap_Ejercicio.html">Landing Page</a></li>
+              <li><a href="Ejercicio 1_javascript.html">Suma 100 Números</a></li>
             </ul>
-          </article>
-
+          </div>
         </div>
       </section>
 
-      <!-- 2º DAW (oculto hasta seleccionar tab) -->
-      <section id="daw2" class="section" style="display:none" aria-labelledby="tab-daw2">
-        <h3 class="muted" id="tab-daw2">Desarrollo en Entorno Cliente — 2º DAW</h3>
-
-        <p class="small muted">Aquí irás subiendo/guardando los ejercicios y prácticas de 2º DAW. Puedes añadirlos en el formulario y exportarlos a JSON.</p>
-
-        <!-- Formulario simple para añadir ejercicios -->
-        <div class="form" role="form" aria-label="Añadir ejercicio 2º DAW">
-          <input id="ex-title" placeholder="Título del ejercicio (p. ej. 'Validación Formulario')" aria-label="Título">
-          <input id="ex-file" placeholder="Archivo / Ruta (p. ej. ejer1.html)" aria-label="Ruta">
-          <input id="ex-tags" placeholder="Etiquetas (coma separadas)" aria-label="Etiquetas">
-          <button id="addEx" class="primary">Añadir</button>
+      <!-- 2º DAW -->
+      <section id="daw2" class="section tabcontent" style="display:none">
+        <h2>💻 2º DAW — Desarrollo en Entorno Cliente</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Unidad 1 — Ejercicios básicos</h3>
+            <ul>
+              <li><a href="ejercicio1.1.html">Ejercicio 1.1 — Prompt + párrafo</a></li>
+              <li><a href="ejercicio1.2.html">Ejercicio 1.2 — Color en consola</a></li>
+              <li><a href="ejercicio1.3.html">Ejercicio 1.3 — Input + div</a></li>
+              <li><a href="ejercicio1.4.html">Ejercicio 1.4 — Lista imágenes</a></li>
+              <li><a href="ejercicio1.5.html">Ejercicio 1.5 — Texto negrita/cursiva</a></li>
+            </ul>
+          </div>
         </div>
-
-        <div class="list-2" id="list2" aria-live="polite">
-          <!-- Elementos añadidos aparecerán aquí -->
-          <p class="tiny muted" id="emptyMsg2">No hay ejercicios todavía. Añade el primero arriba.</p>
-        </div>
-
-        <div style="display:flex; gap:8px; margin-top:10px">
-          <button id="export2" class="primary">Exportar 2º DAW (JSON)</button>
-          <button id="clear2" title="Borrar todos" style="background:transparent;border:1px solid rgba(255,255,255,0.06);">Borrar</button>
-          <div style="margin-left:auto" class="tiny muted">Guardado local (localStorage)</div>
-        </div>
-
       </section>
 
-      <footer>
-        <div>&copy; 2024–2026 — Frederic Sadibou Sall Diaw · Portafolio DAW</div>
-      </footer>
+      <!-- SOBRE MI -->
+      <section id="sobre-mi" class="section tabcontent" style="display:none">
+        <h2>Sobre mí</h2>
+        <p>Estudiante de DAW. Este portafolio recoge prácticas de 1º curso y 2º curso.</p>
+      </section>
 
     </main>
   </div>
 
-  <script>
-    // ---- UI: Tabs ----
-    const tabs = document.querySelectorAll('.tab');
-    const sections = { daw1: document.getElementById('daw1'), daw2: document.getElementById('daw2') };
+  <footer>
+    &copy; 2024 Frederic Sadibou Sall Diaw — Portafolio DAW
+  </footer>
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove
+  <script>
+    // Tabs navegación
+    document.querySelectorAll('nav.main a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const tab = a.dataset.tab;
+        document.querySelectorAll('nav.main a').forEach(x=>x.classList.remove('active'));
+        a.classList.add('active');
+        document.querySelectorAll('.tabcontent').forEach(sec=>sec.style.display='none');
+        document.getElementById(tab).style.display='block';
+      });
+    });
+    document.querySelector('[data-tab="daw1"]').click();
+  </script>
+
+</body>
+</html>
