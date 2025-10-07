@@ -9,312 +9,429 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
+    /* Diseño profesional y sencillo: paleta neutra + acento */
     :root{
-      --bg-1: linear-gradient(135deg,#0f1724 0%, #12263a 50%, #14384a 100%);
-      --glass: rgba(255,255,255,0.06);
-      --accent: #00c6ff;
-      --muted: #aebac6;
-      --card-radius: 14px;
-      --glass-strong: rgba(255,255,255,0.04);
+      --bg:#0b1220;
+      --card:#0f1724;
+      --muted:#9aa6b2;
+      --accent:#00c6ff;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --maxw:1100px;
     }
-    /* LIGHT MODE variables (toggled by .light on body) */
-    body.light{
-      --bg-1: linear-gradient(135deg,#f7fafc 0%, #eef8ff 100%);
-      --glass: rgba(10,20,30,0.03);
-      --glass-strong: rgba(10,20,30,0.06);
-      --accent: #0b7fff;
-      --muted: #444d55;
-      color: #0b1720;
-    }
-
     *{box-sizing:border-box}
-    html,body{height:100%; margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:var(--bg-1); color:#e9f2f7;}
-    body{
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,var(--bg),#07101a);color:#e9f2f7}
+    a{color:inherit}
+    .container{max-width:var(--maxw);margin:32px auto;padding:20px}
 
-    /* LAYOUT */
-    .wrap{
-      max-width:1100px;
-      margin:32px auto;
-      padding:28px;
-      display:grid;
-      grid-template-columns: 300px 1fr;
-      gap:28px;
-    }
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6fbcff);display:flex;align-items:center;justify-content:center;color:#022;font-weight:700}
+    h1{font-size:18px;margin:0}
+    .subtitle{color:var(--muted);font-size:13px;margin:0}
 
-    /* SIDEBAR */
-    .card.profile{
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border-radius:var(--card-radius);
-      padding:22px;
-      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
-      backdrop-filter: blur(6px);
-      position:relative;
-    }
-    .avatar{
-      width:80px; height:80px; border-radius:14px; background:linear-gradient(135deg,var(--accent),#6f8cff);
-      display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px; color:#06202a;
-      margin-bottom:14px;
-    }
-    .name{font-size:1.15rem; font-weight:700; margin:0 0 6px}
-    .role{color:var(--muted); margin:0 0 14px; font-size:0.95rem}
-    .meta{display:flex; gap:10px; flex-wrap:wrap}
-    .badge{background:var(--glass); padding:6px 10px; border-radius:999px; color:var(--muted); font-size:0.85rem}
+    /* Layout */
+    .layout{display:grid;grid-template-columns:260px 1fr;gap:20px}
+    @media (max-width:900px){ .layout{grid-template-columns:1fr} header{flex-direction:column;align-items:flex-start} }
 
-    .profile hr{border:0; height:1px; background:var(--glass-strong); margin:16px 0}
+    /* Sidebar */
+    aside.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
+    .avatar{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6fbcff);display:flex;align-items:center;justify-content:center;color:#022;font-weight:700;margin-bottom:12px}
+    .meta small{color:var(--muted);display:block}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .badge{background:var(--glass);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:13px}
 
-    .links a{display:flex; gap:8px; align-items:center; color:inherit; text-decoration:none;padding:8px;border-radius:10px;}
-    .links a:hover{background:rgba(255,255,255,0.02)}
+    .side-links{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+    .side-links a{padding:8px;border-radius:8px;text-decoration:none;color:var(--muted);display:flex;align-items:center;gap:8px}
+    .side-links a:hover{background:rgba(255,255,255,0.02);color:#fff}
 
-    /* MAIN */
-    .main{
-      min-height:520px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-      border-radius:var(--card-radius);
-      padding:22px;
-      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
-      backdrop-filter: blur(4px);
-    }
+    /* Main */
+    main.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.02));padding:18px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
+    .tabs{display:flex;gap:8px;margin-bottom:14px}
+    .tab{background:transparent;border:1px solid transparent;padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer;font-weight:600}
+    .tab.active{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));color:var(--accent);border-color:rgba(255,255,255,0.04)}
 
-    /* NAV TABS */
-    .tabs{display:flex; gap:8px; margin-bottom:18px}
-    .tab{
-      padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600; font-size:0.95rem;
-      background:transparent; color:var(--muted); border:1px solid transparent;
-    }
-    .tab.active{
-      background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      color:var(--accent);
-      border:1px solid rgba(255,255,255,0.04);
-      box-shadow: 0 6px 18px rgba(2,6,23,0.4);
-    }
+    .controls{display:flex;gap:8px;align-items:center;margin-bottom:16px}
+    .search{flex:1;display:flex;align-items:center;gap:8px;background:var(--glass);padding:8px;border-radius:10px}
+    .search input{border:0;background:transparent;color:inherit;outline:0;width:100%}
 
-    /* SEARCH */
-    .controls{display:flex; gap:12px; align-items:center; margin-bottom:14px; flex-wrap:wrap}
-    .search{
-      flex:1; min-width:220px;
-      display:flex; gap:8px; align-items:center;
-      background:var(--glass); padding:8px 10px; border-radius:10px;
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .search input{border:0; outline:0; background:transparent; color:inherit; width:100%; font-size:0.95rem}
-    .controls button{background:transparent; border:1px solid rgba(255,255,255,0.06); padding:8px 12px; border-radius:10px; cursor:pointer; color:var(--muted); font-weight:600}
-    .controls button.primary{background:linear-gradient(90deg,var(--accent),#6f8cff); color:#04202a; border:0}
-
-    /* GRID of cards (1º DAW items grouped by Tema) */
-    .grid{display:grid; gap:14px}
-    @media (min-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:900px){ .wrap{grid-template-columns: 1fr; padding:18px} .profile{order:2} .main{order:1} }
-
-    .topic{
-      background:rgba(255,255,255,0.03);
-      padding:14px; border-radius:12px; transition:transform .18s, box-shadow .18s;
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .topic:hover{transform:translateY(-6px); box-shadow:0 10px 30px rgba(2,6,23,0.45)}
-    .topic h4{margin:0 0 8px; color:var(--accent)}
-    .topic ul{margin:0; padding:0; list-style:none}
-    .topic li{padding:8px 0; border-bottom:1px dashed rgba(255,255,255,0.02); display:flex; justify-content:space-between; gap:8px; align-items:center}
+    /* Grid topics */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+    .topic{padding:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .topic h4{margin:0 0 8px;color:var(--accent)}
+    .topic ul{margin:0;padding:0;list-style:none}
+    .topic li{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.02)}
     .topic li:last-child{border-bottom:0}
-    .topic a{color:inherit; text-decoration:none}
-    .tiny{font-size:0.85rem; color:var(--muted)}
+    .tiny{font-size:0.85rem;color:var(--muted)}
 
-    /* 2º DAW area: form and list */
-    .form{
-      display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;
-    }
-    .form input{padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit; min-width:150px}
-    .list-2{background:rgba(255,255,255,0.02); padding:12px; border-radius:10px; max-height:300px; overflow:auto}
+    /* Subsection: Desarrollo en Entorno Cliente */
+    .subsection{margin-top:12px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+    .subsection h5{margin:0 0 10px;color:var(--accent)}
 
-    /* FOOTER */
-    footer{margin-top:18px; text-align:center; color:var(--muted); font-size:0.9rem; padding-top:10px;}
+    /* Exercise controls */
+    .controls-row{display:flex;gap:8px;flex-wrap:wrap}
+    input[type="text"], select, button{padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:inherit}
+    button.primary{background:var(--accent);border:0;color:#022;font-weight:700}
+    .output{margin-top:10px;padding:10px;border-radius:8px;background:rgba(0,0,0,0.35);min-height:36px}
 
-    /* TINY UTIL */
-    .muted{color:var(--muted)}
-    .pill{padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.03); font-weight:600; font-size:0.85rem}
-    .small{font-size:0.9rem}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
 
-    /* transition for mode toggle */
-    .transition { transition: all .28s ease-in-out; }
+    /* small responsive tweaks */
+    @media (max-width:520px){ .grid{grid-template-columns:1fr} .controls{flex-direction:column;align-items:stretch} .search{width:100%} }
   </style>
 </head>
-<body class="transition">
+<body>
 
-  <div class="wrap">
-
-    <!-- SIDEBAR -->
-    <aside class="card profile transition" aria-label="Información personal">
-      <div style="display:flex;gap:12px;align-items:center">
-        <div class="avatar">FS</div>
-        <div style="flex:1">
-          <p class="name">Frederic Sadibou Sall Diaw</p>
-          <p class="role">Estudiante 1º & 2º DAW — Portafolio</p>
-          <div class="meta">
-            <span class="badge">2024–2026</span>
-            <span class="badge">Lenguaje de Marcas</span>
-          </div>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="links small">
-        <a href="Curriculum.html" title="Curriculum">➡️ Curriculum</a>
-        <a href="feed.json" title="Feed JSON">📡 Feed (JSON)</a>
-        <a href="empleados.html" title="Empleados">👥 Empleados</a>
-      </div>
-
-      <hr>
-
-      <div style="display:flex; gap:8px; align-items:center; justify-content:space-between">
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">FS</div>
         <div>
-          <div class="tiny">Modo</div>
-          <div style="margin-top:8px">
-            <button id="toggleTheme" class="pill">Cambiar tema</button>
+          <h1>Frederic — Portafolio DAW</h1>
+          <p class="subtitle">1º DAW · Preparando 2º DAW — Desarrollo Entorno Cliente</p>
+        </div>
+      </div>
+      <div class="meta small">
+        <small class="tiny">Profesional · Simple · Fácil de ampliar</small>
+      </div>
+    </header>
+
+    <div class="layout">
+
+      <!-- SIDEBAR -->
+      <aside class="card">
+        <div class="avatar">FS</div>
+        <div>
+          <p style="margin:0;font-weight:700">Frederic Sadibou Sall Diaw</p>
+          <small class="tiny">Estudiante DAW — 2024–2026</small>
+        </div>
+
+        <div class="badges" aria-hidden="true">
+          <span class="badge">Lenguaje de Marcas</span>
+          <span class="badge">HTML / CSS / JS</span>
+        </div>
+
+        <hr style="border:0;height:1px;background:rgba(255,255,255,0.03);margin:12px 0">
+
+        <nav class="side-links" aria-label="Enlaces">
+          <a href="Curriculum.html">➡️ Curriculum</a>
+          <a href="feed.json">📡 Feed (JSON)</a>
+          <a href="empleados.html">👥 Empleados</a>
+        </nav>
+
+        <hr style="border:0;height:1px;background:rgba(255,255,255,0.03);margin:12px 0">
+
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="tiny">Tema</div>
+            <div class="badge">Lenguaje de Marcas</div>
+          </div>
+          <div>
+            <div class="tiny">Curso</div>
+            <div class="badge">1º & 2º DAW</div>
           </div>
         </div>
-        <div style="text-align:right">
-          <div class="tiny">Curso</div>
-          <div style="margin-top:8px" class="pill">1º & 2º DAW</div>
-        </div>
-      </div>
-    </aside>
+      </aside>
 
-    <!-- MAIN -->
-    <main class="main transition" role="main" aria-live="polite">
-
-      <!-- Tabs -->
-      <nav class="tabs" role="tablist" aria-label="Secciones principales">
-        <button class="tab active" data-tab="daw1" role="tab" aria-selected="true">1º DAW</button>
-        <button class="tab" data-tab="daw2" role="tab" aria-selected="false">2º DAW</button>
-      </nav>
-
-      <!-- CONTROLS -->
-      <div class="controls">
-        <div class="search" aria-hidden="false">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-          <input id="search" placeholder="Buscar ejercicios (ej. Calculadora, Lists, Formulario...)" aria-label="Buscar ejercicios">
+      <!-- MAIN -->
+      <main class="card" role="main">
+        <!-- tabs -->
+        <div class="tabs" role="tablist" aria-label="Secciones">
+          <button class="tab active" data-tab="daw1">1º DAW</button>
+          <button class="tab" data-tab="daw2">2º DAW</button>
         </div>
 
-        <div style="margin-left:auto; display:flex; gap:8px">
-          <button id="expandAll" title="Mostrar todo">Expandir</button>
-          <button id="collapseAll" title="Ocultar todo">Ocultar</button>
-          <button id="downloadAll" class="primary">Descargar lista (JSON)</button>
-        </div>
-      </div>
-
-      <!-- 1º DAW (por defecto visible) -->
-      <section id="daw1" class="section" aria-labelledby="tab-daw1">
-        <h3 class="muted" id="tab-daw1">Contenido — 1º DAW</h3>
-
-        <div class="grid" id="topics">
-
-          <!-- TEMA 1 -->
-          <article class="topic" data-title="Introducción al Lenguaje de Marcas" data-tags="xml estilo fechas modulo">
-            <h4>TEMA 1 — Introducción al Lenguaje de Marcas</h4>
-            <p class="tiny">Ejercicios de marcado y esquemas XML</p>
-            <ul>
-              <li>
-                <a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a>
-                <span class="tiny">XML</span>
-              </li>
-              <li>
-                <a href="Modulo.xml">Ejercicio 2: Modulo.xml</a>
-                <span class="tiny">XML</span>
-              </li>
-            </ul>
-          </article>
-
-          <!-- TEMA 2 -->
-          <article class="topic" data-title="HTML" data-tags="html listas imagenes horario frame formulario cajas botones curriculum examen css">
-            <h4>TEMA 2 — HTML</h4>
-            <p class="tiny">Estructura y contenido (páginas HTML)</p>
-            <ul>
-              <li><a href="Listas.html">Ejercicio 1: Listas</a> <span class="tiny">HTML</span></li>
-              <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a> <span class="tiny">HTML</span></li>
-              <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a> <span class="tiny">HTML</span></li>
-              <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a> <span class="tiny">HTML</span></li>
-              <li><a href="Formulario.html">Ejercicio 5: Formulario</a> <span class="tiny">HTML</span></li>
-              <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a> <span class="tiny">HTML</span></li>
-              <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a> <span class="tiny">HTML/CSS</span></li>
-              <li><a href="ejercicio3.html">Ejercicio 7: Examen</a> <span class="tiny">HTML</span></li>
-              <li><a href="CurriculumVitae.html">Ejercicio 8: CurriculumVitae (CSS)</a> <span class="tiny">CSS</span></li>
-            </ul>
-          </article>
-
-          <!-- TEMA 3 -->
-          <article class="topic" data-title="JavaScript" data-tags="javascript calculadora landing suma contadores gestor clicks eventos parrafos jquery examen ia formulario matricula empleados json">
-            <h4>TEMA 3 — JavaScript</h4>
-            <p class="tiny">Interactividad, DOM y pequeños proyectos</p>
-            <ul>
-              <li><a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a></li>
-              <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page</a></li>
-              <li><a href="Ejercicio 1_javascript.html">Ejercicio 3: SUMA DE 100 NÚMEROS</a></li>
-              <li><a href="Ejercicio 2_javascript.html">Ejercicio 4: CONTEO DE NÚMEROS IMPARES</a></li>
-              <li><a href="Ejercicio_sumatorio con multiplicacion(min y max).html">Ejercicio 5: GestorVectores</a></li>
-              <li><a href="Clicks.html">Ejercicio 6: Clicks</a></li>
-              <li><a href="Gestor_de_eventos.html">Ejercicio 7: Gestor de eventos</a></li>
-              <li><a href="Ejercicios de parrafos.html">Ejercicio 8: Ejercicios de párrafos</a></li>
-              <li><a href="Calculadora Jquery.html">Ejercicio 9: Calculadora (jQuery)</a></li>
-              <li><a href="Enunciado1examen.html">Examen: enunciado1</a></li>
-              <li><a href="Enunciado1examen.html">Examen: enunciado2</a></li>
-              <li><a href="ejercicioIA.html">IA: CONSULTA IA</a></li>
-              <li><a href="Formulario de Matricula.html">Matrícula: formulario</a></li>
-              <li><a href="empleados.html">Empleados</a></li>
-              <li><a href="feed.json">Feed (JSON)</a></li>
-              <li><a href="Calculadora de nota.html">Nota de examen</a></li>
-              <li><a href="web_mal_echa.html">Prueba / Feed (JSON)</a></li>
-            </ul>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- 2º DAW (oculto hasta seleccionar tab) -->
-      <section id="daw2" class="section" style="display:none" aria-labelledby="tab-daw2">
-        <h3 class="muted" id="tab-daw2">Desarrollo en Entorno Cliente — 2º DAW</h3>
-
-        <p class="small muted">Aquí irás subiendo/guardando los ejercicios y prácticas de 2º DAW. Puedes añadirlos en el formulario y exportarlos a JSON.</p>
-
-        <!-- Formulario simple para añadir ejercicios -->
-        <div class="form" role="form" aria-label="Añadir ejercicio 2º DAW">
-          <input id="ex-title" placeholder="Título del ejercicio (p. ej. 'Validación Formulario')" aria-label="Título">
-          <input id="ex-file" placeholder="Archivo / Ruta (p. ej. ejer1.html)" aria-label="Ruta">
-          <input id="ex-tags" placeholder="Etiquetas (coma separadas)" aria-label="Etiquetas">
-          <button id="addEx" class="primary">Añadir</button>
+        <!-- controls -->
+        <div class="controls">
+          <div class="search" role="search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5"/></svg>
+            <input id="search" placeholder="Buscar (p. ej. Calculadora, Listas...)" aria-label="Buscar">
+          </div>
+          <div style="margin-left:auto;display:flex;gap:8px">
+            <button id="expandAll">Expandir</button>
+            <button id="collapseAll">Ocultar</button>
+            <button id="downloadAll" class="primary">Exportar (JSON)</button>
+          </div>
         </div>
 
-        <div class="list-2" id="list2" aria-live="polite">
-          <!-- Elementos añadidos aparecerán aquí -->
-          <p class="tiny muted" id="emptyMsg2">No hay ejercicios todavía. Añade el primero arriba.</p>
-        </div>
+        <!-- 1º DAW content -->
+        <section id="daw1">
+          <h3 class="tiny" style="margin-top:0">Contenido — 1º DAW</h3>
 
-        <div style="display:flex; gap:8px; margin-top:10px">
-          <button id="export2" class="primary">Exportar 2º DAW (JSON)</button>
-          <button id="clear2" title="Borrar todos" style="background:transparent;border:1px solid rgba(255,255,255,0.06);">Borrar</button>
-          <div style="margin-left:auto" class="tiny muted">Guardado local (localStorage)</div>
-        </div>
+          <div class="grid">
+            <article class="topic">
+              <h4>TEMA 1 — Introducción al Lenguaje de Marcas</h4>
+              <p class="tiny">XML y esquemas</p>
+              <ul>
+                <li><a href="Estilo-fechas..xml">Estilo-fechas.xml</a> <span class="tiny">XML</span></li>
+                <li><a href="Modulo.xml">Modulo.xml</a> <span class="tiny">XML</span></li>
+              </ul>
+            </article>
 
-      </section>
+            <article class="topic">
+              <h4>TEMA 2 — HTML</h4>
+              <p class="tiny">Estructura y páginas</p>
+              <ul>
+                <li><a href="Listas.html">Listas</a> <span class="tiny">HTML</span></li>
+                <li><a href="EJ2_Imagenes.html">Imágenes</a> <span class="tiny">HTML</span></li>
+                <li><a href="EJ3_Horario.html">Horario</a> <span class="tiny">HTML</span></li>
+                <li><a href="Curriculum.html">Currículum</a> <span class="tiny">HTML/CSS</span></li>
+              </ul>
+            </article>
 
-      <footer>
-        <div>&copy; 2024–2026 — Frederic Sadibou Sall Diaw · Portafolio DAW</div>
-      </footer>
+            <article class="topic">
+              <h4>TEMA 3 — JavaScript</h4>
+              <p class="tiny">Interactividad y DOM</p>
+              <ul>
+                <li><a href="Calculadora.html">Calculadora</a></li>
+                <li><a href="Gestor_de_eventos.html">Gestor de eventos</a></li>
+                <li><a href="feed.json">Feed (JSON)</a></li>
+              </ul>
+            </article>
+          </div>
+        </section>
 
-    </main>
+        <!-- 2º DAW content -->
+        <section id="daw2" style="display:none;margin-top:12px">
+          <h3 class="tiny" style="margin-top:0">Desarrollo en Entorno Cliente — 2º DAW</h3>
+
+          <p class="tiny" style="margin-bottom:10px">En esta subsección irás guardando todos los ejercicios del curso. Aquí tienes los primeros (1.1–1.5). He marcado 1.1 y 1.5 como destacados para que los encuentres rápido.</p>
+
+          <!-- Subsection para Desarrollo en Entorno Cliente -->
+          <div class="subsection" aria-labelledby="sub-dev">
+            <h5 id="sub-dev">Desarrollo en Entorno Cliente — Ejercicios (destacados)</h5>
+
+            <!-- Destacados: 1.1 y 1.5 -->
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+
+              <!-- EJ 1.1 -->
+              <div class="topic" aria-labelledby="ej11">
+                <h4 id="ej11">Ejercicio 1.1 — Prompt → párrafo</h4>
+                <p class="tiny">Pide un dato mediante prompt y muéstralo en un párrafo.</p>
+                <div class="controls-row" style="margin-top:8px">
+                  <button id="btnE11" class="primary">Pedir dato</button>
+                  <button id="btnE11b">Limpiar</button>
+                </div>
+                <div class="output" id="outE11">Aquí aparecerá el texto introducido.</div>
+              </div>
+
+              <!-- EJ 1.5 -->
+              <div class="topic" aria-labelledby="ej15">
+                <h4 id="ej15">Ejercicio 1.5 — Negrita / Cursiva</h4>
+                <p class="tiny">Introduce texto y aplica negrita o cursiva.</p>
+
+                <div class="controls-row" style="margin-top:8px">
+                  <input id="txtE15" type="text" value="Texto de ejemplo" aria-label="Texto de ejemplo">
+                  <select id="optBold" aria-label="Negrita">
+                    <option value="normal">Normal</option>
+                    <option value="bold">Negrita</option>
+                  </select>
+                  <select id="optItalic" aria-label="Cursiva">
+                    <option value="normal">Normal</option>
+                    <option value="italic">Cursiva</option>
+                  </select>
+                  <button id="btnE15">Aplicar</button>
+                </div>
+
+                <div class="output" id="outE15">Aquí se mostrará el texto con los estilos seleccionados.</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Lista completa de ejercicios (1.1 - 1.5) para referencia -->
+          <div style="margin-top:14px">
+            <h5 style="margin:0 0 8px;color:var(--accent)">Ejercicios (1.1 — 1.5)</h5>
+
+            <div class="grid">
+
+              <!-- EJ 1.1 card (también listado aquí por si quieres abrir o copiar) -->
+              <article class="topic">
+                <h4>Ejercicio 1.1</h4>
+                <p class="tiny">Prompt → mostrar en &lt;p&gt; (ya disponible arriba como destacado)</p>
+              </article>
+
+              <!-- EJ 1.2 -->
+              <article class="topic" id="card12">
+                <h4>Ejercicio 1.2</h4>
+                <p class="tiny">Seleccionar color desde una lista desplegable y mostrarlo en la consola.</p>
+                <div class="controls-row" style="margin-top:8px">
+                  <select id="selColor">
+                    <option value="">--Selecciona color--</option>
+                    <option value="Rojo">Rojo</option>
+                    <option value="Verde">Verde</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Amarillo">Amarillo</option>
+                    <option value="Naranja">Naranja</option>
+                  </select>
+                </div>
+                <p class="tiny">Abre la consola (F12) para ver el valor seleccionado.</p>
+              </article>
+
+              <!-- EJ 1.3 -->
+              <article class="topic" id="card13">
+                <h4>Ejercicio 1.3</h4>
+                <p class="tiny">Introducir texto en un input y mostrarlo en una capa al pulsar un botón.</p>
+                <div class="controls-row" style="margin-top:8px">
+                  <input id="txtE13" type="text" placeholder="Escribe algo..." aria-label="Texto 1.3">
+                  <button id="btnE13">Mostrar</button>
+                  <button id="btnE13c">Borrar</button>
+                </div>
+                <div class="output" id="outE13">El texto aparecerá aquí al pulsar Mostrar.</div>
+              </article>
+
+              <!-- EJ 1.4 -->
+              <article class="topic" id="card14">
+                <h4>Ejercicio 1.4</h4>
+                <p class="tiny">Cargar una lista con nombres de imágenes locales y mostrar la seleccionada.</p>
+                <div class="controls-row" style="margin-top:8px">
+                  <select id="selImg">
+                    <option value="">--Selecciona una imagen--</option>
+                    <option value="img1.jpg">img1.jpg</option>
+                    <option value="img2.jpg">img2.jpg</option>
+                    <option value="img3.jpg">img3.jpg</option>
+                  </select>
+                </div>
+                <div style="margin-top:8px">
+                  <img id="previewImg" alt="Previsualización" style="display:none;width:200px;border-radius:8px">
+                </div>
+                <div class="output" id="outE14">Vista previa de la imagen seleccionada.</div>
+              </article>
+
+              <!-- EJ 1.5 listed (already in destacados) -->
+              <article class="topic">
+                <h4>Ejercicio 1.5</h4>
+                <p class="tiny">Negrita / Cursiva (ya disponible arriba como destacado)</p>
+              </article>
+
+            </div>
+          </div>
+
+        </section>
+
+        <footer>
+          <div>&copy; 2024–2026 — Frederic Sadibou Sall Diaw · Portafolio DAW</div>
+        </footer>
+      </main>
+    </div>
   </div>
 
   <script>
-    // ---- UI: Tabs ----
+    // Tabs: mostrar/ocultar secciones
     const tabs = document.querySelectorAll('.tab');
-    const sections = { daw1: document.getElementById('daw1'), daw2: document.getElementById('daw2') };
+    const sectDaw1 = document.getElementById('daw1');
+    const sectDaw2 = document.getElementById('daw2');
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove
+    tabs.forEach(tab=>{
+      tab.addEventListener('click', ()=>{
+        tabs.forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');
+        if(tab.dataset.tab === 'daw2'){
+          sectDaw1.style.display = 'none';
+          sectDaw2.style.display = 'block';
+        } else {
+          sectDaw1.style.display = 'block';
+          sectDaw2.style.display = 'none';
+        }
+      });
+    });
+
+    // --- Ejercicios funcionales ---
+
+    // Ej 1.1: prompt -> mostrar en p
+    const outE11 = document.getElementById('outE11');
+    document.getElementById('btnE11').addEventListener('click', ()=>{
+      const dato = prompt('Introduce un texto:');
+      outE11.textContent = (dato === null) ? 'Operación cancelada.' : dato;
+    });
+    document.getElementById('btnE11b').addEventListener('click', ()=> outE11.textContent = 'Aquí aparecerá el texto introducido.');
+
+    // Ej 1.2: select color -> consola
+    const selColor = document.getElementById('selColor');
+    selColor.addEventListener('change', ()=> {
+      console.log('Color seleccionado:', selColor.value || '(ninguno)');
+    });
+
+    // Ej 1.3: input -> mostrar en div
+    const txtE13 = document.getElementById('txtE13');
+    const outE13 = document.getElementById('outE13');
+    document.getElementById('btnE13').addEventListener('click', ()=> {
+      outE13.textContent = txtE13.value || '(vacío)';
+    });
+    document.getElementById('btnE13c').addEventListener('click', ()=> {
+      txtE13.value = '';
+      outE13.textContent = 'El texto aparecerá aquí al pulsar Mostrar.';
+    });
+
+    // Ej 1.4: lista imágenes -> previsualizar (archivos locales en misma carpeta)
+    const selImg = document.getElementById('selImg');
+    const previewImg = document.getElementById('previewImg');
+    const outE14 = document.getElementById('outE14');
+
+    selImg.addEventListener('change', ()=>{
+      const path = selImg.value;
+      if(!path){
+        previewImg.style.display = 'none';
+        previewImg.src = '';
+        outE14.textContent = 'Vista previa de la imagen seleccionada.';
+        return;
+      }
+      // intenta cargar la imagen local
+      previewImg.src = path;
+      previewImg.onload = ()=> {
+        previewImg.style.display = 'block';
+        outE14.textContent = 'Imagen cargada: ' + path;
+      };
+      previewImg.onerror = ()=> {
+        previewImg.style.display = 'none';
+        previewImg.src = '';
+        outE14.textContent = 'No se ha encontrado "' + path + '". Pon el fichero en la misma carpeta.';
+      };
+    });
+
+    // Ej 1.5: estilos negrita / cursiva
+    const txtE15 = document.getElementById('txtE15');
+    const optBold = document.getElementById('optBold');
+    const optItalic = document.getElementById('optItalic');
+    const outE15 = document.getElementById('outE15');
+
+    document.getElementById('btnE15').addEventListener('click', ()=>{
+      const text = txtE15.value || '';
+      outE15.textContent = text;
+      outE15.style.fontWeight = (optBold.value === 'bold') ? '700' : '400';
+      outE15.style.fontStyle = (optItalic.value === 'italic') ? 'italic' : 'normal';
+    });
+
+    // Small utilities: export list (example: export current exercises to JSON)
+    document.getElementById('downloadAll').addEventListener('click', ()=>{
+      const ejercicios = [
+        {id:'1.1', title:'Prompt -> párrafo'},
+        {id:'1.2', title:'Selector color (consola)'},
+        {id:'1.3', title:'Input -> div'},
+        {id:'1.4', title:'Lista imágenes -> vista previa'},
+        {id:'1.5', title:'Negrita / Cursiva'}
+      ];
+      const blob = new Blob([JSON.stringify(ejercicios,null,2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'ejercicios-2daw.json';
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    // Expand / collapse simple behaviours (toggles show/hide details)
+    document.getElementById('expandAll').addEventListener('click', ()=>{
+      document.querySelectorAll('.topic').forEach(t=> t.style.transform = 'translateY(0)');
+    });
+    document.getElementById('collapseAll').addEventListener('click', ()=>{
+      document.querySelectorAll('.topic').forEach(t=> t.style.transform = 'none');
+    });
+
+    // Init: ensure daw1 visible
+    sectDaw1.style.display = 'block';
+    sectDaw2.style.display = 'none';
+  </script>
+</body>
+</html>
+
 
