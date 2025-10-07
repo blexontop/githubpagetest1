@@ -53,8 +53,6 @@
     .tab.active{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));color:var(--accent);border-color:rgba(255,255,255,0.04)}
 
     .controls{display:flex;gap:8px;align-items:center;margin-bottom:16px}
-    .search{flex:1;display:flex;align-items:center;gap:8px;background:var(--glass);padding:8px;border-radius:10px}
-    .search input{border:0;background:transparent;color:inherit;outline:0;width:100%}
 
     /* Grid topics */
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
@@ -78,7 +76,7 @@
     footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
 
     /* small responsive tweaks */
-    @media (max-width:520px){ .grid{grid-template-columns:1fr} .controls{flex-direction:column;align-items:stretch} .search{width:100%} }
+    @media (max-width:520px){ .grid{grid-template-columns:1fr} .controls{flex-direction:column;align-items:stretch} }
   </style>
 </head>
 <body>
@@ -145,36 +143,60 @@
           <h3 class="tiny" style="margin-top:0">Contenido — 1º DAW</h3>
 
           <div class="grid">
+
+            <!-- TEMA 1 -->
             <article class="topic" data-title="Introducción al Lenguaje de Marcas">
               <h4>TEMA 1 — Introducción al Lenguaje de Marcas</h4>
-              <p class="tiny">XML y esquemas</p>
+              <p class="tiny">Ejercicios de marcado y esquemas XML</p>
               <ul>
-                <li><a href="Estilo-fechas..xml">Estilo-fechas.xml</a> <span class="tiny">XML</span></li>
-                <li><a href="Modulo.xml">Modulo.xml</a> <span class="tiny">XML</span></li>
+                <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a> <span class="tiny">XML</span></li>
+                <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a> <span class="tiny">XML</span></li>
               </ul>
             </article>
 
+            <!-- TEMA 2 -->
             <article class="topic" data-title="HTML">
               <h4>TEMA 2 — HTML</h4>
-              <p class="tiny">Estructura y páginas</p>
+              <p class="tiny">Estructura y contenido (páginas HTML)</p>
               <ul>
-                <li><a href="Listas.html">Listas</a> <span class="tiny">HTML</span></li>
-                <li><a href="EJ2_Imagenes.html">Imágenes</a> <span class="tiny">HTML</span></li>
-                <li><a href="EJ3_Horario.html">Horario</a> <span class="tiny">HTML</span></li>
-                <li><a href="Curriculum.html">Currículum</a> <span class="tiny">HTML/CSS</span></li>
+                <li><a href="Listas.html">Ejercicio 1: Listas</a> <span class="tiny">HTML</span></li>
+                <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a> <span class="tiny">HTML</span></li>
+                <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a> <span class="tiny">HTML</span></li>
+                <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a> <span class="tiny">HTML</span></li>
+                <li><a href="Formulario.html">Ejercicio 5: Formulario</a> <span class="tiny">HTML</span></li>
+                <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a> <span class="tiny">HTML</span></li>
+                <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a> <span class="tiny">HTML/CSS</span></li>
+                <li><a href="ejercicio3.html">Ejercicio 7: Examen</a> <span class="tiny">HTML</span></li>
+                <li><a href="CurriculumVitae.html">Ejercicio 8: CurriculumVitae (CSS)</a> <span class="tiny">CSS</span></li>
               </ul>
             </article>
 
+            <!-- TEMA 3 -->
             <article class="topic" data-title="JavaScript">
               <h4>TEMA 3 — JavaScript</h4>
-              <p class="tiny">Interactividad y DOM</p>
+              <p class="tiny">Interactividad, DOM y pequeños proyectos</p>
               <ul>
-                <li><a href="Calculadora.html">Calculadora</a></li>
-                <li><a href="Gestor_de_eventos.html">Gestor de eventos</a></li>
-                <li><a href="feed.json">Feed (JSON)</a></li>
+                <li><a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a></li>
+                <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page</a></li>
+                <li><a href="Ejercicio 1_javascript.html">Ejercicio 3: SUMA DE 100 NÚMEROS</a></li>
+                <li><a href="Ejercicio 2_javascript.html">Ejercicio 4: CONTEO DE NÚMEROS IMPARES</a></li>
+                <li><a href="Ejercicio_sumatorio con multiplicacion(min y max).html">Ejercicio 5: GestorVectores</a></li>
+                <li><a href="Clicks.html">Ejercicio 6: Clicks</a></li>
+                <li><a href="Gestor_de_eventos.html">Ejercicio 7: Gestor de eventos</a></li>
+                <li><a href="Ejercicios de parrafos.html">Ejercicio 8: Ejercicios de párrafos</a></li>
+                <li><a href="Calculadora Jquery.html">Ejercicio 9: Calculadora</a></li>
+                <li><a href="Enunciado1examen.html">Examen: enunciado1</a></li>
+                <li><a href="Enunciado1examen.html">Examen: enunciado2</a></li>
+                <li><a href="ejercicioIA.html">IA: CONSULTA IA</a></li>
+                <li><a href="Formulario de Matricula.html">Matricula: formulario</a></li>
                 <li><a href="empleados.html">Empleados</a></li>
+                <li><a href="feed.json">Feed (JSON)</a></li>
+                <li><a href="Calculadora de nota.html">nota de examen</a></li>
+                <li><a href="web_mal_echa.html">prueba</a></li>
+                <li><a href="web_mal_echa.html">Feed (JSON)</a></li>
               </ul>
             </article>
+
           </div>
         </section>
 
@@ -184,7 +206,7 @@
 
           <p class="tiny" style="margin-bottom:10px">Aquí irán los ejercicios del curso. A continuación tienes los apartados nombrados como <strong>ejercicio1.1</strong> … <strong>ejercicio1.5</strong>.</p>
 
-          <!-- Grid con los ejercicios nombrados como pidió -->
+          <!-- Grid con los ejercicios nombrados -->
           <div class="grid">
 
             <!-- ejercicio1.1 -->
