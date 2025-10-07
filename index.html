@@ -142,18 +142,7 @@
           <button class="tab" data-tab="daw2">2º DAW</button>
         </div>
 
-        <!-- controls -->
-        <div class="controls">
-          <div class="search" role="search">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5"/></svg>
-            <input id="search" placeholder="Buscar (p. ej. Calculadora, Listas...)" aria-label="Buscar">
-          </div>
-          <div style="margin-left:auto;display:flex;gap:8px">
-            <button id="expandAll">Expandir</button>
-            <button id="collapseAll">Ocultar</button>
-            <button id="downloadAll" class="primary">Exportar (JSON)</button>
-          </div>
-        </div>
+        <!-- Note: controls/search removed as requested -->
 
         <!-- 1º DAW content -->
         <section id="daw1">
@@ -196,118 +185,89 @@
         <section id="daw2" style="display:none;margin-top:12px">
           <h3 class="tiny" style="margin-top:0">Desarrollo en Entorno Cliente — 2º DAW</h3>
 
-          <p class="tiny" style="margin-bottom:10px">En esta subsección irás guardando todos los ejercicios del curso. Aquí tienes los primeros (1.1–1.5). He marcado 1.1 y 1.5 como destacados para que los encuentres rápido.</p>
+          <p class="tiny" style="margin-bottom:10px">Aquí irán los ejercicios del curso. A continuación tienes los apartados nombrados como <strong>ejercicio1.1</strong> … <strong>ejercicio1.5</strong>.</p>
 
-          <!-- Subsection para Desarrollo en Entorno Cliente -->
-          <div class="subsection" aria-labelledby="sub-dev">
-            <h5 id="sub-dev">Desarrollo en Entorno Cliente — Ejercicios (destacados)</h5>
+          <!-- Grid con los ejercicios nombrados como pidió -->
+          <div class="grid">
 
-            <!-- Destacados: 1.1 y 1.5 -->
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
-
-              <!-- EJ 1.1 -->
-              <div class="topic" aria-labelledby="ej11">
-                <h4 id="ej11">Ejercicio 1.1 — Prompt → párrafo</h4>
-                <p class="tiny">Pide un dato mediante prompt y muéstralo en un párrafo.</p>
-                <div class="controls-row" style="margin-top:8px">
-                  <button id="btnE11" class="primary">Pedir dato</button>
-                  <button id="btnE11b">Limpiar</button>
-                </div>
-                <div class="output" id="outE11">Aquí aparecerá el texto introducido.</div>
+            <!-- ejercicio1.1 -->
+            <article class="topic" id="ejercicio1.1">
+              <h4>ejercicio1.1</h4>
+              <p class="tiny">Solicitar un dato por pantalla (prompt) y mostrarlo en un párrafo.</p>
+              <div class="controls-row" style="margin-top:8px">
+                <button id="btnE11" class="primary">Pedir dato</button>
+                <button id="btnE11b">Limpiar</button>
               </div>
+              <div class="output" id="outE11">Aquí aparecerá el texto introducido.</div>
+            </article>
 
-              <!-- EJ 1.5 -->
-              <div class="topic" aria-labelledby="ej15">
-                <h4 id="ej15">Ejercicio 1.5 — Negrita / Cursiva</h4>
-                <p class="tiny">Introduce texto y aplica negrita o cursiva.</p>
-
-                <div class="controls-row" style="margin-top:8px">
-                  <input id="txtE15" type="text" value="Texto de ejemplo" aria-label="Texto de ejemplo">
-                  <select id="optBold" aria-label="Negrita">
-                    <option value="normal">Normal</option>
-                    <option value="bold">Negrita</option>
-                  </select>
-                  <select id="optItalic" aria-label="Cursiva">
-                    <option value="normal">Normal</option>
-                    <option value="italic">Cursiva</option>
-                  </select>
-                  <button id="btnE15">Aplicar</button>
-                </div>
-
-                <div class="output" id="outE15">Aquí se mostrará el texto con los estilos seleccionados.</div>
+            <!-- ejercicio1.2 -->
+            <article class="topic" id="ejercicio1.2">
+              <h4>ejercicio1.2</h4>
+              <p class="tiny">Seleccionar de una lista plegada un color y mostrarlo por la consola.</p>
+              <div class="controls-row" style="margin-top:8px">
+                <select id="selColor">
+                  <option value="">--Selecciona color--</option>
+                  <option value="Rojo">Rojo</option>
+                  <option value="Verde">Verde</option>
+                  <option value="Azul">Azul</option>
+                  <option value="Amarillo">Amarillo</option>
+                  <option value="Naranja">Naranja</option>
+                </select>
               </div>
+              <p class="tiny">Abre la consola del navegador (F12) para ver el color seleccionado.</p>
+            </article>
 
-            </div>
+            <!-- ejercicio1.3 -->
+            <article class="topic" id="ejercicio1.3">
+              <h4>ejercicio1.3</h4>
+              <p class="tiny">Solicitar en un input un texto y mostrarlo en una capa &lt;div&gt; pulsando sobre un botón.</p>
+              <div class="controls-row" style="margin-top:8px">
+                <input id="txtE13" type="text" placeholder="Escribe algo..." aria-label="Texto 1.3">
+                <button id="btnE13">Mostrar</button>
+                <button id="btnE13c">Borrar</button>
+              </div>
+              <div class="output" id="outE13">El texto aparecerá aquí al pulsar Mostrar.</div>
+            </article>
+
+            <!-- ejercicio1.4 -->
+            <article class="topic" id="ejercicio1.4">
+              <h4>ejercicio1.4</h4>
+              <p class="tiny">Cargar una lista plegable con nombres de imágenes locales y visualizar la imagen seleccionada.</p>
+              <div class="controls-row" style="margin-top:8px">
+                <select id="selImg">
+                  <option value="">--Selecciona una imagen--</option>
+                  <option value="img1.jpg">img1.jpg</option>
+                  <option value="img2.jpg">img2.jpg</option>
+                  <option value="img3.jpg">img3.jpg</option>
+                </select>
+              </div>
+              <div style="margin-top:8px">
+                <img id="previewImg" alt="Previsualización" style="display:none;width:200px;border-radius:8px">
+              </div>
+              <div class="output" id="outE14">Vista previa de la imagen seleccionada.</div>
+            </article>
+
+            <!-- ejercicio1.5 -->
+            <article class="topic" id="ejercicio1.5">
+              <h4>ejercicio1.5</h4>
+              <p class="tiny">Crear una página con un texto y dos listas plegables: una para negrita y otra para cursiva. Aplicar al texto mostrado.</p>
+              <div class="controls-row" style="margin-top:8px">
+                <input id="txtE15" type="text" value="Texto de ejemplo" aria-label="Texto 1.5">
+                <select id="optBold" aria-label="Negrita">
+                  <option value="normal">Normal</option>
+                  <option value="bold">Negrita</option>
+                </select>
+                <select id="optItalic" aria-label="Cursiva">
+                  <option value="normal">Normal</option>
+                  <option value="italic">Cursiva</option>
+                </select>
+                <button id="btnE15">Aplicar</button>
+              </div>
+              <div class="output" id="outE15">Aquí se mostrará el texto con los estilos seleccionados.</div>
+            </article>
+
           </div>
-
-          <!-- Lista completa de ejercicios (1.1 - 1.5) para referencia -->
-          <div style="margin-top:14px">
-            <h5 style="margin:0 0 8px;color:var(--accent)">Ejercicios (1.1 — 1.5)</h5>
-
-            <div class="grid">
-
-              <!-- EJ 1.1 card (también listado aquí por si quieres abrir o copiar) -->
-              <article class="topic">
-                <h4>Ejercicio 1.1</h4>
-                <p class="tiny">Prompt → mostrar en &lt;p&gt; (ya disponible arriba como destacado)</p>
-              </article>
-
-              <!-- EJ 1.2 -->
-              <article class="topic" id="card12">
-                <h4>Ejercicio 1.2</h4>
-                <p class="tiny">Seleccionar color desde una lista desplegable y mostrarlo en la consola.</p>
-                <div class="controls-row" style="margin-top:8px">
-                  <select id="selColor">
-                    <option value="">--Selecciona color--</option>
-                    <option value="Rojo">Rojo</option>
-                    <option value="Verde">Verde</option>
-                    <option value="Azul">Azul</option>
-                    <option value="Amarillo">Amarillo</option>
-                    <option value="Naranja">Naranja</option>
-                  </select>
-                </div>
-                <p class="tiny">Abre la consola (F12) para ver el valor seleccionado.</p>
-              </article>
-
-              <!-- EJ 1.3 -->
-              <article class="topic" id="card13">
-                <h4>Ejercicio 1.3</h4>
-                <p class="tiny">Introducir texto en un input y mostrarlo en una capa al pulsar un botón.</p>
-                <div class="controls-row" style="margin-top:8px">
-                  <input id="txtE13" type="text" placeholder="Escribe algo..." aria-label="Texto 1.3">
-                  <button id="btnE13">Mostrar</button>
-                  <button id="btnE13c">Borrar</button>
-                </div>
-                <div class="output" id="outE13">El texto aparecerá aquí al pulsar Mostrar.</div>
-              </article>
-
-              <!-- EJ 1.4 -->
-              <article class="topic" id="card14">
-                <h4>Ejercicio 1.4</h4>
-                <p class="tiny">Cargar una lista con nombres de imágenes locales y mostrar la seleccionada.</p>
-                <div class="controls-row" style="margin-top:8px">
-                  <select id="selImg">
-                    <option value="">--Selecciona una imagen--</option>
-                    <option value="img1.jpg">img1.jpg</option>
-                    <option value="img2.jpg">img2.jpg</option>
-                    <option value="img3.jpg">img3.jpg</option>
-                  </select>
-                </div>
-                <div style="margin-top:8px">
-                  <img id="previewImg" alt="Previsualización" style="display:none;width:200px;border-radius:8px">
-                </div>
-                <div class="output" id="outE14">Vista previa de la imagen seleccionada.</div>
-              </article>
-
-              <!-- EJ 1.5 listed (already in destacados) -->
-              <article class="topic">
-                <h4>Ejercicio 1.5</h4>
-                <p class="tiny">Negrita / Cursiva (ya disponible arriba como destacado)</p>
-              </article>
-
-            </div>
-          </div>
-
         </section>
 
         <footer>
@@ -403,35 +363,12 @@
       outE15.style.fontStyle = (optItalic.value === 'italic') ? 'italic' : 'normal';
     });
 
-    // Small utilities: export list (example: export current exercises to JSON)
-    document.getElementById('downloadAll').addEventListener('click', ()=>{
-      const ejercicios = [
-        {id:'1.1', title:'Prompt -> párrafo'},
-        {id:'1.2', title:'Selector color (consola)'},
-        {id:'1.3', title:'Input -> div'},
-        {id:'1.4', title:'Lista imágenes -> vista previa'},
-        {id:'1.5', title:'Negrita / Cursiva'}
-      ];
-      const blob = new Blob([JSON.stringify(ejercicios,null,2)], {type:'application/json'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url; a.download = 'ejercicios-2daw.json';
-      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-    });
-
-    // Expand / collapse simple behaviours (toggles show/hide details)
-    document.getElementById('expandAll').addEventListener('click', ()=>{
-      document.querySelectorAll('.topic').forEach(t=> t.style.transform = 'translateY(0)');
-    });
-    document.getElementById('collapseAll').addEventListener('click', ()=>{
-      document.querySelectorAll('.topic').forEach(t=> t.style.transform = 'none');
-    });
-
     // Init: ensure daw1 visible
     sectDaw1.style.display = 'block';
     sectDaw2.style.display = 'none';
   </script>
 </body>
 </html>
+
 
 
