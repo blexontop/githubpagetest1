@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 16</title>
+</head>
+<body>
+  <h2>Ejercicio 16: Suma de dos números</h2>
+  <button onclick="sumar()">Sumar</button>
+
+  <script>
+    function sumar() {
+      let a = parseInt(prompt("Ingresa el primer número:"));
+      let b = parseInt(prompt("Ingresa el segundo número:"));
+      if (a === b) {
+        alert("Resultado: " + (a + b) * 3);
+      } else {
+        alert("Resultado: " + (a + b));
+      }
+    }
+  </script>
+</body>
+</html>

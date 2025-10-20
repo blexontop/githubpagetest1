@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 28</title>
+</head>
+<body>
+  <h2>Ejercicio 28: Verificar si está entre 50 y 99</h2>
+  <button onclick="verificarRango()">Verificar</button>
+
+  <script>
+    function verificarRango() {
+      let valor1 = parseInt(prompt("Ingresa el primer número:"));
+      let valor2 = parseInt(prompt("Ingresa el segundo número:"));
+      if ((valor1 >= 50 && valor1 <= 99) || (valor2 >= 50 && valor2 <= 99)) {
+        alert("Verdadero ✅");
+      } else {
+        alert("Falso ❌");
+      }
+    }
+  </script>
+</body>
+</html>
