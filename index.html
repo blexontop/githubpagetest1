@@ -1,362 +1,236 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portafolio DAW — Frederic Sadibou Sall Diaw</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portafolio DAW — Frederic Sadibou Sall Diaw</title>
 
-  <!-- Fuente -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#07121a;
-      --card:#0f1a23;
-      --muted:#9aa6b2;
-      --accent:#00c6ff;
-      --radius:10px;
-      --maxw:1000px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background: linear-gradient(180deg,var(--bg), #031021 120%);
-      color: #e8f3f8;
-      padding: 24px;
-      display:flex;
-      justify-content:center;
-    }
-    .page{width:100%;max-width:var(--maxw);display:grid;grid-template-columns:260px 1fr;gap:16px}
-    @media (max-width:900px){ .page{grid-template-columns:1fr} }
-    aside{background:var(--card);border-radius:var(--radius);padding:16px;border:1px solid rgba(255,255,255,0.03)}
-    .avatar{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6fbfff);display:flex;align-items:center;justify-content:center;color:#022;font-weight:700;margin-bottom:10px}
-    .small{color:#9aa6b2;font-size:0.9rem;margin:4px 0 10px}
-    .links a{display:block;color:#9aa6b2;text-decoration:none;padding:6px;border-radius:8px}
-    .links a:hover{background:rgba(255,255,255,0.02);color:#fff}
-    main{background:var(--card);border-radius:10px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
-    .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#6fbfff);display:flex;align-items:center;justify-content:center;color:#022;font-weight:700}
-    h1{margin:0;font-size:18px}
-    p.subtitle{margin:0;color:#9aa6b2;font-size:0.9rem}
-    .tabs{display:flex;gap:8px;margin:14px 0}
-    .tab{padding:8px 10px;border-radius:8px;background:transparent;border:1px solid transparent;color:#9aa6b2;cursor:pointer}
-    .tab.active{background:rgba(255,255,255,0.02);color:var(--accent);border-color:rgba(255,255,255,0.03)}
-    .grid{display:grid;gap:12px}
-    @media (min-width:700px){ .grid{grid-template-columns:repeat(2,1fr)} }
-    .card{background:rgba(255,255,255,0.01);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
-    .card h3{margin:0 0 8px;color:var(--accent);font-size:15px}
-    .card ul{margin:0;padding-left:16px;color:#9aa6b2;font-size:14px}
-    .card li{margin:8px 0}
-    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    input[type="text"], select, button{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-    button.primary{background:var(--accent);border:0;color:#022;font-weight:700}
-    .output{margin-top:8px;padding:10px;border-radius:8px;background:rgba(0,0,0,0.35);min-height:36px;color:#e6f8ff}
-    footer{margin-top:12px;color:#9aa6b2;font-size:13px;text-align:center}
-    .hint{color:#9aa6b2;font-size:0.9rem;margin-top:6px}
-    /* 2º DAW layout */
-    .two-col{display:grid;grid-template-columns:240px 1fr;gap:12px}
-    @media (max-width:900px){ .two-col{grid-template-columns:1fr} }
-    .list-ex{background:rgba(255,255,255,0.01);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);max-height:520px;overflow:auto}
-    .list-ex a{display:block;padding:8px;border-radius:6px;color:#9aa6b2;text-decoration:none}
-    .list-ex a:hover{background:rgba(255,255,255,0.02);color:#fff}
-    #exerciseView{min-height:220px}
-    .back-btn{margin-bottom:8px}
-  </style>
+    <style>
+        :root{
+            --bg:#07121a;
+            --card:#0f1a23;
+            --muted:#9aa6b2;
+            --accent:#00c6ff;
+            --radius:10px;
+            --maxw:1000px;
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            background: linear-gradient(180deg,var(--bg), #031021 120%);
+            color: #e8f3f8;
+            padding: 24px;
+            display:flex;
+            justify-content:center;
+        }
+        .page{width:100%;max-width:var(--maxw);display:grid;grid-template-columns:260px 1fr;gap:16px}
+        @media (max-width:900px){ .page{grid-template-columns:1fr} }
+        aside{background:var(--card);border-radius:var(--radius);padding:16px;border:1px solid rgba(255,255,255,0.03)}
+        .avatar{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6fbfff);display:flex;align-items:center;justify-content:center;color:#022;font-weight:700;margin-bottom:10px}
+        .small{color:#9aa6b2;font-size:0.9rem;margin:4px 0 10px}
+        .links a{display:block;color:#9aa6b2;text-decoration:none;padding:6px;border-radius:8px}
+        .links a:hover{background:rgba(255,255,255,0.02);color:#fff}
+        main{background:var(--card);border-radius:10px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
+        .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#6fbfff);display:flex;align-items:center;justify-content:center;color:#022;font-weight:700}
+        h1{margin:0;font-size:18px}
+        p.subtitle{margin:0;color:#9aa6b2;font-size:0.9rem}
+        .tabs{display:flex;gap:8px;margin:14px 0}
+        .tab{padding:8px 10px;border-radius:8px;background:transparent;border:1px solid transparent;color:#9aa6b2;cursor:pointer}
+        .tab.active{background:rgba(255,255,255,0.02);color:var(--accent);border-color:rgba(255,255,255,0.03)}
+        .grid{display:grid;gap:12px}
+        @media (min-width:700px){ .grid{grid-template-columns:repeat(2,1fr)} }
+        .card{background:rgba(255,255,255,0.01);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+        .card h3{margin:0 0 8px;color:var(--accent);font-size:15px}
+        .card ul{margin:0;padding-left:16px;color:#9aa6b2;font-size:14px}
+        .card li{margin:8px 0}
+        .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+        input[type="text"], select, button{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+        button.primary{background:var(--accent);border:0;color:#022;font-weight:700}
+        .output{margin-top:8px;padding:10px;border-radius:8px;background:rgba(0,0,0,0.35);min-height:36px;color:#e6f8ff}
+        footer{margin-top:12px;color:#9aa6b2;font-size:13px;text-align:center}
+        .hint{color:#9aa6b2;font-size:0.9rem;margin-top:6px}
+        /* 2º DAW layout */
+        .two-col{display:grid;grid-template-columns:240px 1fr;gap:12px}
+        @media (max-width:900px){ .two-col{grid-template-columns:1fr} }
+        .list-ex{background:rgba(255,255,255,0.01);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);max-height:520px;overflow:auto}
+        .list-ex a{display:block;padding:8px;border-radius:6px;color:#9aa6b2;text-decoration:none}
+        .list-ex a:hover{background:rgba(255,255,255,0.02);color:#fff}
+        #exerciseView{min-height:220px}
+        .back-btn{margin-bottom:8px}
+    </style>
 </head>
 <body>
-  <div class="page">
-    <aside>
-      <div style="display:flex;gap:12px;align-items:center">
-        <div class="avatar">FS</div>
-        <div>
-          <p style="margin:0;font-weight:700">Frederic Sadibou Sall Diaw</p>
-          <p class="small">Estudiante DAW — 2024–2026</p>
-        </div>
-      </div>
-      <hr style="border:0;height:1px;background:rgba(255,255,255,0.03);margin:12px 0">
-      <nav class="links"><a href="Curriculum.html">➡️ Curriculum</a></nav>
-      <hr style="border:0;height:1px;background:rgba(255,255,255,0.03);margin:12px 0">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div><div class="small">Tema</div><strong>Lenguaje de Marcas</strong></div>
-        <div><div class="small">Curso</div><strong>1º & 2º DAW</strong></div>
-      </div>
-    </aside>
+    <div class="page">
+        <aside>
+            <div style="display:flex;gap:12px;align-items:center">
+                <div class="avatar">FS</div>
+                <div>
+                    <p style="margin:0;font-weight:700">Frederic Sadibou Sall Diaw</p>
+                    <p class="small">Estudiante DAW — 2024–2026</p>
+                </div>
+            </div>
+            <hr style="border:0;height:1px;background:rgba(255,255,255,0.03);margin:12px 0">
+            <nav class="links"><a href="Curriculum.html">➡️ Curriculum</a></nav>
+            <hr style="border:0;height:1px;background:rgba(255,255,255,0.03);margin:12px 0">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+                <div><div class="small">Tema</div><strong>Lenguaje de Marcas</strong></div>
+                <div><div class="small">Curso</div><strong>1º & 2º DAW</strong></div>
+            </div>
+        </aside>
 
-    <main>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <div style="display:flex;gap:12px;align-items:center">
-          <div class="logo">FS</div>
-          <div>
-            <h1>Frederic — Portafolio DAW</h1>
-            <p class="subtitle">1º DAW · Preparando 2º DAW — Desarrollo Entorno Cliente</p>
-          </div>
-        </div>
-        <div class="small">Blex On Top</div>
-      </div>
+        <main>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                <div style="display:flex;gap:12px;align-items:center">
+                    <div class="logo">FS</div>
+                    <div>
+                        <h1>Frederic — Portafolio DAW</h1>
+                        <p class="subtitle">1º DAW · Preparando 2º DAW — Desarrollo Entorno Cliente</p>
+                    </div>
+                </div>
+                <div class="small">Blex On Top</div>
+            </div>
 
-      <div class="tabs" role="tablist">
-        <button class="tab active" onclick="showTab('daw1')">1º DAW</button>
-        <button class="tab" onclick="showTab('daw2')">2º DAW</button>
-      </div>
+            <div class="tabs" role="tablist">
+                <button class="tab active" onclick="showTab('daw1')">1º DAW</button>
+                <button class="tab" onclick="showTab('daw2')">2º DAW</button>
+            </div>
 
-      <section id="daw1">
-      
-        <h3 style="color:#00c6ff;margin-top:0">Contenido — 1º DAW</h3>
+            <section id="daw1">
+            
+                <h3 style="color:#00c6ff;margin-top:0">Contenido — 1º DAW</h3>
 
-        <div class="grid">
-          <div class="card">
-            <h3>TEMA 1 — Introducción al Lenguaje de Marcas</h3>
-            <ul>
-              <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a></li>
-              <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a></li>
-            </ul>
-          </div>
+                <div class="grid">
+                    <div class="card">
+                        <h3>TEMA 1 — Introducción al Lenguaje de Marcas</h3>
+                        <ul>
+                            <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a></li>
+                            <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a></li>
+                        </ul>
+                    </div>
 
-          <div class="card">
-            <h3>TEMA 2 — HTML</h3>
-            <ul>
-              <li><a href="Listas.html">Ejercicio 1: Listas</a></li>
-              <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a></li>
-              <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a></li>
-              <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a></li>
-              <li><a href="Formulario.html">Ejercicio 5: Formulario</a></li>
-              <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a></li>
-              <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a></li>
-              <li><a href="ejercicio3.html">Ejercicio 8: Examen</a></li>
-              <li><a href="CurriculumVitae.html">Ejercicio 9: CurriculumVitae (CSS)</a></li>
-              <li><a href="TopBlex.html">Ejercicio 10: Página proyecto final</a></li>
-            </ul>
-          </div>
+                    <div class="card">
+                        <h3>TEMA 2 — HTML</h3>
+                        <ul>
+                            <li><a href="Listas.html">Ejercicio 1: Listas</a></li>
+                            <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a></li>
+                            <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a></li>
+                            <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a></li>
+                            <li><a href="Formulario.html">Ejercicio 5: Formulario</a></li>
+                            <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a></li>
+                            <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a></li>
+                            <li><a href="ejercicio3.html">Ejercicio 8: Examen</a></li>
+                            <li><a href="CurriculumVitae.html">Ejercicio 9: CurriculumVitae (CSS)</a></li>
+                            <li><a href="TopBlex.html">Ejercicio 10: Página proyecto final</a></li>
+                        </ul>
+                    </div>
 
-          <div class="card">
-            <h3>TEMA 3 — JavaScript</h3>
-            <ul>
-              <li><a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a></li>
-              <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page</a></li>
-              <li><a href="Ejercicio 1_javascript.html">Ejercicio 3: SUMA DE 100 NÚMEROS</a></li>
-              <li><a href="Ejercicio 2_javascript.html">Ejercicio 4: CONTEO DE NÚMEROS IMPARES</a></li>
-              <li><a href="Ejercicio_sumatorio con multiplicacion(min y max).html">Ejercicio 5: GestorVectores</a></li>
-              <li><a href="Clicks.html">Ejercicio 6: Clicks</a></li>
-              <li><a href="Gestor_de_eventos.html">Ejercicio 7: Gestor de eventos</a></li>
-              <li><a href="Ejercicios de parrafos.html">Ejercicio 8: Ejercicios de párrafos</a></li>
-              <li><a href="Calculadora Jquery.html">Ejercicio 9: Calculadora (jQuery)</a></li>
-              <li><a href="Enunciado1examen.html">Ejercicio 10: Examen (enunciado1)</a></li>
-              <li><a href="ejercicioIA.html">Ejercicio 11: IA: CONSULTA IA</a></li>
-              <li><a href="Formulario de Matricula.html">Ejercicio 12: Matrícula: formulario</a></li>
-              <li><a href="empleados.html">Ejercicio 13: Empleados</a></li>
-              <li><a href="feed.json">Ejercicio 14: Feed (JSON)</a></li>
-            </ul>
-          </div>
-        </div>
-      
+                    <div class="card">
+                        <h3>TEMA 3 — JavaScript</h3>
+                        <ul>
+                            <li><a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a></li>
+                            <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page</a></li>
+                            <li><a href="Ejercicio 1_javascript.html">Ejercicio 3: SUMA DE 100 NÚMEROS</a></li>
+                            <li><a href="Ejercicio 2_javascript.html">Ejercicio 4: CONTEO DE NÚMEROS IMPARES</a></li>
+                            <li><a href="Ejercicio_sumatorio con multiplicacion(min y max).html">Ejercicio 5: GestorVectores</a></li>
+                            <li><a href="Clicks.html">Ejercicio 6: Clicks</a></li>
+                            <li><a href="Gestor_de_eventos.html">Ejercicio 7: Gestor de eventos</a></li>
+                            <li><a href="Ejercicios de parrafos.html">Ejercicio 8: Ejercicios de párrafos</a></li>
+                            <li><a href="Calculadora Jquery.html">Ejercicio 9: Calculadora (jQuery)</a></li>
+                            <li><a href="Enunciado1examen.html">Ejercicio 10: Examen (enunciado1)</a></li>
+                            <li><a href="ejercicioIA.html">Ejercicio 11: IA: CONSULTA IA</a></li>
+                            <li><a href="Formulario de Matricula.html">Ejercicio 12: Matrícula: formulario</a></li>
+                            <li><a href="empleados.html">Ejercicio 13: Empleados</a></li>
+                            <li><a href="feed.json">Ejercicio 14: Feed (JSON)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            
 
-      </section>
+            </section>
 
-<!-- 2º DAW (solo TEMA 1) -->
 <section id="daw2" style="display:none; margin-top:8px;">
-      
-        <h3 style="color:#00c6ff;margin-top:0">Desarrollo en Entorno Cliente — 2º DAW</h3>
-        <p class="hint">Ejercicios agrupados en <strong>TEMA 1</strong> — formato idéntico al usado en la sección <em>1º DAW</em> (h3 + ul + li &lt;a&gt;).</p>
+            
+    <h3 style="color:#00c6ff;margin-top:0">Desarrollo en Entorno Cliente — 2º DAW</h3>
+    <p class="hint">Ejercicios agrupados por temas.</p>
 
-        <div class="grid" style="margin-top:8px">
-          <div class="card">
+    <div class="grid" style="margin-top:8px">
+        <div class="card">
             <h3>TEMA 1 — Desarrollo en Entorno Cliente</h3>
             <ul>
-              <li><a href="ejercicio1.1.html">Ejercicio 1: Pedir dato y mostrar</a></li>
-              <li><a href="ejercicio1.2.html">Ejercicio 2: Seleccionar color</a></li>
-              <li><a href="ejercicio1.3.html">Ejercicio 3: Input y mostrar</a></li>
-              <li><a href="ejercicio1.4.html">Ejercicio 4: Previsualizar imagen</a></li>
-              <li><a href="ejercicio1.5.html">Ejercicio 5: Negrita / Cursiva</a></li>
-              <li><a href="basico map y map.html">Ejercicio 6: map y flecha</a></li>
-              <li><a href="dias de la semana.html">Ejercicio 7: dias de la semana</a></li>
-              <li><a href="Ejercicio 8.html">Ejercicio 8: Adivinar un número</a></li>
-              <li><a href="Ejercicio 9.html">Ejercicio 9:Días hasta Navidad</a></li>
-              <li><a href="Ejercicio 10.html">Ejercicio 10: Multiplicación y División</a></li>
-              <li><a href="Ejercicio 11.html">Ejercicio 11: Conversión de Temperaturas </a></li>
-              <li><a href="Ejercicio 12.html">Ejercicio 12: Obtener la URL</a></li>
-              <li><a href="Ejercicio 13.html">Ejercicio 13: Variable con nombre definido por el usuario</a></li>
-              <li><a href="Ejercicio 14.html">Ejercicio 14: Obtener la extensión de un archivo</a></li>
-              <li><a href="Ejercicio 15.html">Ejercicio 15: Diferencia con 13</a></li>
-              <li><a href="Ejercicio 16.html">Ejercicio 16: Suma (triple si son iguales)</a></li>
-              <li><a href="Ejercicio 17.html">Ejercicio 17: Diferencia con 19 (triple si es mayor)</a></li>
-              <li><a href="Ejercicio 18.html">Ejercicio 18: Verificar número 50 o suma 50</a></li>
-              <li><a href="Ejercicio 28.html">Ejercicio 28: Verificar rango 50 a 99</a></li>
-              
-              
-              
+                <li><a href="ejercicio1.1.html">Ejercicio 1: Pedir dato y mostrar</a></li>
+                <li><a href="ejercicio1.2.html">Ejercicio 2: Seleccionar color</a></li>
+                <li><a href="ejercicio1.3.html">Ejercicio 3: Input y mostrar</a></li>
+                <li><a href="ejercicio1.4.html">Ejercicio 4: Previsualizar imagen</a></li>
+                <li><a href="ejercicio1.5.html">Ejercicio 5: Negrita / Cursiva</a></li>
+                <li><a href="basico map y map.html">Ejercicio 6: map y flecha</a></li>
+                <li><a href="dias de la semana.html">Ejercicio 7: dias de la semana</a></li>
+                <li><a href="Ejercicio 8.html">Ejercicio 8: Adivinar un número</a></li>
+                <li><a href="Ejercicio 9.html">Ejercicio 9:Días hasta Navidad</a></li>
+                <li><a href="Ejercicio 10.html">Ejercicio 10: Multiplicación y División</a></li>
+                <li><a href="Ejercicio 11.html">Ejercicio 11: Conversión de Temperaturas </a></li>
+                <li><a href="Ejercicio 12.html">Ejercicio 12: Obtener la URL</a></li>
+                <li><a href="Ejercicio 13.html">Ejercicio 13: Variable con nombre definido por el usuario</a></li>
+                <li><a href="Ejercicio 14.html">Ejercicio 14: Obtener la extensión de un archivo</a></li>
+                <li><a href="Ejercicio 15.html">Ejercicio 15: Diferencia con 13</a></li>
+                <li><a href="Ejercicio 16.html">Ejercicio 16: Suma (triple si son iguales)</a></li>
+                <li><a href="Ejercicio 17.html">Ejercicio 17: Diferencia con 19 (triple si es mayor)</a></li>
+                <li><a href="Ejercicio 18.html">Ejercicio 18: Verificar número 50 o suma 50</a></li>
+                <li><a href="Ejercicio 28.html">Ejercicio 28: Verificar rango 50 a 99</a></li>
             </ul>
-          </div>
         </div>
-
-        <!-- panel derecho con las tarjetas (las mismas que antes) -->
-        <div style="margin-top:12px">
-          <div id="exerciseView">
-            <div id="gridContainer" class="grid">
-              <!-- tarjetas de ejercicios (no cambiar ids) -->
-
-              <div class="card" id="ejercicio1.1">
-                <h3>ejercicio1.1</h3>
-                <p class="small">Pedir un dato con prompt y mostrarlo en un párrafo.</p>
-                <div class="controls">
-                  <button onclick="pedirDato()" class="primary">Pedir dato</button>
-                  <button onclick="limpiarE11()">Limpiar</button>
-                </div>
-                <div class="output" id="outE11">Aquí aparecerá el texto introducido.</div>
-              </div>
-
-              <div class="card" id="ejercicio1.2">
-                <h3>ejercicio1.2</h3>
-                <p class="small">Seleccionar un color de la lista y mostrarlo por la consola.</p>
-                <div class="controls">
-                  <select id="selColor" onchange="mostrarColor()">
-                    <option value="">--Selecciona color--</option>
-                    <option value="Rojo">Rojo</option>
-                    <option value="Verde">Verde</option>
-                    <option value="Azul">Azul</option>
-                    <option value="Amarillo">Amarillo</option>
-                    <option value="Naranja">Naranja</option>
-                  </select>
-                </div>
-                <div class="hint">Presiona F12 para abrir la consola y ver el valor.</div>
-              </div>
-
-              <div class="card" id="ejercicio1.3">
-                <h3>ejercicio1.3</h3>
-                <p class="small">Escribe texto en el input y muéstralo en la caja al pulsar Mostrar.</p>
-                <div class="controls">
-                  <input id="txtE13" type="text" placeholder="Escribe algo...">
-                  <button onclick="mostrarE13()" class="primary">Mostrar</button>
-                  <button onclick="borrarE13()">Borrar</button>
-                </div>
-                <div class="output" id="outE13">El texto aparecerá aquí al pulsar Mostrar.</div>
-              </div>
-
-              <div class="card" id="ejercicio1.4">
-                <h3>ejercicio1.4</h3>
-                <p class="small">Selecciona el nombre de una imagen (local) y se mostrará si existe.</p>
-                <div class="controls">
-                  <select id="selImg" onchange="cargarImg()">
-                    <option value="">--Selecciona imagen--</option>
-                    <option value="img1.jpg">img1.jpg</option>
-                    <option value="img2.jpg">img2.jpg</option>
-                    <option value="img3.jpg">img3.jpg</option>
-                  </select>
-                </div>
-                <div style="margin-top:8px">
-                  <img id="previewImg" alt="Previsualización" style="display:none;width:220px;border-radius:8px">
-                </div>
-                <div class="output" id="outE14">Vista previa de la imagen seleccionada.</div>
-              </div>
-
-              <div class="card" id="ejercicio1.5">
-                <h3>ejercicio1.5</h3>
-                <p class="small">Selecciona Negrita / Cursiva para aplicar al texto.</p>
-                <div class="controls">
-                  <input id="txtE15" type="text" value="Texto de ejemplo">
-                  <select id="optBold">
-                    <option value="normal">Normal</option>
-                    <option value="bold">Negrita</option>
-                  </select>
-                  <select id="optItalic">
-                    <option value="normal">Normal</option>
-                    <option value="italic">Cursiva</option>
-                  </select>
-                  <button onclick="aplicarEstilos()" class="primary">Aplicar</button>
-                </div>
-                <div class="output" id="outE15">Aquí se mostrará el texto con los estilos seleccionados.</div>
-              </div>
-
-            </div> <!-- gridContainer -->
-          </div> <!-- exerciseView -->
-
-          <div style="margin-top:10px;display:flex;gap:8px">
+        
+        <div class="card">
+            <h3>TEMA 3 — Cadenas</h3>
+            <ul>
+                <li><a href="Extraer un número específico de caracteres de una cadena.html">Ejercicio 4: Extraer un número específico de caracteres</a></li>
+                <li><a href="Ocultar direcciones de correo electrónico.html">Ejercicio 6: Ocultar direcciones de correo electrónico</a></li>
+                <li><a href="Poner en mayúscula la primera letra de cada palabra.html">Ejercicio 9: Poner en mayúscula la primera letra de cada palabra</a></li>
+                <li><a href="Insertar una cadena dentro de una cadena en una posición particular.html">Ejercicio 14: Insertar una cadena dentro de una cadena</a></li>
+                <li><a href="Contar la aparición de una subcadena (Buscar una palabra).html">Ejercicio 18/29: Contar la aparición de una subcadena</a></li>
+            </ul>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:8px">
             <button class="tab" onclick="showAllExercises()">Volver a la lista</button>
             <button class="tab" onclick="showTab('daw1')">Ir a 1º DAW</button>
-          </div>
         </div>
-      
-
-      </section>
+    </div>
+</section>
 
 <footer><small>&copy; 2024–2026 — Frederic Sadibou Sall Diaw · Portafolio DAW</small></footer>
-    </main>
-  </div>
+        </main>
+    </div>
 
-  <script>
-    function showTab(name) {
-      var daw1 = document.getElementById('daw1');
-      var daw2 = document.getElementById('daw2');
-      var tabs = document.querySelectorAll('.tab');
-      if (name === 'daw2') { daw1.style.display = 'none'; daw2.style.display = 'block'; }
-      else { daw1.style.display = 'block'; daw2.style.display = 'none'; }
-      tabs.forEach(function(t){ t.classList.remove('active'); });
-      // marcar botón activo por texto
-      tabs.forEach(function(t){ if (t.textContent.trim().toLowerCase().indexOf(name.replace('daw','')) !== -1) t.classList.add('active'); });
-    }
+    <script>
+        // Funciones de navegación (mantenidas)
+        function showTab(name) {
+            var daw1 = document.getElementById('daw1');
+            var daw2 = document.getElementById('daw2');
+            var tabs = document.querySelectorAll('.tab');
+            if (name === 'daw2') { daw1.style.display = 'none'; daw2.style.display = 'block'; }
+            else { daw1.style.display = 'block'; daw2.style.display = 'none'; }
+            tabs.forEach(function(t){ t.classList.remove('active'); });
+            tabs.forEach(function(t){ if (t.textContent.trim().toLowerCase().indexOf(name.replace('daw','')) !== -1) t.classList.add('active'); });
+        }
 
-    // Manejo de abrir 1 a 1
-    var originalPlace = {};
-    function openExercise(id) {
-      var el = document.getElementById(id);
-      if (!el) return;
-      var grid = document.getElementById('gridContainer');
-      if (!grid) return;
-      // guardar posición original
-      if (!originalPlace[id]) originalPlace[id] = { parent: el.parentNode, nextSibling: el.nextSibling };
-      // ocultar grid
-      grid.style.display = 'none';
-      // crear contenedor y mover el elemento
-      var single = document.createElement('div');
-      single.id = 'single_' + id;
-      single.className = 'card';
-      single.appendChild(el);
-      var back = document.createElement('div'); back.style.marginBottom = '8px';
-      back.innerHTML = '<button class="tab back-btn" onclick="closeExercise(\''+id+'\')">← Volver a la lista</button>';
-      var viewInner = document.getElementById('exerciseView');
-      viewInner.innerHTML = '';
-      viewInner.appendChild(back);
-      viewInner.appendChild(single);
-      viewInner.scrollIntoView({behavior:'smooth'});
-    }
+        // INIT
+        showTab('daw1');
 
-    function closeExercise(id) {
-      var el = document.getElementById(id);
-      if (!el) return;
-      var info = originalPlace[id];
-      if (info && info.parent) {
-        if (info.nextSibling) info.parent.insertBefore(el, info.nextSibling);
-        else info.parent.appendChild(el);
-      }
-      var grid = document.getElementById('gridContainer');
-      grid.style.display = 'grid';
-      var viewInner = document.getElementById('exerciseView');
-      viewInner.innerHTML = '';
-      viewInner.appendChild(grid);
-    }
+        // Funciones básicas de DAW 2 (Mantenidas, si las necesitas)
+        function pedirDato() { var valor = prompt('Introduce un texto:'); var salida = document.getElementById('outE11'); if (!salida) return; salida.innerText = (valor === null) ? 'Operación cancelada.' : valor; }
+        function limpiarE11(){ var salida = document.getElementById('outE11'); if (!salida) return; salida.innerText = 'Aquí aparecerá el texto introducido.'; }
+        function mostrarColor(){ var sel = document.getElementById('selColor'); if (!sel) return; console.log('Color seleccionado: ' + (sel.value || '(ninguno)')); }
+        function mostrarE13(){ var input = document.getElementById('txtE13'); var out = document.getElementById('outE13'); if (!out) return; out.innerText = (input && input.value) ? input.value : '(vacío)'; }
+        function borrarE13(){ var input = document.getElementById('txtE13'); var out = document.getElementById('outE13'); if (input) input.value = ''; if (out) out.innerText = 'El texto aparecerá aquí al pulsar Mostrar.'; }
+        function cargarImg(){ var sel = document.getElementById('selImg'); var img = document.getElementById('previewImg'); var out = document.getElementById('outE14'); if (!sel) return; var ruta = sel.value; if (!ruta){ if(img){img.style.display='none';img.src='';} if(out) out.innerText='Vista previa de la imagen seleccionada.'; return; } img.src = ruta; img.onload = function(){ img.style.display='block'; if(out) out.innerText = 'Imagen cargada: ' + ruta; }; img.onerror = function(){ img.style.display='none'; img.src=''; if(out) out.innerText = 'No se ha encontrado "' + ruta + '". Pon el fichero en la misma carpeta.'; } }
+        function aplicarEstilos(){ var txt = document.getElementById('txtE15'); var out = document.getElementById('outE15'); if (!out) return; var bold = document.getElementById('optBold'); var italic = document.getElementById('optItalic'); out.innerText = (txt && txt.value) ? txt.value : ''; if (bold && bold.value === 'bold') out.style.fontWeight = '700'; else out.style.fontWeight = '400'; if (italic && italic.value === 'italic') out.style.fontStyle = 'italic'; else out.style.fontStyle = 'normal'; }
 
-    function showAllExercises(){
-      var grid = document.getElementById('gridContainer'); if (!grid) return;
-      grid.style.display = 'grid';
-      var viewInner = document.getElementById('exerciseView'); viewInner.innerHTML = ''; viewInner.appendChild(grid);
-    }
-
-    // Ejercicios básicos
-    function pedirDato() { var valor = prompt('Introduce un texto:'); var salida = document.getElementById('outE11'); if (!salida) return; salida.innerText = (valor === null) ? 'Operación cancelada.' : valor; }
-    function limpiarE11(){ var salida = document.getElementById('outE11'); if (!salida) return; salida.innerText = 'Aquí aparecerá el texto introducido.'; }
-    function mostrarColor(){ var sel = document.getElementById('selColor'); if (!sel) return; console.log('Color seleccionado: ' + (sel.value || '(ninguno)')); }
-    function mostrarE13(){ var input = document.getElementById('txtE13'); var out = document.getElementById('outE13'); if (!out) return; out.innerText = (input && input.value) ? input.value : '(vacío)'; }
-    function borrarE13(){ var input = document.getElementById('txtE13'); var out = document.getElementById('outE13'); if (input) input.value = ''; if (out) out.innerText = 'El texto aparecerá aquí al pulsar Mostrar.'; }
-    function cargarImg(){ var sel = document.getElementById('selImg'); var img = document.getElementById('previewImg'); var out = document.getElementById('outE14'); if (!sel) return; var ruta = sel.value; if (!ruta){ if(img){img.style.display='none';img.src='';} if(out) out.innerText='Vista previa de la imagen seleccionada.'; return; } img.src = ruta; img.onload = function(){ img.style.display='block'; if(out) out.innerText = 'Imagen cargada: ' + ruta; }; img.onerror = function(){ img.style.display='none'; img.src=''; if(out) out.innerText = 'No se ha encontrado "' + ruta + '". Pon el fichero en la misma carpeta.'; } }
-    function aplicarEstilos(){ var txt = document.getElementById('txtE15'); var out = document.getElementById('outE15'); if (!out) return; var bold = document.getElementById('optBold'); var italic = document.getElementById('optItalic'); out.innerText = (txt && txt.value) ? txt.value : ''; if (bold && bold.value === 'bold') out.style.fontWeight = '700'; else out.style.fontWeight = '400'; if (italic && italic.value === 'italic') out.style.fontStyle = 'italic'; else out.style.fontStyle = 'normal'; }
-
-    // init
-    showTab('daw1');
-  </script>
+        // Mantenidas para evitar errores, aunque no están en el nuevo TEMA 3
+        function openExercise(id) { /* ... */ }
+        function closeExercise(id) { /* ... */ }
+        function showAllExercises(){ /* ... */ }
+    </script>
 </body>
 </html>
-
-
-
-
-
-
