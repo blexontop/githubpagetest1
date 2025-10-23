@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 14: Insertar Cadena</title>
+</head>
+<body>
+    <h1>14. Insertar una cadena dentro de una cadena en una posición particular</h1>
+    <p>Abre la Consola (F12) para ver los ejemplos.</p>
+    <script>
+        function insertar(cadenaPrincipal, subcadena = '', posicion = 1) {
+            // Convertir la posición (base 1) a índice de JavaScript (base 0)
+            const indice = Math.max(0, posicion - 1); 
+
+            // Toma la parte inicial de la cadena
+            const parteInicio = cadenaPrincipal.slice(0, indice);
+            
+            // Toma la parte final de la cadena
+            const parteFinal = cadenaPrincipal.slice(indice);
+
+            // Une las tres partes
+            return parteInicio + subcadena + parteFinal;
+        }
+
+        console.log("--- Ejercicio 14 ---");
+        
+        // Ejemplo 1: Solo la cadena principal (subcadena y posición por defecto)
+        console.log(`Ejemplo 1: "${insertar('Estamos haciendo ejercicios.')}"`); 
+        // Esperado: "Estamos haciendo ejercicios."
+
+        // Ejemplo 2: Insertar al inicio (posición por defecto 1)
+        console.log(`Ejemplo 2: "${insertar('Estamos haciendo ejercicios.', 'JavaScript ')}"`);
+        // Esperado: "JavaScript Estamos haciendo ejercicios."
+        
+        // Ejemplo 3: Insertar en una posición específica
+        console.log(`Ejemplo 3: "${insertar('Estamos haciendo algunos ejercicios.', ' de JavaScript', 18)}"`);
+        // Esperado: "Estamos haciendo algunos ejercicios de JavaScript."
+    </script>
+</body>
+</html>

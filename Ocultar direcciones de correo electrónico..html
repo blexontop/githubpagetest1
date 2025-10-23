@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 6: Proteger Email</title>
+</head>
+<body>
+    <h1>6. Ocultar y proteger direcciones de correo electrónico</h1>
+    <p>Abre la Consola (F12) para ver el resultado.</p>
+    <script>
+        function protege_email(email) {
+            // 1. Encuentra la posición del '@'
+            const partes = email.split('@');
+            
+            // Si el formato es incorrecto o no hay dominio
+            if (partes.length !== 2) {
+                return email;
+            }
+
+            const usuario = partes[0];
+            const dominio = partes[1];
+            
+            // 2. Oculta el usuario mostrando solo los primeros 3 caracteres seguidos de "..."
+            const usuarioOculto = usuario.substring(0, 3) + '...';
+
+            // 3. Reúne el usuario oculto con el dominio
+            return usuarioOculto + '@' + dominio;
+        }
+
+        const emailEjemplo = "rob_hood@example.com";
+        const resultado = protege_email(emailEjemplo);
+
+        console.log("--- Ejercicio 6 ---");
+        console.log(`Email Original: "${emailEjemplo}"`);
+        console.log(`Resultado: "${resultado}"`); // Esperado: "rob...@example.com"
+    </script>
+</body>
+</html>

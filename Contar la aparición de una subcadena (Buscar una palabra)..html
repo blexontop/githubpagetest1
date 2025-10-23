@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 18 & 29: Contar Apariciones</title>
+</head>
+<body>
+    <h1>18 & 29. Contar la aparición de una subcadena / Encontrar una palabra</h1>
+    <p>Abre la Consola (F12) para ver los resultados.</p>
+    <script>
+        // Esta función cubre ambos puntos (contar la aparición y encontrar la palabra).
+        function palabra_búsqueda(cadena, subcadena) {
+            if (!cadena || !subcadena) return "Búsqueda inválida.";
+            
+            // Creamos una Expresión Regular con la bandera 'g' (global) para buscar todas las ocurrencias.
+            const regex = new RegExp(subcadena, 'g');
+            
+            // match() devuelve un array con todas las coincidencias encontradas.
+            const coincidencias = cadena.match(regex);
+            
+            // Si hay coincidencias, el conteo es la longitud del array; si no, es 0.
+            const conteo = coincidencias ? coincidencias.length : 0;
+            
+            return `'${subcadena}' se encontró ${conteo} veces.`;
+        }
+
+        console.log("--- Ejercicio 18 y 29 ---");
+        
+        console.log(palabra_búsqueda('El zorro marrón', 'zorro'));
+        // Esperado: "'zorro' se encontró 1 veces."
+        
+        console.log(palabra_búsqueda('aa, bb, aa, aa', 'aa'));
+        // Esperado: "'aa' se encontró 3 veces." (Modificado para mostrar un conteo mayor)
+    </script>
+</body>
+</html>

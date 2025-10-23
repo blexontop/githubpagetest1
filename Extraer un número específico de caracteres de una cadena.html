@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4: Extraer Caracteres</title>
+</head>
+<body>
+    <h1>4. Extraer un número específico de caracteres de una cadena</h1>
+    <p>Abre la Consola (F12) para ver el resultado.</p>
+    <script>
+        function extraerCaracteres(cadena, num) {
+            // Usa slice() para tomar 'num' caracteres desde el inicio (índice 0).
+            return cadena.slice(0, num);
+        }
+
+        const texto = 'Aprendiendo JavaScript';
+        const longitud = 11;
+        const resultado = extraerCaracteres(texto, longitud);
+
+        console.log("--- Ejercicio 4 ---");
+        console.log(`Cadena Original: "${texto}"`);
+        console.log(`Número de Caracteres a extraer: ${longitud}`);
+        console.log(`Resultado: "${resultado}"`); // Esperado: "Aprendiendo"
+    </script>
+</body>
+</html>
