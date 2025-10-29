@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>31 - Mayor de tres</title></head>
+<body>
+  <h1>31 - Número más alto de tres</h1>
+  <pre id="out"></pre>
+
+  <script>
+    function mayorDeTres(a, b, c) {
+      let max = a;
+      if (b > max) max = b;
+      if (c > max) max = c;
+      return max;
+    }
+
+    const a = 7, b = 15, c = 9;
+    const res = mayorDeTres(a, b, c);
+
+    const out = `Números: ${a}, ${b}, ${c}
+Mayor: ${res}`;
+    document.getElementById("out").textContent = out;
+    console.log(out);
+  </script>
+</body>
+</html>

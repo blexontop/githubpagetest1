@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>4b - Nombre y días del mes</title>
+</head>
+<body>
+  <h1>4b - Nombre y días del mes</h1>
+  <pre id="out"></pre>
+
+  <script>
+    // a) nombre del mes a partir de una fecha
+    function nombreMes(fecha) {
+      const nombres = ["enero","febrero","marzo","abril","mayo","junio",
+                       "julio","agosto","septiembre","octubre","noviembre","diciembre"];
+      return nombres[fecha.getMonth()];
+    }
+
+    // b) función(mes, año) -> devuelve días del mes (28,29,30 o 31)
+    // Nota: mes 1..12 (más natural para humanos)
+    function diasDelMes(mes, anio) {
+      // El truco: día 0 del siguiente mes es el último día del mes pedido
+      return new Date(anio, mes, 0).getDate();
+    }
+
+    const fecha = new Date(2025, 0, 15); // 15/enero/2025
+    const nombre = nombreMes(fecha);
+    const dias30 = diasDelMes(4, 2025); // abril 2025 -> 30
+    const dias31 = diasDelMes(7, 2025); // julio 2025 -> 31
+    const diasFeb = diasDelMes(2, 2024); // feb 2024 (bisiesto) -> 29
+
+    const out = `Fecha de ejemplo: ${fecha.toDateString()}
+Nombre del mes: ${nombre}
+
+Días por (mes, año):
+abril 2025 -> ${dias30}
+julio 2025 -> ${dias31}
+febrero 2024 -> ${diasFeb}`;
+    document.getElementById("out").textContent = out;
+    console.log(out);
+  </script>
+</body>
+</html>
