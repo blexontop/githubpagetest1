@@ -1,245 +1,465 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Portafolio DAW — Frederic Sadibou Sall Diaw</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio DAW — Frederic Sadibou Sall Diaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================
+       Landing limpia (estilo Wix)
+       + extras futuristas únicos 2.0
+       ============================ */
+    :root{
+      --ink:#0b1020;       /* texto oscuro */
+      --muted:#56607a;     /* texto secundario */
+      --bg:#ffffff;        /* base clara */
+      --card:#f6f8ff;      /* paneles */
+      --line:#e9ecf5;      /* bordes sutiles */
+      --brand:#0061ff;     /* azul base (dinámico) */
+      --brand-2:#00e5ff;   /* cian acento (dinámico) */
+      --brand-3:#7a5cff;   /* violeta (dinámico) */
+      --grad: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 50%, var(--brand-3) 100%);
+      --radius:18px; --maxw:1200px; --shadow:0 10px 30px rgba(10,16,32,.08);
+      --cursorX: 50vw; --cursorY: 50vh; /* para halo reactivo */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; color:var(--ink); background:var(--bg); font-family: Inter, "Instrument Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    /* ===== Header sticky + barra de progreso global ===== */
+    header{position:sticky; top:0; z-index:60; background:#fff; border-bottom:1px solid var(--line); backdrop-filter:saturate(1.2) blur(8px);} 
+    .nav{max-width:var(--maxw); margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:40px; height:40px; border-radius:12px; background:var(--grad); display:grid; place-items:center; color:#fff; font-weight:800; letter-spacing:.5px; box-shadow:var(--shadow)}
+    .brand h1{font-size:1.05rem; margin:0}
+    .brand span{display:block; font-size:.9rem; color:var(--muted)}
+    .menu{display:flex; align-items:center; gap:10px}
+    .menu a{color:var(--ink); text-decoration:none; padding:8px 10px; border-radius:10px}
+    .menu a:hover{background:#f5f7ff}
+    .cta{padding:10px 14px; border-radius:12px; background:var(--grad); color:#fff !important; font-weight:800; box-shadow:var(--shadow); border:0}
+    .mic{display:inline-flex; align-items:center; gap:6px; padding:10px 12px; border:1px solid var(--line); border-radius:12px; background:#fff; cursor:pointer}
+    .mic[aria-pressed="true"]{border-color:#ff6b6b; box-shadow:0 0 0 3px rgba(255,107,107,.25)}
 
-    <style>
-        :root{
-            --bg:#07121a;
-            --card:#0f1a23;
-            --muted:#9aa6b2;
-            --accent:#00c6ff;
-            --radius:10px;
-            --maxw:1000px;
-        }
-        *{box-sizing:border-box}
-        body{
-            margin:0;
-            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-            background: linear-gradient(180deg,var(--bg), #031021 120%);
-            color: #e8f3f8;
-            padding: 24px;
-            display:flex;
-            justify-content:center;
-        }
-        .page{width:100%;max-width:var(--maxw);display:grid;grid-template-columns:260px 1fr;gap:16px}
-        @media (max-width:900px){ .page{grid-template-columns:1fr} }
-        aside{background:var(--card);border-radius:var(--radius);padding:16px;border:1px solid rgba(255,255,255,0.03)}
-        .avatar{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6fbfff);display:flex;align-items:center;justify-content:center;color:#022;font-weight:700;margin-bottom:10px}
-        .small{color:#9aa6b2;font-size:0.9rem;margin:4px 0 10px}
-        .links a{display:block;color:#9aa6b2;text-decoration:none;padding:6px;border-radius:8px}
-        .links a:hover{background:rgba(255,255,255,0.02);color:#fff}
-        main{background:var(--card);border-radius:10px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
-        .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#6fbfff);display:flex;align-items:center;justify-content:center;color:#022;font-weight:700}
-        h1{margin:0;font-size:18px}
-        p.subtitle{margin:0;color:#9aa6b2;font-size:0.9rem}
-        .tabs{display:flex;gap:8px;margin:14px 0}
-        .tab{padding:8px 10px;border-radius:8px;background:transparent;border:1px solid transparent;color:#9aa6b2;cursor:pointer}
-        .tab.active{background:rgba(255,255,255,0.02);color:var(--accent);border-color:rgba(255,255,255,0.03)}
-        .grid{display:grid;gap:12px}
-        @media (min-width:700px){ .grid{grid-template-columns:repeat(2,1fr)} }
-        .card{background:rgba(255,255,255,0.01);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
-        .card h3{margin:0 0 8px;color:var(--accent);font-size:15px}
-        .card ul{margin:0;padding-left:16px;color:#9aa6b2;font-size:14px}
-        .card li{margin:8px 0}
-        .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-        input[type="text"], select, button{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-        button.primary{background:var(--accent);border:0;color:#022;font-weight:700}
-        .output{margin-top:8px;padding:10px;border-radius:8px;background:rgba(0,0,0,0.35);min-height:36px;color:#e6f8ff}
-        footer{margin-top:12px;color:#9aa6b2;font-size:13px;text-align:center}
-        .hint{color:#9aa6b2;font-size:0.9rem;margin-top:6px}
-        /* 2º DAW layout */
-        .two-col{display:grid;grid-template-columns:240px 1fr;gap:12px}
-        @media (max-width:900px){ .two-col{grid-template-columns:1fr} }
-        .list-ex{background:rgba(255,255,255,0.01);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);max-height:520px;overflow:auto}
-        .list-ex a{display:block;padding:8px;border-radius:6px;color:#9aa6b2;text-decoration:none}
-        .list-ex a:hover{background:rgba(255,255,255,0.02);color:#fff}
-        #exerciseView{min-height:220px}
-        .back-btn{margin-bottom:8px}
-    </style>
+    .progress{height:3px; width:100%; background:linear-gradient(90deg, var(--brand), var(--brand-2)); transform-origin:left; transform:scaleX(0);}
+
+    /* ===== Hero con halo reactivo al cursor ===== */
+    .hero{position:relative; overflow:hidden; border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(600px 400px at var(--cursorX) var(--cursorY), rgba(0,97,255,.12), transparent 60%),
+        radial-gradient(900px 600px at 80% -10%, #e8f3ff 0%, transparent 60%),
+        radial-gradient(1000px 700px at -10% 40%, #eefaff 0%, transparent 55%),
+        #fff;}
+    .hero .wrap{max-width:var(--maxw); margin:0 auto; padding:56px 20px}
+    .tag{display:inline-block; font-size:.78rem; background:#eef4ff; padding:6px 10px; color:#224; border-radius:999px; border:1px solid var(--line)}
+    .hero h2{font-size:clamp(2rem, 3.8vw, 3.4rem); line-height:1.05; margin:14px 0}
+    .hero p{font-size:1.05rem; color:var(--muted); max-width:800px}
+    .btns{display:flex; gap:10px; margin-top:16px; flex-wrap:wrap}
+    .btn{padding:12px 16px; border-radius:12px; border:1px solid var(--line); background:#fff; color:var(--ink); text-decoration:none; font-weight:700}
+    .btn.primary{background:var(--grad); border:0; color:#fff}
+
+    /* ===== Contenido ===== */
+    .container{max-width:var(--maxw); margin:0 auto; padding:28px 20px}
+    .section-head{display:flex; justify-content:space-between; align-items:end; gap:12px; margin-bottom:12px}
+    .section-head h3{margin:0; font-size:1.4rem}
+    .cards{display:grid; gap:14px}
+    @media (min-width:780px){ .cards{grid-template-columns:repeat(2, minmax(0,1fr))} }
+
+    .card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); transition:transform .15s ease, box-shadow .15s ease}
+    .card:hover{transform:translateY(-2px); box-shadow:0 18px 40px rgba(10,16,32,.12)}
+    .card h4{margin:0 0 10px; color:#0b2a66; font-size:1.05rem}
+    .card ul{margin:0; padding-left:20px; color:#2b3550}
+    .card li{margin:8px 0}
+    .card a{color:#0b3eff; text-decoration:none}
+    .card a:hover{text-decoration:underline}
+
+    /* Tilt 3D suave */
+    .tilt{transform-style:preserve-3d}
+    .tilt:hover .tilt-spot{transform:translateZ(18px)}
+    .tilt-spot{transition:transform .2s ease}
+
+    /* ===== Footer ===== */
+    footer{border-top:1px solid var(--line); background:#fff; margin-top:24px}
+    footer .container{padding:20px}
+    .foot{display:flex; align-items:center; justify-content:space-between; gap:12px; color:var(--muted); font-size:.95rem}
+
+    /* ===== Overlay Canvas: HoloTrail (cursor futurista) ===== */
+    #fx{position:fixed; inset:0; pointer-events:none; z-index:50}
+
+    /* ===== Command Palette (Ctrl/Cmd + K) ===== */
+    .palette{position:fixed; inset:0; display:none; align-items:flex-start; justify-content:center; padding:8vh 16px; background:rgba(6,12,24,.35); backdrop-filter:blur(6px); z-index:70}
+    .palette-inner{width:min(760px, 96vw); background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:0 40px 120px rgba(10,16,32,.25); overflow:hidden}
+    .palette input{width:100%; padding:14px 16px; border:0; outline:none; font-size:1rem; border-bottom:1px solid var(--line)}
+    .palette ul{list-style:none; margin:0; padding:8px 0; max-height:50vh; overflow:auto}
+    .palette li{padding:10px 16px; display:flex; justify-content:space-between; align-items:center; gap:12px; cursor:pointer}
+    .palette li:hover, .palette li.active{background:#f5f7ff}
+    .pill{display:inline-block; padding:2px 8px; border-radius:999px; background:#eef4ff; color:#224; font-size:.75rem}
+
+    /* ===== Neon Grid (Easter egg Konami) ===== */
+    body.neon{background:linear-gradient(180deg, #ffffff, #f7fbff);} 
+    body.neon::before{content:""; position:fixed; inset:0; z-index:-1; opacity:.35; pointer-events:none; background:repeating-linear-gradient(90deg, rgba(0,97,255,.25) 0 1px, transparent 1px 64px), repeating-linear-gradient(0deg, rgba(122,92,255,.25) 0 1px, transparent 1px 64px); mask: radial-gradient(900px 600px at 50% -20%, #000 0%, transparent 60%);}
+
+    /* ===== Tooltip de preview ===== */
+    .preview{position:fixed; z-index:80; display:none; min-width:220px; max-width:360px; background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 20px 60px rgba(10,16,32,.2); padding:10px}
+    .preview h5{margin:0 0 6px; font-size:.95rem}
+    .preview p{margin:0; color:#556}
+
+    /* Accesibilidad */
+    a,button{outline:none}
+    a:focus-visible, .btn:focus-visible, .cta:focus-visible{box-shadow:0 0 0 3px rgba(0,97,255,.3)}
+  </style>
 </head>
 <body>
-    <div class="page">
-        <aside>
-            <div style="display:flex;gap:12px;align-items:center">
-                <div class="avatar">FS</div>
-                <div>
-                    <p style="margin:0;font-weight:700">Frederic Sadibou Sall Diaw</p>
-                    <p class="small">Estudiante DAW — 2024–2026</p>
-                </div>
-            </div>
-            <hr style="border:0;height:1px;background:rgba(255,255,255,0.03);margin:12px 0">
-            <nav class="links"><a href="Curriculum.html">➡️ Curriculum</a></nav>
-            <hr style="border:0;height:1px;background:rgba(255,255,255,0.03);margin:12px 0">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div><div class="small">Tema</div><strong>Lenguaje de Marcas</strong></div>
-                <div><div class="small">Curso</div><strong>1º & 2º DAW</strong></div>
-            </div>
-        </aside>
+  <div class="progress" id="progress"></div>
+  <canvas id="fx"></canvas>
 
-        <main>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-                <div style="display:flex;gap:12px;align-items:center">
-                    <div class="logo">FS</div>
-                    <div>
-                        <h1>Frederic — Portafolio DAW</h1>
-                        <p class="subtitle">1º DAW · Preparando 2º DAW — Desarrollo Entorno Cliente</p>
-                    </div>
-                </div>
-                <div class="small">Blex On Top</div>
-            </div>
-
-            <div class="tabs" role="tablist">
-                <button class="tab active" onclick="showTab('daw1')">1º DAW</button>
-                <button class="tab" onclick="showTab('daw2')">2º DAW</button>
-            </div>
-
-            <section id="daw1">
-            
-                <h3 style="color:#00c6ff;margin-top:0">Contenido — 1º DAW</h3>
-
-                <div class="grid">
-                    <div class="card">
-                        <h3>TEMA 1 — Introducción al Lenguaje de Marcas</h3>
-                        <ul>
-                            <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a></li>
-                            <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="card">
-                        <h3>TEMA 2 — HTML</h3>
-                        <ul>
-                            <li><a href="Listas.html">Ejercicio 1: Listas</a></li>
-                            <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a></li>
-                            <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a></li>
-                            <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a></li>
-                            <li><a href="Formulario.html">Ejercicio 5: Formulario</a></li>
-                            <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a></li>
-                            <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a></li>
-                            <li><a href="ejercicio3.html">Ejercicio 8: Examen</a></li>
-                            <li><a href="CurriculumVitae.html">Ejercicio 9: CurriculumVitae (CSS)</a></li>
-                            <li><a href="TopBlex.html">Ejercicio 10: Página proyecto final</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="card">
-                        <h3>TEMA 3 — JavaScript</h3>
-                        <ul>
-                            <li><a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a></li>
-                            <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page</a></li>
-                            <li><a href="Ejercicio 1_javascript.html">Ejercicio 3: SUMA DE 100 NÚMEROS</a></li>
-                            <li><a href="Ejercicio 2_javascript.html">Ejercicio 4: CONTEO DE NÚMEROS IMPARES</a></li>
-                            <li><a href="Ejercicio_sumatorio con multiplicacion(min y max).html">Ejercicio 5: GestorVectores</a></li>
-                            <li><a href="Clicks.html">Ejercicio 6: Clicks</a></li>
-                            <li><a href="Gestor_de_eventos.html">Ejercicio 7: Gestor de eventos</a></li>
-                            <li><a href="Ejercicios de parrafos.html">Ejercicio 8: Ejercicios de párrafos</a></li>
-                            <li><a href="Calculadora Jquery.html">Ejercicio 9: Calculadora (jQuery)</a></li>
-                            <li><a href="Enunciado1examen.html">Ejercicio 10: Examen (enunciado1)</a></li>
-                            <li><a href="ejercicioIA.html">Ejercicio 11: IA: CONSULTA IA</a></li>
-                            <li><a href="Formulario de Matricula.html">Ejercicio 12: Matrícula: formulario</a></li>
-                            <li><a href="empleados.html">Ejercicio 13: Empleados</a></li>
-                            <li><a href="feed.json">Ejercicio 14: Feed (JSON)</a></li>
-                        </ul>
-                    </div>
-                </div>
-            
-
-            </section>
-
-<section id="daw2" style="display:none; margin-top:8px;">
-            
-    <h3 style="color:#00c6ff;margin-top:0">Desarrollo en Entorno Cliente — 2º DAW</h3>
-    <p class="hint">Ejercicios agrupados por temas.</p>
-
-    <div class="grid" style="margin-top:8px">
-        <div class="card">
-            <h3>TEMA 1 — Desarrollo en Entorno Cliente</h3>
-            <ul>
-                <li><a href="ejercicio1.1.html">Ejercicio 1: Pedir dato y mostrar</a></li>
-                <li><a href="ejercicio1.2.html">Ejercicio 2: Seleccionar color</a></li>
-                <li><a href="ejercicio1.3.html">Ejercicio 3: Input y mostrar</a></li>
-                <li><a href="ejercicio1.4.html">Ejercicio 4: Previsualizar imagen</a></li>
-                <li><a href="ejercicio1.5.html">Ejercicio 5: Negrita / Cursiva</a></li>
-                <li><a href="basico map y map.html">Ejercicio 6: map y flecha</a></li>
-                <li><a href="dias de la semana.html">Ejercicio 7: dias de la semana</a></li>
-                <li><a href="Ejercicio 8.html">Ejercicio 8: Adivinar un número</a></li>
-                <li><a href="Ejercicio 9.html">Ejercicio 9:Días hasta Navidad</a></li>
-                <li><a href="Ejercicio 10.html">Ejercicio 10: Multiplicación y División</a></li>
-                <li><a href="Ejercicio 11.html">Ejercicio 11: Conversión de Temperaturas </a></li>
-                <li><a href="Ejercicio 12.html">Ejercicio 12: Obtener la URL</a></li>
-                <li><a href="Ejercicio 13.html">Ejercicio 13: Variable con nombre definido por el usuario</a></li>
-                <li><a href="Ejercicio 14.html">Ejercicio 14: Obtener la extensión de un archivo</a></li>
-                <li><a href="Ejercicio 15.html">Ejercicio 15: Diferencia con 13</a></li>
-                <li><a href="Ejercicio 16.html">Ejercicio 16: Suma (triple si son iguales)</a></li>
-                <li><a href="Ejercicio 17.html">Ejercicio 17: Diferencia con 19 (triple si es mayor)</a></li>
-                <li><a href="Ejercicio 18.html">Ejercicio 18: Verificar número 50 o suma 50</a></li>
-                <li><a href="Ejercicio 28.html">Ejercicio 28: Verificar rango 50 a 99</a></li>
-            </ul>
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">FS</div>
+        <div>
+          <h1>Portafolio DAW — Frederic</h1>
+          <span>1º & 2º DAW · Lenguaje de Marcas · D.A.W</span>
         </div>
-        
-        <div class="card">
-            <h3>TEMA 3 — Objetos predefinidos</h3>
-            <ul>
-                <li><a href="Extraer un número específico de caracteres de una cadena.html">Ejercicio 4: Extraer un número específico de caracteres</a></li>
-                <li><a href="Ocultar direcciones de correo electrónico..html">Ejercicio 6: Ocultar direcciones de correo electrónico</a></li>
-                <li><a href="Poner en mayúscula la primera letra de cada palabra..html">Ejercicio 9: Poner en mayúscula la primera letra de cada palabra</a></li>
-                <li><a href="Insertar una cadena dentro de una cadena en una posición particular..html">Ejercicio 14: Insertar una cadena dentro de una cadena</a></li>
-                <li><a href="Contar la aparición de una subcadena (Buscar una palabra)..html">Ejercicio 18/29: Contar la aparición de una subcadena</a></li>
-                 <li><a href="4a-suma-array.html">Ejercicio 4a: suma-array</a></li>
-                 <li><a href="4b-mes-y-dias.html">-mes-y-dias</a></li>
-                 <li><a href="6-maximo-array.html">Ejercicio 6: Valor más alto en una matriz</a></li>
-                 <li><a href="8a-diferencia-dias.html">Ejercicio 8a: Diferencia entre dos fechas en días</a></li>
-                 <li><a href="18-producto-array.html">Ejercicio 18: Producto de los valores de una matriz</a></li>
-                <li><a href="31-mayor-de-tres.html">Ejercicio 31a: Número más alto de tres números diferentes</a></li>
-                <li><a href="5-unir-elementos.html">Ejercicio 5: Unir todos los elementos de una matriz en una cadena</a></li>
-                <li><a href="8b-mas-frecuente.html">Ejercicio 8b: Elemento más frecuente de una matriz</a></li>
-                <li><a href="31-remover-elemento.html">Ejercicio 31: Eliminar un elemento específico de una matriz</a></li>
-            </ul>
-        </div>
-        <div style="margin-top:10px;display:flex;gap:8px">
-            <button class="tab" onclick="showAllExercises()">Volver a la lista</button>
-            <button class="tab" onclick="showTab('daw1')">Ir a 1º DAW</button>
-        </div>
+      </div>
+      <nav class="menu" aria-label="principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#daw1">1º DAW</a>
+        <a href="#daw2">2º DAW</a>
+        <button class="mic" id="mic" aria-pressed="false" title="Comandos de voz (V)">🎙️ Voz</button>
+        <a class="cta" href="Curriculum.html">Ver Curriculum</a>
+      </nav>
     </div>
-</section>
+  </header>
 
-<footer><small>&copy; 2024–2026 — Frederic Sadibou Sall Diaw · Portafolio DAW</small></footer>
-        </main>
+  <!-- ===== Hero ===== -->
+  <section id="inicio" class="hero">
+    <div class="wrap">
+      <span class="tag">Blex On Top</span>
+      <h2>Bienvenidos a la pagina de<span style="background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent">Frederic Sadibou Sall Diaw</span>.</h2>
+      <p>BLEX ON TOP <strong>Javascript</strong>:  <strong>HTML Y CSS</strong>, <strong>MYSQL</strong>, <strong>PHYTON</strong>  <strong>PHP </strong>.</p>
+      <div class="btns">
+        <a class="btn primary" href="#daw1">Empezar por 1º DAW</a>
+        <a class="btn" href="#daw2">Ver 2º DAW</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 1º DAW ===== -->
+  <section id="daw1" class="container tilt" data-section="1º DAW">
+    <div class="section-head">
+      <h3>Contenido — 1º DAW <span class="pill" id="p1">0% completado</span></h3>
+      <a class="btn" href="#daw2">Saltar a 2º DAW</a>
     </div>
 
-    <script>
-        // Funciones de navegación (mantenidas)
-        function showTab(name) {
-            var daw1 = document.getElementById('daw1');
-            var daw2 = document.getElementById('daw2');
-            var tabs = document.querySelectorAll('.tab');
-            if (name === 'daw2') { daw1.style.display = 'none'; daw2.style.display = 'block'; }
-            else { daw1.style.display = 'block'; daw2.style.display = 'none'; }
-            tabs.forEach(function(t){ t.classList.remove('active'); });
-            tabs.forEach(function(t){ if (t.textContent.trim().toLowerCase().indexOf(name.replace('daw','')) !== -1) t.classList.add('active'); });
+    <div class="cards tilt-spot">
+      <article class="card" data-topic="Tema 1">
+        <h4>TEMA 1 — Introducción al Lenguaje de Marcas</h4>
+        <ul>
+          <li><a href="Estilo-fechas..xml">Ejercicio 1: Estilo-fechas.xml</a></li>
+          <li><a href="Modulo.xml">Ejercicio 2: Modulo.xml</a></li>
+        </ul>
+      </article>
+
+      <article class="card" data-topic="Tema 2">
+        <h4>TEMA 2 — HTML</h4>
+        <ul>
+          <li><a href="Listas.html">Ejercicio 1: Listas</a></li>
+          <li><a href="EJ2_Imagenes.html">Ejercicio 2: Imágenes</a></li>
+          <li><a href="EJ3_Horario.html">Ejercicio 3: Horario</a></li>
+          <li><a href="EjercicioFrame.html">Ejercicio 4: Frame</a></li>
+          <li><a href="Formulario.html">Ejercicio 5: Formulario</a></li>
+          <li><a href="Cajas-Botones.html">Ejercicio 6: Caja-Botones</a></li>
+          <li><a href="Curriculum.html">Ejercicio 7: Curriculum</a></li>
+          <li><a href="ejercicio3.html">Ejercicio 8: Examen</a></li>
+          <li><a href="CurriculumVitae.html">Ejercicio 9: CurriculumVitae (CSS)</a></li>
+          <li><a href="TopBlex.html">Ejercicio 10: Página proyecto final</a></li>
+        </ul>
+      </article>
+
+      <article class="card" data-topic="Tema 3">
+        <h4>TEMA 3 — JavaScript</h4>
+        <ul>
+          <li><a href="Calculadora.html">Ejercicio 1: Calculadora (diseño)</a></li>
+          <li><a href="Bootstrap_Ejercicio.html">Ejercicio 2: Landing Page</a></li>
+          <li><a href="Ejercicio 1_javascript.html">Ejercicio 3: SUMA DE 100 NÚMEROS</a></li>
+          <li><a href="Ejercicio 2_javascript.html">Ejercicio 4: CONTEO DE NÚMEROS IMPARES</a></li>
+          <li><a href="Ejercicio_sumatorio con multiplicacion(min y max).html">Ejercicio 5: GestorVectores</a></li>
+          <li><a href="Clicks.html">Ejercicio 6: Clicks</a></li>
+          <li><a href="Gestor_de_eventos.html">Ejercicio 7: Gestor de eventos</a></li>
+          <li><a href="Ejercicios de parrafos.html">Ejercicio 8: Ejercicios de párrafos</a></li>
+          <li><a href="Calculadora Jquery.html">Ejercicio 9: Calculadora (jQuery)</a></li>
+          <li><a href="Enunciado1examen.html">Ejercicio 10: Examen (enunciado1)</a></li>
+          <li><a href="ejercicioIA.html">Ejercicio 11: IA: CONSULTA IA</a></li>
+          <li><a href="Formulario de Matricula.html">Ejercicio 12: Matrícula: formulario</a></li>
+          <li><a href="empleados.html">Ejercicio 13: Empleados</a></li>
+          <li><a href="feed.json">Ejercicio 14: Feed (JSON)</a></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== 2º DAW ===== -->
+  <section id="daw2" class="container tilt" data-section="2º DAW">
+    <div class="section-head">
+      <h3>Desarrollo en Entorno Cliente — 2º DAW <span class="pill" id="p2">0% completado</span></h3>
+      <a class="btn" href="#inicio">Volver arriba</a>
+    </div>
+
+    <div class="cards tilt-spot">
+      <article class="card" data-topic="Tema 1">
+        <h4>TEMA 1 — Desarrollo en Entorno Cliente</h4>
+        <ul>
+          <li><a href="ejercicio1.1.html">Ejercicio 1: Pedir dato y mostrar</a></li>
+          <li><a href="ejercicio1.2.html">Ejercicio 2: Seleccionar color</a></li>
+          <li><a href="ejercicio1.3.html">Ejercicio 3: Input y mostrar</a></li>
+          <li><a href="ejercicio1.4.html">Ejercicio 4: Previsualizar imagen</a></li>
+          <li><a href="ejercicio1.5.html">Ejercicio 5: Negrita / Cursiva</a></li>
+          <li><a href="basico map y map.html">Ejercicio 6: map y flecha</a></li>
+          <li><a href="dias de la semana.html">Ejercicio 7: dias de la semana</a></li>
+          <li><a href="Ejercicio 8.html">Ejercicio 8: Adivinar un número</a></li>
+          <li><a href="Ejercicio 9.html">Ejercicio 9:Días hasta Navidad</a></li>
+          <li><a href="Ejercicio 10.html">Ejercicio 10: Multiplicación y División</a></li>
+          <li><a href="Ejercicio 11.html">Ejercicio 11: Conversión de Temperaturas </a></li>
+          <li><a href="Ejercicio 12.html">Ejercicio 12: Obtener la URL</a></li>
+          <li><a href="Ejercicio 13.html">Ejercicio 13: Variable con nombre definido por el usuario</a></li>
+          <li><a href="Ejercicio 14.html">Ejercicio 14: Obtener la extensión de un archivo</a></li>
+          <li><a href="Ejercicio 15.html">Ejercicio 15: Diferencia con 13</a></li>
+          <li><a href="Ejercicio 16.html">Ejercicio 16: Suma (triple si son iguales)</a></li>
+          <li><a href="Ejercicio 17.html">Ejercicio 17: Diferencia con 19 (triple si es mayor)</a></li>
+          <li><a href="Ejercicio 18.html">Ejercicio 18: Verificar número 50 o suma 50</a></li>
+          <li><a href="Ejercicio 28.html">Ejercicio 28: Verificar rango 50 a 99</a></li>
+        </ul>
+      </article>
+
+      <article class="card" data-topic="Tema 3">
+        <h4>TEMA 3 — Objetos predefinidos</h4>
+        <ul>
+          <li><a href="Extraer un número específico de caracteres de una cadena.html">Ejercicio 4: Extraer un número específico de caracteres</a></li>
+          <li><a href="Ocultar direcciones de correo electrónico..html">Ejercicio 6: Ocultar direcciones de correo electrónico</a></li>
+          <li><a href="Poner en mayúscula la primera letra de cada palabra..html">Ejercicio 9: Poner en mayúscula la primera letra de cada palabra</a></li>
+          <li><a href="Insertar una cadena dentro de una cadena en una posición particular..html">Ejercicio 14: Insertar una cadena dentro de una cadena</a></li>
+          <li><a href="Contar la aparición de una subcadena (Buscar una palabra)..html">Ejercicio 18/29: Contar la aparición de una subcadena</a></li>
+          <li><a href="4a-suma-array.html">Ejercicio 4a: suma-array</a></li>
+          <li><a href="4b-mes-y-dias.html">-mes-y-dias</a></li>
+          <li><a href="6-maximo-array.html">Ejercicio 6: Valor más alto en una matriz</a></li>
+          <li><a href="8a-diferencia-dias.html">Ejercicio 8a: Diferencia entre dos fechas en días</a></li>
+          <li><a href="18-producto-array.html">Ejercicio 18: Producto de los valores de una matriz</a></li>
+          <li><a href="31-mayor-de-tres.html">Ejercicio 31a: Número más alto de tres números diferentes</a></li>
+          <li><a href="5-unir-elementos.html">Ejercicio 5: Unir todos los elementos de una matriz en una cadena</a></li>
+          <li><a href="8b-mas-frecuente.html">Ejercicio 8b: Elemento más frecuente de una matriz</a></li>
+          <li><a href="31-remover-elemento.html">Ejercicio 31: Eliminar un elemento específico de una matriz</a></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>&copy; 2024–2026 — Frederic Sadibou Sall Diaw · Portafolio DAW</div>
+        <div><a class="btn" href="Curriculum.html">Abrir Curriculum</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Command Palette ===== -->
+  <div class="palette" id="palette" aria-hidden="true">
+    <div class="palette-inner">
+      <input id="pal-input" type="text" placeholder="Buscar ejercicios, temas o 'Curriculum'… (Esc para cerrar)" aria-label="Buscar" />
+      <ul id="pal-list"></ul>
+    </div>
+  </div>
+
+  <!-- ===== Tooltip preview ===== -->
+  <div class="preview" id="preview">
+    <h5 id="pv-title">Previsualización</h5>
+    <p id="pv-desc">Cargando…</p>
+  </div>
+
+  <script>
+    /* =====================================================
+       HOLOTRAIL: estela de cursor con partículas ligeras
+       ===================================================== */
+    (function(){
+      const c = document.getElementById('fx');
+      const ctx = c.getContext('2d');
+      let w,h; function resize(){ w= c.width = innerWidth; h = c.height = innerHeight; } resize(); addEventListener('resize', resize);
+      const parts = []; const max = 64; let lastX = 0, lastY = 0;
+      function add(x,y,vx,vy){ parts.push({x,y,vx,vy,life:1, hue:(Date.now()/40)%360}); if(parts.length>max) parts.shift(); }
+      let throttle = 0;
+      addEventListener('pointermove', e=>{ if(++throttle%2) return; const x=e.clientX, y=e.clientY; const vx=(x-lastX)*0.15, vy=(y-lastY)*0.15; lastX=x; lastY=y; add(x,y,vx,vy); document.documentElement.style.setProperty('--cursorX', x+'px'); document.documentElement.style.setProperty('--cursorY', y+'px'); });
+      function tick(){
+        ctx.clearRect(0,0,w,h);
+        for(const p of parts){
+          p.x += p.vx; p.y += p.vy; p.vx *= 0.92; p.vy *= 0.92; p.life *= 0.96;
+          ctx.beginPath(); ctx.arc(p.x,p.y, 6*p.life, 0, Math.PI*2);
+          ctx.fillStyle = `hsla(${p.hue}, 100%, 60%, ${0.35*p.life})`;
+          ctx.fill();
         }
+        requestAnimationFrame(tick);
+      }
+      tick();
+    })();
 
-        // INIT
-        showTab('daw1');
+    /* =====================================================
+       THEME CLOCK: gradiente según hora local
+       ===================================================== */
+    (function(){
+      const hour = new Date().getHours();
+      const base = (hour/24)*360; // 0-360
+      const root = document.documentElement.style;
+      const h1 = base|0, h2 = (base+60)%360|0, h3=(base+300)%360|0;
+      root.setProperty('--brand', `hsl(${h1} 100% 50%)`);
+      root.setProperty('--brand-2', `hsl(${h2} 100% 50%)`);
+      root.setProperty('--brand-3', `hsl(${h3} 100% 60%)`);
+    })();
 
-        // Funciones básicas de DAW 2 (Mantenidas, si las necesitas)
-        function pedirDato() { var valor = prompt('Introduce un texto:'); var salida = document.getElementById('outE11'); if (!salida) return; salida.innerText = (valor === null) ? 'Operación cancelada.' : valor; }
-        function limpiarE11(){ var salida = document.getElementById('outE11'); if (!salida) return; salida.innerText = 'Aquí aparecerá el texto introducido.'; }
-        function mostrarColor(){ var sel = document.getElementById('selColor'); if (!sel) return; console.log('Color seleccionado: ' + (sel.value || '(ninguno)')); }
-        function mostrarE13(){ var input = document.getElementById('txtE13'); var out = document.getElementById('outE13'); if (!out) return; out.innerText = (input && input.value) ? input.value : '(vacío)'; }
-        function borrarE13(){ var input = document.getElementById('txtE13'); var out = document.getElementById('outE13'); if (input) input.value = ''; if (out) out.innerText = 'El texto aparecerá aquí al pulsar Mostrar.'; }
-        function cargarImg(){ var sel = document.getElementById('selImg'); var img = document.getElementById('previewImg'); var out = document.getElementById('outE14'); if (!sel) return; var ruta = sel.value; if (!ruta){ if(img){img.style.display='none';img.src='';} if(out) out.innerText='Vista previa de la imagen seleccionada.'; return; } img.src = ruta; img.onload = function(){ img.style.display='block'; if(out) out.innerText = 'Imagen cargada: ' + ruta; }; img.onerror = function(){ img.style.display='none'; img.src=''; if(out) out.innerText = 'No se ha encontrado "' + ruta + '". Pon el fichero en la misma carpeta.'; } }
-        function aplicarEstilos(){ var txt = document.getElementById('txtE15'); var out = document.getElementById('outE15'); if (!out) return; var bold = document.getElementById('optBold'); var italic = document.getElementById('optItalic'); out.innerText = (txt && txt.value) ? txt.value : ''; if (bold && bold.value === 'bold') out.style.fontWeight = '700'; else out.style.fontWeight = '400'; if (italic && italic.value === 'italic') out.style.fontStyle = 'italic'; else out.style.fontStyle = 'normal'; }
+    /* =====================================================
+       PROGRESO GLOBAL (barra superior al hacer scroll)
+       y % por secciones (localStorage)
+       ===================================================== */
+    (function(){
+      const bar = document.getElementById('progress');
+      function onScroll(){ const m = document.documentElement; const pct = m.scrollTop / (m.scrollHeight - m.clientHeight); bar.style.transform = `scaleX(${pct||0})`; }
+      addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-        // Mantenidas para evitar errores, aunque no están en el nuevo TEMA 3
-        function openExercise(id) { /* ... */ }
-        function closeExercise(id) { /* ... */ }
-        function showAllExercises(){ /* ... */ }
-    </script>
+      const KEY='visitedLinks@frederic';
+      const visited = new Set(JSON.parse(localStorage.getItem(KEY) || '[]'));
+      const allLinks = Array.from(document.querySelectorAll('a')).filter(a=> a.getAttribute('href') && !a.getAttribute('href').startsWith('#'));
+      allLinks.forEach(a=> a.addEventListener('click',()=>{ visited.add(a.getAttribute('href')); localStorage.setItem(KEY, JSON.stringify([...visited])); updateBadges(); }));
+      function countIn(sectionId){ const section = document.querySelector(sectionId); const sectLinks = Array.from(section.querySelectorAll('a')).filter(a=>a.href && !a.hash); const total = sectLinks.length, done = sectLinks.filter(a=> visited.has(a.getAttribute('href'))).length; return {done,total, pct: total? Math.round(done*100/total):0}; }
+      function updateBadges(){ const s1 = countIn('#daw1'); const s2 = countIn('#daw2'); const p1 = document.getElementById('p1'); const p2 = document.getElementById('p2'); if(p1) p1.textContent = `${s1.pct}% completado`; if(p2) p2.textContent = `${s2.pct}% completado`; }
+      updateBadges();
+    })();
+
+    /* =====================================================
+       TILT 3D para bloques (parallax ligero)
+       ===================================================== */
+    (function(){
+      const T = document.querySelectorAll('.tilt');
+      T.forEach(el=>{
+        el.addEventListener('pointermove', e=>{
+          const r = el.getBoundingClientRect();
+          const x = (e.clientX - r.left)/r.width - .5; // -0.5..0.5
+          const y = (e.clientY - r.top)/r.height - .5;
+          el.style.transform = `perspective(900px) rotateY(${x*6}deg) rotateX(${ -y*6}deg)`;
+        });
+        el.addEventListener('pointerleave', ()=>{ el.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg)'; });
+      });
+    })();
+
+    /* =====================================================
+       COMMAND PALETTE (Ctrl/Cmd + K) con búsqueda difusa
+       ===================================================== */
+    (function(){
+      const palette = document.getElementById('palette');
+      const input = document.getElementById('pal-input');
+      const list = document.getElementById('pal-list');
+      const items = [];
+      const anchors = Array.from(document.querySelectorAll('a')).filter(a=>a.href && !a.hash);
+      function norm(s){ return s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,''); }
+      function score(q, text){ if(!q) return 0; const nq=norm(q), nt=norm(text); if(nt.startsWith(nq)) return 100 - (nt.length - nq.length); if(nt.includes(nq)) return 60 - (nt.indexOf(nq)); let i=0, hits=0; for(const c of nt){ if(c===nq[i]){i++; hits++; if(i===nq.length) break;} } return hits*3; }
+      anchors.forEach(a=>{ const text = a.textContent.trim() || a.getAttribute('href'); const meta = a.closest('[data-topic]')?.getAttribute('data-topic') || a.closest('[data-section]')?.getAttribute('data-section') || ''; items.push({el:a, text, meta}); });
+      function open(){ palette.style.display='flex'; input.value=''; render(''); input.focus(); }
+      function close(){ palette.style.display='none'; }
+      function render(q){ const rows = items.map((it,i)=> ({...it, i, s: q? score(q, it.text + ' ' + it.meta): 0})).sort((a,b)=> b.s - a.s || a.text.localeCompare(b.text)).slice(0, 14).map((it,idx)=> `<li data-i="${it.i}" class="${idx===0?'active':''}"><span>${it.text}</span><span class="pill">${it.meta || 'Enlace'}</span></li>`).join(''); list.innerHTML = rows || '<li><em style="color:#667">Sin resultados</em></li>'; }
+      document.addEventListener('keydown', (e)=>{ const combo = (e.ctrlKey || e.metaKey) && e.key.toLowerCase()==='k'; if(combo){ e.preventDefault(); open(); } if(e.key==='Escape' && palette.style.display==='flex'){ close(); } });
+      input.addEventListener('input', e=> render(e.target.value));
+      list.addEventListener('mousemove', e=>{ const li = e.target.closest('li'); if(!li) return; list.querySelectorAll('li').forEach(n=>n.classList.remove('active')); li.classList.add('active'); });
+      function goActive(){ const active = list.querySelector('li.active'); const i = active ? +active.getAttribute('data-i') : -1; if(i>=0){ const a = items[i].el; close(); a.click(); } }
+      list.addEventListener('click', e=>{ const li=e.target.closest('li'); if(!li) return; list.querySelectorAll('li').forEach(n=>n.classList.remove('active')); li.classList.add('active'); goActive(); });
+      input.addEventListener('keydown', e=>{ const rows = Array.from(list.querySelectorAll('li')); let idx = rows.findIndex(li=> li.classList.contains('active')); if(e.key==='ArrowDown'){ e.preventDefault(); rows[idx]?.classList.remove('active'); rows[(idx+1)%rows.length]?.classList.add('active'); } if(e.key==='ArrowUp'){ e.preventDefault(); rows[idx]?.classList.remove('active'); rows[(idx-1+rows.length)%rows.length]?.classList.add('active'); } if(e.key==='Enter'){ e.preventDefault(); goActive(); } });
+      // Exponer para voz
+      window.__paletteOpen = open; window.__paletteSearch = q=>{ open(); input.value=q; input.dispatchEvent(new Event('input')); };
+    })();
+
+    /* =====================================================
+       COMANDOS DE VOZ (Web Speech API) — tecla V
+       ===================================================== */
+    (function(){
+      const mic = document.getElementById('mic');
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if(!SR){ mic.style.display='none'; return; }
+      const r = new SR(); r.lang = 'es-ES'; r.interimResults = false; r.maxAlternatives = 1;
+      let active=false;
+      function start(){ try{ r.start(); active=true; mic.setAttribute('aria-pressed','true'); mic.textContent='🎙️ Escuchando…'; }catch(e){} }
+      function stop(){ try{ r.stop(); }catch(e){} active=false; mic.setAttribute('aria-pressed','false'); mic.textContent='🎙️ Voz'; }
+      mic.addEventListener('click', ()=> active? stop(): start());
+      document.addEventListener('keydown', e=>{ if(e.key.toLowerCase()==='v'){ if(active) stop(); else start(); }});
+      r.addEventListener('result', e=>{
+        const said = (e.results[0][0]?.transcript||'').toLowerCase();
+        // comandos: "abrir curriculum", "buscar formulario", "ir a segundo daw"
+        if(said.includes('abrir curriculum')){ stop(); location.href='Curriculum.html'; return; }
+        if(said.includes('segundo') || said.includes('2º') || said.includes('dos')){ stop(); location.hash='#daw2'; return; }
+        if(said.includes('primero') || said.includes('1º') || said.includes('uno')){ stop(); location.hash='#daw1'; return; }
+        const q = said.replace(/buscar|busca|abre|abrir|ir a|ve a/g,'').trim();
+        if(q){ window.__paletteSearch?.(q); }
+        stop();
+      });
+      r.addEventListener('end', ()=>{ if(active) start(); });
+    })();
+
+    /* =====================================================
+       PREVIEW de enlaces (título + pista) con tooltip
+       ===================================================== */
+    (function(){
+      const box = document.getElementById('preview');
+      const title = document.getElementById('pv-title');
+      const desc = document.getElementById('pv-desc');
+      let hideT;
+      function show(x,y){ box.style.display='block'; box.style.left = (x+12)+'px'; box.style.top = (y+12)+'px'; }
+      function hide(){ box.style.display='none'; }
+      function filename(href){ try{ return decodeURIComponent(href.split('/').pop()); }catch(e){ return href; } }
+      document.addEventListener('mouseover', async (e)=>{
+        const a = e.target.closest('a'); if(!a || a.hash) return; clearTimeout(hideT);
+        const name = a.textContent.trim() || filename(a.getAttribute('href'));
+        title.textContent = name || 'Enlace'; desc.textContent = 'Cargando…';
+        show(e.clientX, e.clientY);
+        try{
+          const res = await fetch(a.getAttribute('href')); // puede fallar por CORS si no es misma carpeta
+          const html = await res.text();
+          const m = /<title>([^<]{1,120})<\/title>/i.exec(html);
+          if(m){ title.textContent = m[1]; }
+          desc.textContent = `Archivo: ${filename(a.getAttribute('href'))}`;
+        }catch(err){ desc.textContent = `Archivo: ${filename(a.getAttribute('href'))}`; }
+      });
+      document.addEventListener('mousemove', (e)=>{ if(box.style.display==='block'){ show(e.clientX, e.clientY); } });
+      document.addEventListener('mouseout', (e)=>{ if(e.target.closest('a')){ hideT=setTimeout(hide,120);} });
+    })();
+
+    /* =====================================================
+       KONAMI: activa Neon Grid ultra visual
+       ===================================================== */
+    (function(){
+      const seq = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+      const keys = [];
+      addEventListener('keydown', e=>{ keys.push(e.key); if(keys.length>seq.length) keys.shift(); if(seq.every((k,i)=>k===keys[i])){ document.body.classList.toggle('neon'); } });
+    })();
+
+    /* =====================================================
+       PWA OFFLINE: registrar Service Worker (inline)
+       ===================================================== */
+    (function(){
+      if(!('serviceWorker' in navigator)) return;
+      const swCode = `
+        const CACHE = 'frederic-v1';
+        const CORE = [self.location.pathname];
+        self.addEventListener('install', e=>{ e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())); });
+        self.addEventListener('activate', e=>{ e.waitUntil(self.clients.claim()); });
+        self.addEventListener('fetch', e=>{
+          const url = new URL(e.request.url);
+          if(url.origin===location.origin){
+            e.respondWith(caches.match(e.request).then(r=> r || fetch(e.request).then(res=>{ const copy=res.clone(); caches.open(CACHE).then(c=>c.put(e.request, copy)); return res; }).catch(()=> caches.match(self.location.pathname))));
+          }
+        });
+      `;
+      const blob = new Blob([swCode], {type:'text/javascript'});
+      const url = URL.createObjectURL(blob);
+      navigator.serviceWorker.register(url);
+    })();
+  </script>
 </body>
 </html>
