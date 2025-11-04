@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 7</title>
+</head>
+<body>
+
+<h3>Mover caja con flechas y NumPad</h3>
+
+<div id="zona" style="width:400px;height:250px;border:1px solid black;position:relative;">
+  <div id="caja" style="width:50px;height:50px;background:blue;position:absolute;top:10px;left:10px;"></div>
+</div>
+
+<script>
+const caja = document.getElementById("caja");
+let x = 10, y = 10;
+
+document.onkeydown = (e) => {
+  if(e.key === "ArrowUp"    || e.key === "Numpad8") y -= 10;
+  if(e.key === "ArrowDown"  || e.key === "Numpad2") y += 10;
+  if(e.key === "ArrowLeft"  || e.key === "Numpad4") x -= 10;
+  if(e.key === "ArrowRight" || e.key === "Numpad6") x += 10;
+
+  caja.style.top = y + "px";
+  caja.style.left = x + "px";
+};
+</script>
+
+</body>
+</html>

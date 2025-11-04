@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 1</title>
+</head>
+<body>
+
+<h3>Imagen que cambia mientras mantienes el click</h3>
+
+<img id="foto" src="https://picsum.photos/id/1015/400/250" 
+     width="300">
+
+<script>
+const img = document.getElementById("foto");
+const img1 = "https://picsum.photos/id/1015/400/250";
+const img2 = "https://picsum.photos/id/1003/400/250";
+
+img.onmousedown = () => img.src = img2;
+img.onmouseup = () => img.src = img1;
+img.onmouseleave = () => img.src = img1;
+</script>
+
+</body>
+</html>

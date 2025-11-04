@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 6</title>
+</head>
+<body>
+
+<h3>Tecla pulsada + modificadores</h3>
+<p id="info">Pulsa alguna tecla...</p>
+
+<script>
+document.onkeydown = (e) => {
+  let texto = `Tecla: ${e.key}`;
+  if(e.altKey) texto += " + ALT";
+  if(e.shiftKey) texto += " + SHIFT";
+  if(e.ctrlKey) texto += " + CTRL";
+
+  document.getElementById("info").innerText = texto;
+};
+</script>
+
+</body>
+</html>

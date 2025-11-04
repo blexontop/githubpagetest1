@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 4</title>
+</head>
+<body>
+
+<h3>Detectar click izquierdo/derecho</h3>
+<p id="msg"></p>
+
+<script>
+document.onmousedown = (e) => {
+  let texto = "";
+
+  if(e.button === 0) texto = "Click IZQUIERDO";
+  else if(e.button === 2) texto = "Click DERECHO";
+
+  document.getElementById("msg").innerText = texto;
+};
+</script>
+
+</body>
+</html>
