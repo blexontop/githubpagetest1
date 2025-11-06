@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Ejercicio 4: Extraer Caracteres</title>
+  <meta charset="UTF-8">
+  <title>Ejercicio 4: Extraer Caracteres</title>
 </head>
 <body>
-    <h1>4. Extraer un número específico de caracteres de una cadena</h1>
-    <p>Abre la Consola (F12) para ver el resultado.</p>
-    <script>
-        function extraerCaracteres(cadena, num) {
-            // Usa slice() para tomar 'num' caracteres desde el inicio (índice 0).
-            return cadena.slice(0, num);
-        }
+  <h1>4. Extraer un número específico de caracteres de una cadena</h1>
+  <pre id="out"></pre>
 
-        const texto = 'Aprendiendo JavaScript';
-        const longitud = 11;
-        const resultado = extraerCaracteres(texto, longitud);
+  <script>
+    function extraerCaracteres(cadena, num) {
+      return cadena.slice(0, num);
+    }
 
-        console.log("--- Ejercicio 4 ---");
-        console.log(`Cadena Original: "${texto}"`);
-        console.log(`Número de Caracteres a extraer: ${longitud}`);
-        console.log(`Resultado: "${resultado}"`); // Esperado: "Aprendiendo"
-    </script>
+    const texto = 'Aprendiendo JavaScript';
+    const longitud = 11;
+    const resultado = extraerCaracteres(texto, longitud);
+
+    document.getElementById("out").textContent =
+`Cadena Original: "${texto}"
+Número de caracteres a extraer: ${longitud}
+Resultado: "${resultado}"`;
+  </script>
 </body>
 </html>
