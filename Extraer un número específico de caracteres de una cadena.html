@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Ejercicio 4: Extraer Caracteres</title>
-</head>
-<body>
-  <h1>4. Extraer un número específico de caracteres de una cadena</h1>
-  <pre id="out"></pre>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Ej.4 - Extraer</title></head>
+<body><script>
+function extraerCaracteres(cadena, num){ return cadena.slice(0, num); }
 
-  <script>
-    function extraerCaracteres(cadena, num) {
-      return cadena.slice(0, num);
-    }
+const texto = prompt("Ej.4\nIntroduce un texto:");
+const n = parseInt(prompt("¿Cuántos caracteres quieres extraer?"), 10);
+const resultado = extraerCaracteres(texto || "", isNaN(n) ? 0 : n);
 
-    const texto = 'Aprendiendo JavaScript';
-    const longitud = 11;
-    const resultado = extraerCaracteres(texto, longitud);
+alert(`Cadena: "${texto||""}"\nN: ${isNaN(n)?0:n}\nResultado: "${resultado}"`);
+</script></body></html>
 
-    document.getElementById("out").textContent =
-`Cadena Original: "${texto}"
-Número de caracteres a extraer: ${longitud}
-Resultado: "${resultado}"`;
-  </script>
-</body>
-</html>
