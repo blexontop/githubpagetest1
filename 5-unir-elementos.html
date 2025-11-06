@@ -1,22 +1,6 @@
-<!doctype html>
-<html lang="es">
-<head><meta charset="utf-8"><title>5 - Unir elementos</title></head>
-<body>
-  <h1>5 - Unir elementos de una matriz</h1>
-  <pre id="out"></pre>
-
-  <script>
-    function unirElementos(arr, separador = ",") {
-      return arr.join(separador);
-    }
-
-    const datos = ["rojo", "verde", "azul"];
-    const cadena = unirElementos(datos, "-");
-
-    const out = `Array: [${datos.join(", ")}]
-Unidos con "-": ${cadena}`;
-    document.getElementById("out").textContent = out;
-    console.log(out);
-  </script>
-</body>
-</html>
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej5-Unir</title>
+<script>
+const elems = (prompt("Elementos separados por coma:")||"").split(",").map(x=>x.trim());
+const sep = prompt("Separador (ej. - , /):") || ",";
+alert(elems.join(sep));
+</script>

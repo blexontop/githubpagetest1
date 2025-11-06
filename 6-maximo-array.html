@@ -1,24 +1,6 @@
-<!doctype html>
-<html lang="es">
-<head><meta charset="utf-8"><title>6 - Máximo de una matriz</title></head>
-<body>
-  <h1>6 - Máximo de una matriz</h1>
-  <pre id="out"></pre>
-
-  <script>
-    function maximoArray(arr) {
-      let max = arr[0];
-      for (let i = 1; i < arr.length; i++) if (arr[i] > max) max = arr[i];
-      return max;
-    }
-
-    const datos = [11, 3, 16, 90];
-    const res = maximoArray(datos);
-
-    const out = `Array: [${datos.join(", ")}]
-Máximo: ${res}`;
-    document.getElementById("out").textContent = out;
-    console.log(out);
-  </script>
-</body>
-</html>
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej6-ArrayMax</title>
+<script>
+const nums = (prompt("Números separados por coma:")||"")
+  .split(",").map(x=>+x.trim()).filter(x=>!isNaN(x));
+alert("Máximo: " + Math.max(...nums));
+</script>

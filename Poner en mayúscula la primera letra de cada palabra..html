@@ -1,29 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Ejercicio 9: Capitalizar Palabras</title>
-</head>
-<body>
-    <h1>9. Poner en mayúscula la primera letra de cada palabra en una cadena</h1>
-    <p>Abre la Consola (F12) para ver el resultado.</p>
-    <script>
-        function mayusculaPrimeraLetra(cadena) {
-            if (!cadena) return cadena;
-
-            // Usa una expresión regular (\b\w) para encontrar la primera letra de cada palabra
-            // y la reemplaza con su versión en mayúscula.
-            return cadena.replace(/\b\w/g, (letra) => {
-                return letra.toUpperCase();
-            });
-        }
-
-        const frase = 'esto es una prueba de capitalización';
-        const resultado = mayusculaPrimeraLetra(frase);
-
-        console.log("--- Ejercicio 9 ---");
-        console.log(`Cadena Original: "${frase}"`);
-        console.log(`Resultado: "${resultado}"`); // Esperado: "Esto Es Una Prueba De Capitalización"
-    </script>
-</body>
-</html>
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej9</title>
+<script>
+const s = prompt("Frase:") || "";
+alert(s.split(" ").map(w=>w? w[0].toUpperCase()+w.slice(1):"").join(" "));
+</script>

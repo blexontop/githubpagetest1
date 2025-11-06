@@ -1,11 +1,6 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Ej.4 - Extraer</title></head>
-<body><script>
-function extraerCaracteres(cadena, num){ return cadena.slice(0, num); }
-
-const texto = prompt("Ej.4\nIntroduce un texto:");
-const n = parseInt(prompt("¿Cuántos caracteres quieres extraer?"), 10);
-const resultado = extraerCaracteres(texto || "", isNaN(n) ? 0 : n);
-
-alert(`Cadena: "${texto||""}"\nN: ${isNaN(n)?0:n}\nResultado: "${resultado}"`);
-</script></body></html>
-
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej4</title>
+<script>
+const t = prompt("Texto:") || "";
+const n = +prompt("¿Cuántos caracteres?") || 0;
+alert(t.slice(0, n));
+</script>

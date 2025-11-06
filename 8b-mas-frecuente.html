@@ -1,34 +1,7 @@
-<!doctype html>
-<html lang="es">
-<head><meta charset="utf-8"><title>8b - Elemento más frecuente</title></head>
-<body>
-  <h1>8b - Elemento más frecuente de una matriz</h1>
-  <pre id="out"></pre>
-
-  <script>
-    function masFrecuente(arr) {
-      const conteo = {};
-      let mejor = null;
-      let max = 0;
-
-      for (let i = 0; i < arr.length; i++) {
-        const v = arr[i];
-        conteo[v] = (conteo[v] || 0) + 1;
-        if (conteo[v] > max) {
-          max = conteo[v];
-          mejor = v;
-        }
-      }
-      return { valor: mejor, repeticiones: max };
-    }
-
-    const datos = [3, 1, 2, 3, 4, 3, 2, 2, 2, 5];
-    const { valor, repeticiones } = masFrecuente(datos);
-
-    const out = `Array: [${datos.join(", ")}]
-Más frecuente: ${valor} (aparece ${repeticiones} veces)`;
-    document.getElementById("out").textContent = out;
-    console.log(out);
-  </script>
-</body>
-</html>
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej8b-Frecuente</title>
+<script>
+const arr = (prompt("Valores separados por coma:")||"").split(",").map(x=>x.trim()).filter(x=>x!=="");
+const c = {}; let mejor="", max=0;
+arr.forEach(v=>{c[v]=(c[v]||0)+1; if(c[v]>max){max=c[v]; mejor=v;}});
+alert("Más frecuente: " + (mejor||"(vacío)") + " (" + max + " veces)");
+</script>

@@ -1,27 +1,6 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <title>4a - Suma de una matriz</title>
-</head>
-<body>
-  <h1>4a - Suma de una matriz</h1>
-  <pre id="out"></pre>
-
-  <script>
-    function sumaArray(arr) {
-      let total = 0;
-      for (let i = 0; i < arr.length; i++) total += arr[i];
-      return total;
-    }
-
-    const array = [1, 2, 3, 4, 5, 6];
-    const resultado = sumaArray(array);
-
-    const out = `Array: [${array.join(", ")}]
-Suma: ${resultado}`;
-    document.getElementById("out").textContent = out;
-    console.log(out);
-  </script>
-</body>
-</html>
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej4a</title>
+<script>
+const nums = (prompt("Números separados por coma:")||"")
+  .split(",").map(x=>+x.trim()).filter(x=>!isNaN(x));
+alert("Suma: " + nums.reduce((a,b)=>a+b,0));
+</script>

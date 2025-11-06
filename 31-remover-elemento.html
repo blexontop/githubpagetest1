@@ -1,27 +1,7 @@
-<!doctype html>
-<html lang="es">
-<head><meta charset="utf-8"><title>31 - Remover elemento</title></head>
-<body>
-  <h1>31 - Remover un elemento específico de una matriz</h1>
-  <pre id="out"></pre>
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej31b-Remover</title>
+<script>
+const arr = (prompt("Valores separados por coma:")||"").split(",").map(x=>x.trim());
+const val = prompt("Valor a eliminar:") || "";
+alert(arr.filter(x=>x!==val).join(", "));
+</script>
 
-  <script>
-    // Elimina todas las apariciones de un valor
-    function removerElemento(arr, valor) {
-      const resultado = [];
-      for (let i = 0; i < arr.length; i++) {
-        if (arr[i] !== valor) resultado.push(arr[i]);
-      }
-      return resultado;
-    }
-
-    const original = [2, 4, 5, 9];
-    const sin5 = removerElemento(original, 5);
-
-    const out = `Original: [${original.join(", ")}]
-Remueve 5 -> [${sin5.join(", ")}]`;
-    document.getElementById("out").textContent = out;
-    console.log(out);
-  </script>
-</body>
-</html>

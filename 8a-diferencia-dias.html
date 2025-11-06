@@ -1,32 +1,8 @@
-<!doctype html>
-<html lang="es">
-<head><meta charset="utf-8"><title>8a - Diferencia en días</title></head>
-<body>
-  <h1>8a - Diferencia entre dos fechas en días</h1>
-  <pre id="out"></pre>
-
-  <script>
-    // Normaliza a medianoche UTC para evitar líos de husos/horario de verano
-    function soloFechaUTC(d) {
-      return Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
-    }
-
-    function diferenciaEnDias(fecha1, fecha2) {
-      const MS_POR_DIA = 24 * 60 * 60 * 1000;
-      const f1 = soloFechaUTC(fecha1);
-      const f2 = soloFechaUTC(fecha2);
-      return Math.round((f2 - f1) / MS_POR_DIA);
-    }
-
-    const f1 = new Date(2025, 0, 1);  // 1/ene/2025
-    const f2 = new Date(2025, 0, 21); // 21/ene/2025
-    const dias = diferenciaEnDias(f1, f2);
-
-    const out = `Fecha 1: ${f1.toDateString()}
-Fecha 2: ${f2.toDateString()}
-Diferencia en días: ${dias}`;
-    document.getElementById("out").textContent = out;
-    console.log(out);
-  </script>
-</body>
-</html>
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej8a</title>
+<script>
+function dOnly(s){const [Y,M,D]=s.split("-").map(n=>+n);return new Date(Y,M-1,D);}
+const a = dOnly(prompt("Fecha 1 (YYYY-MM-DD):")||"1970-01-01");
+const b = dOnly(prompt("Fecha 2 (YYYY-MM-DD):")||"1970-01-02");
+const dias = Math.round((b - a)/(24*60*60*1000));
+alert("Diferencia: " + dias + " días");
+</script>
