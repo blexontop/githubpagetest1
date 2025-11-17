@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para mi chica, Maria Sevillano 💚</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primario: #6fbf8f;      /* verde pastel principal */
+            --color-secundario: #ffd6a5;    /* melocotón suave */
+            --color-fondo: #f5fbf7;         /* fondo verde muy clarito */
+            --color-texto: #35524a;         /* verde oscuro para texto */
+            --color-card: rgba(255,255,255,0.9);
+            --borde-suave: rgba(163, 196, 168, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: radial-gradient(circle at top, #eafaf1, #f5fbf7 45%, #fdfdfd);
+            color: var(--color-texto);
+            overflow-x: hidden;
+        }
+
+        /* Fondo aesthetic con formas suaves */
+        .bg-orb {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(179, 224, 200, 0.6) 0, transparent 50%),
+                radial-gradient(circle at 80% 0%, rgba(255, 214, 165, 0.5) 0, transparent 55%),
+                radial-gradient(circle at 50% 100%, rgba(189, 224, 193, 0.5) 0, transparent 50%);
+            opacity: 0.9;
+            filter: blur(4px);
+        }
+
+        header {
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            text-transform: lowercase;
+            color: var(--color-primario);
+        }
+
+        .logo span {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        nav a {
+            color: #5b7066;
+            margin-left: 18px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            position: relative;
+            text-transform: lowercase;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+            transition: width 0.3s ease;
+            border-radius: 999px;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 8%;
+            gap: 40px;
+        }
+
+        .hero-text {
+            max-width: 620px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #7ea087;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: #32473f;
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 0.98rem;
+            color: #50655d;
+            margin-bottom: 14px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .btn {
+            border: 1px solid var(--borde-suave);
+            padding: 9px 20px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            background: linear-gradient(135deg, #ffffff, #e9f6ee);
+            color: var(--color-texto);
+            text-transform: lowercase;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 8px 20px rgba(163, 196, 168, 0.25);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #fdfcfb, #e5f4ea);
+            box-shadow: 0 10px 24px rgba(163, 196, 168, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: #c5ddc8;
+        }
+
+        .hero-aside {
+            max-width: 340px;
+            position: relative;
+        }
+
+        .heart-orb {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            border-radius: 34px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid rgba(196, 220, 204, 0.9);
+            backdrop-filter: blur(18px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 18px 45px rgba(163, 196, 168, 0.35);
+            overflow: hidden;
+        }
+
+        .heart-core {
+            font-size: 3.2rem;
+            animation: floatHeart 3s infinite ease-in-out;
+        }
+
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .heart-tag {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: #6b8578;
+        }
+
+        .floating-chip {
+            position: absolute;
+            top: -6px;
+            right: 6px;
+            font-size: 0.72rem;
+            background: rgba(255,255,255,0.9);
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(196, 220, 204, 0.9);
+            color: #6b8578;
+            box-shadow: 0 10px 20px rgba(189, 224, 193, 0.4);
+        }
+
+        main {
+            padding: 10px 8% 45px;
+        }
+
+        section {
+            margin-bottom: 36px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 14px;
+            color: #3e5b50;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title span {
+            font-size: 0.9rem;
+            color: #8ba99a;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        @media (min-width: 900px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .grid-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .card {
+            background: var(--color-card);
+            border-radius: 20px;
+            padding: 18px;
+            border: 1px solid rgba(196, 220, 204, 0.8);
+            box-shadow: 0 10px 30px rgba(163, 196, 168, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(189, 224, 193, 0.2), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #3b5a50;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #4d665d;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.68rem;
+            text-transform: lowercase;
+            border: 1px solid rgba(196, 220, 204, 0.9);
+            margin-bottom: 6px;
+            color: #6b8578;
+            background: #f6fbf8;
+        }
+
+        .tag-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-right: 6px;
+            background: radial-gradient(circle, var(--color-primario), var(--color-secundario));
+        }
+
+        .reasons-list {
+            list-style: none;
+            font-size: 0.93rem;
+        }
+
+        .reasons-list li {
+            margin-bottom: 7px;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+        }
+
+        .reasons-list span {
+            font-size: 0.75rem;
+            color: #7ea087;
+            margin-top: 2px;
+            font-weight: 700;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 2px;
+            bottom: 2px;
+            width: 2px;
+            background: linear-gradient(to bottom, #c5ddc8, #ffd6a5);
+            opacity: 0.7;
+            border-radius: 999px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 14px;
+            padding-left: 8px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #b7e4c7;
+        }
+
+        .timeline-title {
+            font-size: 0.95rem;
+            color: #3b5a50;
+            margin-bottom: 3px;
+        }
+
+        .timeline-sub {
+            font-size: 0.78rem;
+            color: #8aa195;
+            margin-bottom: 3px;
+        }
+
+        .timeline-text {
+            font-size: 0.86rem;
+            color: #4f675f;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 0.92rem;
+            color: #4d665d;
+            border-left: 3px solid #c5ddc8;
+            padding-left: 10px;
+            border-radius: 6px;
+            background: #f7fbf8;
+        }
+
+        .footer-msg {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6f847c;
+            margin-top: 26px;
+        }
+
+        footer {
+            padding: 14px 8% 22px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #8aa195;
+        }
+
+        footer span {
+            color: #6fbf8f;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: left;
+                padding-top: 20px;
+            }
+            .hero-aside {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-orb"></div>
+
+    <header>
+        <div class="logo">
+            tiny universe for maria
+            <span>// soft edition</span>
+        </div>
+        <nav>
+            <a href="#historia">historia</a>
+            <a href="#razones">razones</a>
+            <a href="#futuro">futuro</a>
+            <a href="#detalles">detalles</a>
+            <a href="#final">final</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <div class="hero-subtitle">PARA LA CHICA MÁS ESPECIAL</div>
+            <h1 class="hero-title">
+                Este pequeño rincón<br>
+                del universo está dedicado a ti,<br>
+                <span>Maria Sevillano</span>.
+            </h1>
+            <p>
+                No me hacía falta una página web para decirte lo que siento, pero tú te mereces 
+                algo diferente, suave, bonito, aesthetic… algo tan especial como tú.  
+                Quiero que al ver esto recuerdes que eres mi persona favorita, hoy, mañana y 
+                en todos los días que vengan. 🌱
+            </p>
+            <p>
+                Cada línea de código, cada palabra y cada detalle aquí están puestos para decirte, 
+                de mil formas distintas, lo mismo: <strong>te quiero con todo mi corazón</strong>.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn" onclick="document.getElementById('razones').scrollIntoView({behavior:'smooth'})">
+                    ver por qué te amo
+                </button>
+                <button class="btn btn-outline" onclick="document.getElementById('futuro').scrollIntoView({behavior:'smooth'})">
+                    ver nuestro futuro
+                </button>
+            </div>
+        </div>
+
+        <aside class="hero-aside">
+            <div class="floating-chip">modo: amor suave ♡</div>
+            <div class="heart-orb">
+                <div class="heart-core">💚</div>
+                <div class="heart-tag">frecuencia de amor: estable y bonita</div>
+            </div>
+        </aside>
+    </section>
+
+    <main>
+        <!-- Nuestra historia -->
+        <section id="historia">
+            <h2 class="section-title">nuestra historia <span>// el inicio de todo</span></h2>
+            <div class="grid grid-2">
+                <article class="card">
+                    <div class="tag"><div class="tag-dot"></div>primeros momentos</div>
+                    <h3>Cuando te conocí</h3>
+                    <p>
+                        Desde el principio supe que había algo diferente en ti. No fue solo tu sonrisa, 
+                        fue esa sensación de calma y felicidad que aparecía cada vez que te miraba.
+                        Poco a poco, sin darme cuenta, te fuiste convirtiendo en mi lugar seguro.
+                    </p>
+                </article>
+                <article class="card">
+                    <div class="tag"><div class="tag-dot"></div>versión mejorada de mí</div>
+                    <h3>Quién soy contigo</h3>
+                    <p>
+                        Contigo soy mejor persona. Me inspiras a seguir, a esforzarme, a no rendirme 
+                        cuando las cosas se ponen difíciles. Tu apoyo y tu forma de creer en mí 
+                        hacen que quiera llegar siempre un poco más lejos.
+                    </p>
+                </article>
+            </div>
+
+            <div class="card" style="margin-top:16px;">
+                <div class="tag"><div class="tag-dot"></div>línea de tiempo</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-title">El día que empezamos a hablar más</div>
+                        <div class="timeline-sub">el punto de no retorno</div>
+                        <div class="timeline-text">
+                            Ese día quizá parecía normal, pero fue el inicio de algo increíble.
+                            A partir de ahí, empecé a descubrir todo lo que te hacía única.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-title">Nuestros momentos tontos</div>
+                        <div class="timeline-sub">risas, bromas y complicidad</div>
+                        <div class="timeline-text">
+                            Entre bromas internas, tonterías y risas, entendí que contigo 
+                            hasta los días simples se sienten especiales.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-title">Lo que siento hoy</div>
+                        <div class="timeline-sub">versión estable: enamorado de ti</div>
+                        <div class="timeline-text">
+                            Hoy solo sé una cosa con total seguridad: quiero seguir sumando recuerdos 
+                            contigo, aprendiendo a tu lado y queriéndote en todas las versiones de nuestra vida.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Razones por las que la amas -->
+        <section id="razones">
+            <h2 class="section-title">10 razones por las que te amo <span>// y me quedo corto</span></h2>
+            <div class="card">
+                <ul class="reasons-list">
+                    <li><span>01</span> Tu sonrisa tiene la habilidad de arreglar cualquier día malo que tenga.</li>
+                    <li><span>02</span> Cómo me miras, como si realmente me vieras, incluso cuando yo mismo dudo de mí.</li>
+                    <li><span>03</span> Tu forma de preocuparte por los demás, de cuidar, de estar pendiente sin pedir nada a cambio.</li>
+                    <li><span>04</span> Lo bonita que eres por fuera, pero sobre todo por dentro: tus valores, tu corazón, tu forma de ser.</li>
+                    <li><span>05</span> Porque contigo puedo ser yo mismo, sin filtros, sin máscaras, sin miedo a que me juzgues.</li>
+                    <li><span>06</span> Tus mensajes, tus detalles y esas cosas pequeñas que haces y que significan mucho para mí.</li>
+                    <li><span>07</span> La paciencia que tienes conmigo cuando me rayo, cuando me agobio o cuando las cosas no salen bien.</li>
+                    <li><span>08</span> Lo mucho que me apoyas, crees en mí y me recuerdas de lo que soy capaz cuando yo lo olvido.</li>
+                    <li><span>09</span> Porque conviertes sitios normales en lugares especiales solo con estar ahí.</li>
+                    <li><span>10</span> Porque simplemente eres tú, Maria Sevillano, y no cambiaría nada de ti.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Futuro juntos -->
+        <section id="futuro">
+            <h2 class="section-title">nuestro futuro <span>// primera versión de muchas</span></h2>
+            <div class="grid grid-3">
+                <article class="card">
+                    <div class="tag"><div class="tag-dot"></div>meta 01</div>
+                    <h3>Seguir creciendo juntos</h3>
+                    <p>
+                        Quiero seguir aprendiendo contigo, apoyarnos en los días buenos y en los malos,
+                        y crecer como equipo. No somos perfectos, pero juntos podemos con todo.
+                    </p>
+                </article>
+                <article class="card">
+                    <div class="tag"><div class="tag-dot"></div>meta 02</div>
+                    <h3>Crear recuerdos bonitos</h3>
+                    <p>
+                        Viajes, planes locos, momentos tranquilos en casa, noches hablando de todo
+                        y de nada... Quiero que nuestra vida esté llena de historias que solo tú y yo entendamos.
+                    </p>
+                </article>
+                <article class="card">
+                    <div class="tag"><div class="tag-dot"></div>meta 03</div>
+                    <h3>Estar a tu lado siempre</h3>
+                    <p>
+                        Pase lo que pase, mi idea de futuro tiene siempre un punto en común: tú.
+                        Quiero estar ahí cuando sonrías, cuando llores, cuando ganes y cuando pierdas.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Detalles que amo de ti -->
+        <section id="detalles">
+            <h2 class="section-title">detalles que amo de ti <span>// lo que te hace única</span></h2>
+            <div class="grid grid-2">
+                <article class="card">
+                    <h3>Pequeñas cosas que me enamoran</h3>
+                    <p>
+                        Me enamoran tus gestos, tus tonterías, la forma en la que dices ciertas palabras,
+                        cómo frunces el ceño cuando te concentras, y cómo te ríes cuando algo te hace 
+                        demasiada gracia. Cosas que para otros pueden ser pequeñas, para mí lo son todo.
+                    </p>
+                    <p style="margin-top:10px;">
+                        Me encanta cuando me hablas de tus cosas, de tus días, de lo que te preocupa 
+                        y de lo que te hace feliz. Me haces sentir importante solo por confiar en mí.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3>Mensaje directo para ti</h3>
+                    <p class="quote">
+                        “Si alguna vez dudas de ti, recuerda esto: hay una persona en el mundo que 
+                        te ve como algo increíble, que se siente afortunado por tenerte, y que 
+                        está escribiendo esto solo para que sonrías. Esa persona soy yo.”
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Mensaje final -->
+        <section id="final">
+            <h2 class="section-title">mensaje final <span>// lo más importante</span></h2>
+            <div class="card">
+                <p style="margin-bottom:10px;">
+                    Maria Sevillano, no sé si esta página conseguirá expresar todo lo que siento,
+                    pero al menos quiero que, cada vez que la veas, recuerdes esto:
+                </p>
+                <p style="font-size:1rem; margin-bottom:10px;">
+                    <strong>Te quiero muchísimo.</strong> De verdad. Gracias por estar en mi vida, 
+                    por aguantar mis rayadas, por hacerme reír, por apoyarme, por creer en mí cuando yo no puedo.
+                </p>
+                <p style="margin-bottom:10px;">
+                    Ojalá esta sea solo una de las muchas cosas que haga por ti. Porque te mereces 
+                    detalles, palabras bonitas, gestos, y todo lo bueno que pueda darte.
+                </p>
+                <p>
+                    Puede que esto sea solo una página web, pero detrás de cada palabra hay una verdad 
+                    muy simple y muy grande: <strong>eres una de las mejores cosas que me han pasado</strong>.
+                </p>
+            </div>
+
+            <div class="footer-msg">
+                Si has llegado hasta aquí, solo queda una cosa por decir:  
+                <strong>¿Te quedas conmigo en todos los días que vengan?</strong> 🌿💚
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Hecho con <span>♥</span> solo para ti, Maria.
+    </footer>
+</body>
+</html>
