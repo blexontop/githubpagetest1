@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 18</title>
+</head>
+<body>
+  <h2>Ejercicio 18: Verificar número 50 o suma 50</h2>
+  <button onclick="verificar()">Verificar</button>
+
+  <script>
+    function verificar() {
+      let numA = parseInt(prompt("Ingresa el primer número:"));
+      let numB = parseInt(prompt("Ingresa el segundo número:"));
+      if (numA === 50 || numB === 50 || numA + numB === 50) {
+        alert("Verdadero ✅");
+      } else {
+        alert("Falso ❌");
+      }
+    }
+  </script>
+</body>
+</html>

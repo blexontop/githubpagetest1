@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios funciones flecha y Map</title>
+  <style>
+    body { font-family: Arial; background:#f5f5f5; padding:20px; }
+    h2 { color:#0066cc; }
+    button { margin:4px; }
+    ul { list-style:none; padding:0; }
+    li { margin:4px 0; }
+    .rojo { color:red; font-weight:bold; }
+    .verde { color:green; font-weight:bold; }
+  </style>
+</head>
+<body>
+
+  <h2>1️⃣ Número aleatorio con función flecha</h2>
+  <input type="number" id="numAleatorio" placeholder="Introduce un número">
+  <button onclick="mostrarAleatorio()">Generar</button>
+  <p id="resAleatorio"></p>
+
+  <hr>
+
+  <h2>2️⃣ Calculadora básica (funciones flecha)</h2>
+  <input type="number" id="n1" placeholder="Número 1">
+  <input type="number" id="n2" placeholder="Número 2">
+  <button onclick="calc('+')">+</button>
+  <button onclick="calc('-')">-</button>
+  <button onclick="calc('*')">*</button>
+  <button onclick="calc('/')">/</button>
+  <p id="resCalc"></p>
+
+  <hr>
+
+  <h2>3️⃣ Ciudades con Map</h2>
+  <button onclick="mostrarCiudades()">Ver ciudades</button>
+  <button onclick="contarCiudades()">Contar</button>
+  <button onclick="mostrarMas()">Más habitantes</button>
+  <button onclick="mostrarMenos()">Menos habitantes</button>
+  <br><br>
+  <input id="nuevaCiudad" placeholder="Nombre ciudad">
+  <input type="number" id="nuevosHab" placeholder="Habitantes">
+  <button onclick="agregarCiudad()">Añadir</button>
+
+  <ul id="listaCiudades"></ul>
+  <p id="info"></p>
+
+  <script>
+    // --- Ejercicio 1 ---
+    const aleatorio = n => Math.floor(Math.random() * n) + 1;
+    const mostrarAleatorio = () => {
+      const n = parseInt(document.getElementById("numAleatorio").value);
+      document.getElementById("resAleatorio").innerText =
+        isNaN(n) ? "Introduce un número válido" : "Número aleatorio: " + aleatorio(n);
+    };
+
+    // --- Ejercicio 2 ---
+    const suma = (a,b) => a + b;
+    const resta = (a,b) => a - b;
+    const multi = (a,b) => a * b;
+    const divi = (a,b) => b !== 0 ? a / b : "No se puede dividir por 0";
+
+    const calc = op => {
+      const n1 = parseFloat(document.getElementById("n1").value);
+      const n2 = parseFloat(document.getElementById("n2").value);
+      let res;
+      switch(op){
+        case '+': res = suma(n1,n2); break;
+        case '-': res = resta(n1,n2); break;
+        case '*': res = multi(n1,n2); break;
+        case '/': res = divi(n1,n2); break;
+      }
+      document.getElementById("resCalc").innerText = "Resultado: " + res;
+    };
+
+    // --- Ejercicio 3 ---
+    const ciudades = new Map([
+      ["Madrid", 3200000],
+      ["Barcelona", 1600000],
+      ["Valencia", 800000]
+    ]);
+
+    const renderLista = () => {
+      const ul = document.getElementById("listaCiudades");
+      ul.innerHTML = "";
+      ciudades.forEach((hab, nom) => {
+        const li = document.createElement("li");
+        li.textContent = `${nom}: ${hab} hab.`;
+        const btn = document.createElement("button");
+        btn.textContent = "Borrar";
+        btn.onclick = () => { ciudades.delete(nom); renderLista(); };
+        li.appendChild(btn);
+        ul.appendChild(li);
+      });
+    };
+
+    const mostrarCiudades = () => renderLista();
+    const contarCiudades = () => document.getElementById("info").innerText =
+      "Total de ciudades: " + ciudades.size;
+
+    const agregarCiudad = () => {
+      const nom = document.getElementById("nuevaCiudad").value;
+      const hab = parseInt(document.getElementById("nuevosHab").value);
+      if (!nom || isNaN(hab)) return alert("Datos inválidos");
+      ciudades.set(nom, hab);
+      renderLista();
+    };
+
+    const mostrarMas = () => {
+      let max = 0, ciudadMax = "";
+      ciudades.forEach((hab, nom) => { if (hab > max) { max = hab; ciudadMax = nom; } });
+      renderLista();
+      const lis = document.querySelectorAll("#listaCiudades li");
+      lis.forEach(li => { if (li.textContent.startsWith(ciudadMax)) li.classList.add("rojo"); });
+    };
+
+    const mostrarMenos = () => {
+      let min = Infinity, ciudadMin = "";
+      ciudades.forEach((hab, nom) => { if (hab < min) { min = hab; ciudadMin = nom; } });
+      renderLista();
+      const lis = document.querySelectorAll("#listaCiudades li");
+      lis.forEach(li => { if (li.textContent.startsWith(ciudadMin)) li.classList.add("verde"); });
+    };
+
+    // Mostrar lista al cargarf la página
+    window.onload = renderLista;
+  </script>
+
+</body>
+</html>

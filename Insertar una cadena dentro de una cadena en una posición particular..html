@@ -1,0 +1,8 @@
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej14</title>
+<script>
+let p = prompt("Cadena principal:") || "";
+let sub = prompt("Subcadena:") || "";
+let pos = (+prompt("Posición (1=inicio):") || 1) - 1;
+if (pos < 0) pos = 0; if (pos > p.length) pos = p.length;
+alert(p.slice(0,pos) + sub + p.slice(pos));
+</script>

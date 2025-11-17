@@ -1,0 +1,6 @@
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej6-ArrayMax</title>
+<script>
+const nums = (prompt("Números separados por coma:")||"")
+  .split(",").map(x=>+x.trim()).filter(x=>!isNaN(x));
+alert("Máximo: " + Math.max(...nums));
+</script>

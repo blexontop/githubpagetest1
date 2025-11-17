@@ -1,0 +1,8 @@
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej8a</title>
+<script>
+function dOnly(s){const [Y,M,D]=s.split("-").map(n=>+n);return new Date(Y,M-1,D);}
+const a = dOnly(prompt("Fecha 1 (YYYY-MM-DD):")||"1970-01-01");
+const b = dOnly(prompt("Fecha 2 (YYYY-MM-DD):")||"1970-01-02");
+const dias = Math.round((b - a)/(24*60*60*1000));
+alert("Diferencia: " + dias + " días");
+</script>

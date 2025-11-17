@@ -1,0 +1,7 @@
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej8b-Frecuente</title>
+<script>
+const arr = (prompt("Valores separados por coma:")||"").split(",").map(x=>x.trim()).filter(x=>x!=="");
+const c = {}; let mejor="", max=0;
+arr.forEach(v=>{c[v]=(c[v]||0)+1; if(c[v]>max){max=c[v]; mejor=v;}});
+alert("Más frecuente: " + (mejor||"(vacío)") + " (" + max + " veces)");
+</script>

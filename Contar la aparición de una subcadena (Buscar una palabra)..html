@@ -1,0 +1,7 @@
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej18-29</title>
+<script>
+const txt = prompt("Texto:") || "";
+const sub = prompt("Subcadena a contar:") || "";
+const n = (txt && sub) ? txt.split(sub).length - 1 : 0;
+alert("'" + sub + "' aparece " + n + (n===1?" vez":" veces"));
+</script>

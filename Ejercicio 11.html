@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 11</title>
+</head>
+<body>
+  <h2>Ejercicio 11: Conversión Celsius ↔ Fahrenheit</h2>
+  <button onclick="convertir()">Mostrar Conversión</button>
+
+  <script>
+    function convertir() {
+      let celsius = 60;
+      let fahrenheit = (celsius * 9) / 5 + 32;
+      console.log(celsius + "°C es " + fahrenheit + "°F");
+      
+      fahrenheit = 45;
+      celsius = ((fahrenheit - 32) * 5) / 9;
+      console.log(fahrenheit + "°F es " + celsius + "°C");
+      
+      alert("Revisa la consola (F12) para ver los resultados.");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej4a</title>
+<script>
+const nums = (prompt("Números separados por coma:")||"")
+  .split(",").map(x=>+x.trim()).filter(x=>!isNaN(x));
+alert("Suma: " + nums.reduce((a,b)=>a+b,0));
+</script>

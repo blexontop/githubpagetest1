@@ -1,0 +1,6 @@
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej18-Producto</title>
+<script>
+const nums = (prompt("Números separados por coma:")||"")
+  .split(",").map(x=>+x.trim()).filter(x=>!isNaN(x));
+alert("Producto: " + nums.reduce((a,b)=>a*b,1));
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 1.2</title>
+</head>
+<body>
+  <h2>Ejercicio 1.2</h2>
+  <label for="colores">Elige un color:</label>
+  <select id="colores">
+    <option value="rojo">Rojo</option>
+    <option value="verde">Verde</option>
+    <option value="azul">Azul</option>
+    <option value="amarillo">Amarillo</option>
+  </select>
+
+  <script>
+    document.getElementById("colores").addEventListener("change", function() {
+      console.log("Has seleccionado:", this.value);
+    });
+  </script>
+</body>
+</html>

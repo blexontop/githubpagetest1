@@ -1,0 +1,7 @@
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej31b-Remover</title>
+<script>
+const arr = (prompt("Valores separados por coma:")||"").split(",").map(x=>x.trim());
+const val = prompt("Valor a eliminar:") || "";
+alert(arr.filter(x=>x!==val).join(", "));
+</script>
+

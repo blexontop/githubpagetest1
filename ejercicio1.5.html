@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 1.5</title>
+</head>
+<body>
+  <h2>Ejercicio 1.5</h2>
+  <p id="texto">Este es un texto de prueba</p>
+
+  <label for="negrita">¿Negrita?</label>
+  <select id="negrita">
+    <option value="no">No</option>
+    <option value="si">Sí</option>
+  </select>
+
+  <label for="cursiva">¿Cursiva?</label>
+  <select id="cursiva">
+    <option value="no">No</option>
+    <option value="si">Sí</option>
+  </select>
+
+  <script>
+    const texto = document.getElementById("texto");
+    const negrita = document.getElementById("negrita");
+    const cursiva = document.getElementById("cursiva");
+
+    function aplicarEstilos() {
+      texto.style.fontWeight = (negrita.value === "si") ? "bold" : "normal";
+      texto.style.fontStyle = (cursiva.value === "si") ? "italic" : "normal";
+    }
+
+    negrita.addEventListener("change", aplicarEstilos);
+    cursiva.addEventListener("change", aplicarEstilos);
+  </script>
+</body>
+</html>

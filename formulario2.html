@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva de plaza Polideportivo Miguelito</title>
+</head>
+<body>
+
+<h1 align="center">Reserva de plaza Polideportivo Miguelito</h1>
+
+<form action="#" method="post">
+
+    <!-- DATOS DEL PARTICIPANTE -->
+    <fieldset>
+        <legend>Datos del participante</legend>
+
+        <label for="nombre">Nombre y apellido</label><br>
+        <input type="text" id="nombre" name="nombre" size="40"><br><br>
+
+        ¿Es miembro del club?<br>
+        <input type="radio" id="miembro" name="tipoMiembro" value="miembro" checked>
+        <label for="miembro">Miembro</label>
+
+        <input type="radio" id="noMiembro" name="tipoMiembro" value="noMiembro">
+        <label for="noMiembro">No-miembro</label><br><br>
+
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email" size="40">
+    </fieldset>
+
+    <!-- DATOS DE LA RESERVA -->
+    <fieldset>
+        <legend>Datos de la reserva</legend>
+
+        <label for="deporte">Deporte</label>
+        <select id="deporte" name="deporte">
+            <option value="padel">Padle</option>
+            <option value="tenis">Tenis</option>
+            <option value="futbol">Fútbol</option>
+        </select>
+        <br><br>
+
+        Seleccionar fecha y hora de la reserva:<br>
+        <input type="date" id="fecha" name="fecha">
+        <input type="time" id="hora" name="hora">
+        <br><br>
+
+        <input type="checkbox" id="normas" name="normas">
+        <label for="normas">Acepto las normas del club</label>
+    </fieldset>
+
+    <br>
+    <div align="center">
+        <input type="submit" value="Enviar">
+    </div>
+
+</form>
+
+</body>
+</html>
+

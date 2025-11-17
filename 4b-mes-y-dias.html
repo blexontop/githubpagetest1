@@ -1,0 +1,10 @@
+<!DOCTYPE html><meta charset="UTF-8"><title>Ej4b</title>
+<script>
+const f = prompt("Fecha (YYYY-MM-DD):") || "";
+const d = new Date(f);
+const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const nombreMes = isNaN(d) ? "" : meses[d.getMonth()];
+const mes = +prompt("Mes (1-12):")||1, anio = +prompt("Año:")||2000;
+const diasMes = new Date(anio, mes, 0).getDate();
+alert("Mes de la fecha: " + (nombreMes||"inválido") + "\nDías de " + mes + "/" + anio + ": " + diasMes);
+</script>

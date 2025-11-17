@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 1.4</title>
+</head>
+<body>
+  <h2>Ejercicio 1.4</h2>
+  <label for="imagenes">Elige una imagen:</label>
+  <select id="imagenes">
+    <option value="imagen1.jpg">Imagen 1</option>
+    <option value="imagen2.jpg">Imagen 2</option>
+    <option value="imagen3.jpg">Imagen 3</option>
+  </select>
+
+  <div style="margin-top:15px;">
+    <img id="vista" src="" alt="Vista previa" width="300">
+  </div>
+
+  <script>
+    document.getElementById("imagenes").addEventListener("change", function() {
+      document.getElementById("vista").src = this.value;
+    });
+  </script>
+</body>
+</html>
