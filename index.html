@@ -137,7 +137,7 @@
   <section id="inicio" class="hero">
     <div class="wrap">
       <span class="tag">Blex On Top</span>
-      <h2>Bienvenidos a la pagina de<span style="background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent">Frederic Sadibou Sall Diaw</span>.</h2>
+      <h2>Bienvenidos a la pagina de <span style="background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent">Frederic Sadibou Sall Diaw</span>.</h2>
       <p>BLEX ON TOP <strong>Javascript</strong>:  <strong>HTML Y CSS</strong>, <strong>MYSQL</strong>, <strong>PHYTON</strong>  <strong>PHP </strong>.</p>
       <div class="btns">
         <a class="btn primary" href="#daw1">Empezar por 1º DAW</a>
@@ -151,7 +151,6 @@
     <div class="section-head">
       <h3>Contenido — 1º DAW <span class="pill" id="p1">0% completado</span></h3>
       <a class="btn" href="#daw2">Saltar a 2º DAW</a>
-      
     </div>
 
     <div class="cards tilt-spot">
@@ -263,6 +262,19 @@
         </ul>
       </article>
       <!-- /TEMA 4 -->
+
+      <!-- TEMA 5 — FUNCIONES -->
+      <article class="card" data-topic="Tema 5">
+        <h4>TEMA 5 — Funciones</h4>
+        <ul>
+          <li><a href="ejercicio1funciones.html">Ejercicio 1: crearUsuario (objeto con valores por defecto)</a></li>
+          <li><a href="ejercicio2funciones.html">Ejercicio 2: operar (suma, resta, multiplicación, suma_mul)</a></li>
+          <li><a href="ejercicio3funciones.html">Ejercicio 3: aplanar array anidado</a></li>
+          <li><a href="ejercicio4-5funciones.html">Ejercicio 4-5: listarArchivos en sistema de carpetas</a></li>
+          <li><a href="ejercicio6funciones.html">Ejercicio 6: permutar (todas las combinaciones posibles)</a></li>
+        </ul>
+      </article>
+      <!-- /TEMA 5 -->
     </div>
   </section>
 
@@ -383,7 +395,6 @@
       function goActive(){ const active = list.querySelector('li.active'); const i = active ? +active.getAttribute('data-i') : -1; if(i>=0){ const a = items[i].el; close(); a.click(); } }
       list.addEventListener('click', e=>{ const li=e.target.closest('li'); if(!li) return; list.querySelectorAll('li').forEach(n=>n.classList.remove('active')); li.classList.add('active'); goActive(); });
       input.addEventListener('keydown', e=>{ const rows = Array.from(list.querySelectorAll('li')); let idx = rows.findIndex(li=> li.classList.contains('active')); if(e.key==='ArrowDown'){ e.preventDefault(); rows[idx]?.classList.remove('active'); rows[(idx+1)%rows.length]?.classList.add('active'); } if(e.key==='ArrowUp'){ e.preventDefault(); rows[idx]?.classList.remove('active'); rows[(idx-1+rows.length)%rows.length]?.classList.add('active'); } if(e.key==='Enter'){ e.preventDefault(); goActive(); } });
-      // Exponer para voz
       window.__paletteOpen = open; window.__paletteSearch = q=>{ open(); input.value=q; input.dispatchEvent(new Event('input')); };
     })();
 
@@ -402,7 +413,6 @@
       document.addEventListener('keydown', e=>{ if(e.key.toLowerCase()==='v'){ if(active) stop(); else start(); }});
       r.addEventListener('result', e=>{
         const said = (e.results[0][0]?.transcript||'').toLowerCase();
-        // comandos: "abrir curriculum", "buscar formulario", "ir a segundo daw"
         if(said.includes('abrir curriculum')){ stop(); location.href='Curriculum.html'; return; }
         if(said.includes('segundo') || said.includes('2º') || said.includes('dos')){ stop(); location.hash='#daw2'; return; }
         if(said.includes('primero') || said.includes('1º') || said.includes('uno')){ stop(); location.hash='#daw1'; return; }
@@ -430,7 +440,7 @@
         title.textContent = name || 'Enlace'; desc.textContent = 'Cargando…';
         show(e.clientX, e.clientY);
         try{
-          const res = await fetch(a.getAttribute('href')); // puede fallar por CORS si no es misma carpeta
+          const res = await fetch(a.getAttribute('href'));
           const html = await res.text();
           const m = /<title>([^<]{1,120})<\/title>/i.exec(html);
           if(m){ title.textContent = m[1]; }
