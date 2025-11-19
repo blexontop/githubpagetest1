@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 3 - aplanar</title>
+</head>
+<body>
+  <h2>Ejercicio 3: aplanar array anidado</h2>
+  <button onclick="probarAplanar()">Ver resultado</button>
+
+  <script>
+    function aplanar(arr) {
+      let resultado = [];
+
+      for (let elemento of arr) {
+        if (Array.isArray(elemento)) {
+          let parte = aplanar(elemento);
+          resultado = resultado.concat(parte);
+        } else {
+          resultado.push(elemento);
+        }
+      }
+
+      return resultado;
+    }
+
+    function probarAplanar() {
+      let ejemplo = [1, [2, [3, 4]], 5];
+      let plano = aplanar(ejemplo);
+
+      alert(
+        "Array original:\n" + JSON.stringify(ejemplo) +
+        "\n\nArray aplanado:\n" + JSON.stringify(plano)
+      );
+    }
+  </script>
+</body>
+</html>

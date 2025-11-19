@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 6 - permutar</title>
+</head>
+<body>
+  <h2>Ejercicio 6: permutar elementos</h2>
+  <button onclick="probarPermutar()">Calcular permutaciones</button>
+
+  <script>
+    function permutar(arr) {
+      if (arr.length === 1) {
+        // devolvemos copia para evitar referencias raras
+        return [[arr[0]]];
+      }
+
+      let resultado = [];
+
+      for (let i = 0; i < arr.length; i++) {
+        const primero = arr[i];
+        const resto = arr.slice(0, i).concat(arr.slice(i + 1));
+        const permutacionesResto = permutar(resto);
+
+        for (let perm of permutacionesResto) {
+          resultado.push([primero, ...perm]);
+        }
+      }
+
+      return resultado;
+    }
+
+    function probarPermutar() {
+      let texto = prompt("Introduce los valores separados por comas (ej: 1,2,3):");
+
+      if (!texto) {
+        alert("No has introducido nada.");
+        return;
+      }
+
+      let arr = texto.split(",").map(x => x.trim());
+
+      let perms = permutar(arr);
+
+      let mensaje = "Permutaciones:\n\n" +
+        perms.map(p => "[" + p.join(", ") + "]").join("\n");
+
+      alert(mensaje);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios 4 y 5 - listarArchivos</title>
+</head>
+<body>
+  <h2>Ejercicios 4 y 5: listar archivos de un sistema de carpetas</h2>
+  <button onclick="probarListarArchivos()">Listar archivos</button>
+
+  <script>
+    const fs = {
+      carpeta1: {
+        archivo1: "contenido1",
+        archivo2: "contenido2",
+        subcarpeta: {
+          archivo3: "contenido3"
+        }
+      },
+      carpeta2: {
+        archivo4: "contenido4"
+      }
+    };
+
+    function listarArchivos(obj) {
+      let archivos = [];
+
+      for (let clave in obj) {
+        const valor = obj[clave];
+
+        if (typeof valor === "string") {
+          archivos.push(clave);
+        } else if (typeof valor === "object" && valor !== null) {
+          archivos = archivos.concat(listarArchivos(valor));
+        }
+      }
+
+      return archivos;
+    }
+
+    function probarListarArchivos() {
+      const archivos = listarArchivos(fs);
+      alert("Archivos encontrados:\n" + archivos.join(", "));
+    }
+  </script>
+</body>
+</html>
