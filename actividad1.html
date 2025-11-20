@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actividad 1 - Tarjeta básica</title>
+
+  <!-- TODO el CSS está AQUÍ dentro -->
+  <style>
+    /* Selector universal: quitamos márgenes y paddings por defecto */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #222;   /* FONDO OSCURO */
+      color: #fff;              /* TEXTO BLANCO */
+      padding: 20px;
+    }
+
+    /* Tarjeta muy visible */
+    #tarjeta {
+      background-color: #ffffff;     /* FONDO BLANCO */
+      color: #000000;                /* TEXTO NEGRO */
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 350px;
+      margin: 40px auto;
+      border: 3px solid red;        /* BORDE ROJO PARA QUE SE VEA */
+    }
+
+    .titulo {
+      color: blue;
+      margin-bottom: 10px;
+    }
+
+    #tarjeta p {
+      margin-top: 8px;
+    }
+
+    a[target="_blank"] {
+      color: green;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PRUEBA DE ACTIVIDAD 1</h1>
+
+  <div id="tarjeta">
+    <h2 class="titulo">Curso de Desarrollo Web</h2>
+    <p>
+      Aprende los conceptos básicos de HTML y CSS para crear tus primeras páginas web.
+    </p>
+    <p>
+      Más información en
+      <a href="https://www.w3schools.com" target="_blank">esta página</a>.
+    </p>
+  </div>
+
+</body>
+</html>
