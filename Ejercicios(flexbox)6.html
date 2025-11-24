@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Card Set</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            width: 180px;
+            height: 300px;
+            margin: 10px;
+            box-shadow: 0px 0px 10px rgba(230, 6, 6, 0.1);
+            background-color: #ff0000;
+        }
+        .header, .footer {
+            height: 40px;
+            text-align: center;
+            background-color: #837e7e;
+        }
+        .body {
+            flex: 1;
+            padding: 20px;
+            background-color: #a13939;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h2>Título de l izquierda</h2>
+        </div>
+        <div class="body">
+            <p>Contenido de la tarjeta 1.</p>
+        </div>
+        <div class="footer">
+            <h4>Pie de pagina  1 </h4>
+        </div>
+    </div>
+    <div class="card">
+        <div class="header">
+            <h2>Título del centro</h2>
+        </div>
+        <div class="body">
+            <p>Contenido de la tarjeta 2.</p>
+        </div>
+        <div class="footer">
+            <h4>Pie de pagina 2</h4>
+        </div>
+    </div>
+    <div class="card">
+        <div class="header">
+            <h2>Título de laderecha</h2>
+        </div>
+        <div class="body">
+            <p>Contenido de la tarjeta 3.</p>
+        </div>
+        <div class="footer">
+            <h4>Pie de pagina  3</h4>
+        </div>
+    </div>
+</body>
+</html>

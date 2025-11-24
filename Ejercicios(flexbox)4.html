@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sidebar con Menú</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+        #sidebar {
+            width: 20%;
+            background-color: #19f197;
+            padding: 20px;
+        }
+        #contenido {
+            width: 80%;
+            background-color: #1266e4;
+            padding: 20px;
+        }
+        ul {
+            padding: 0;
+        }
+        li {
+            list-style: none;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Opciones</a></li>
+            <li><a href="#">Planes</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div>
+    <div id="contenido">
+        <p>Contenido de la página aquí.</p>
+    </div>
+</body>
+</html>

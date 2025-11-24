@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Header Flexbox con Botones</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #064580;
+            padding: 10px 20px;
+        }
+        .logo {
+            color: white;
+            font-size: 24px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .auth-links {
+            display: flex;
+            gap: 10px;
+        }
+        .auth-links a {
+            background-color: #ffffff;
+            color: #0a8fdb;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            border: 2px solid #0a8fdb;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .auth-links a:hover {
+            background-color: #0252ff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MiWeb</div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Artículos</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <div class="auth-links">
+            <a href="#">Entrar</a>
+            <a href="#">Registrarse</a>
+        </div>
+    </header>
+</body>
+</html>
