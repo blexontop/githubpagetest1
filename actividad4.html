@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actividad 4 - Bloque adaptable</title>
+  <style>
+    /* 2. box-sizing para todo */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 1.5em;
+      background-color: #f4f4f4;
+    }
+
+    /* 1. Bloque adaptable */
+    #adaptable {
+      background-color: #74b9ff;
+      padding: 2em;          /* margen interno en em */
+      margin: 2em auto;      /* margen externo en em */
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      display: block;
+      max-width: 600px;
+    }
+
+    #adaptable h2 {
+      margin-bottom: 0.5em;
+    }
+
+    #adaptable p {
+      line-height: 1.4;
+    }
+
+    /* 4.a Cuando la pantalla tenga menos de 500px */
+    @media (max-width: 500px) {
+      #adaptable {
+        background-color: #8cff75;
+      }
+    }
+
+    /* 4.b Estilos para impresión */
+    @media print {
+      body {
+        margin: 0;
+      }
+
+      #adaptable {
+        background-color: #ffffff;
+        border: 1px solid #000000;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="adaptable">
+    <h2>Bloque adaptable</h2>
+    <p>
+      Este bloque cambia de color cuando la pantalla es más pequeña de 500px
+      y se adapta también cuando se envía a imprimir.
+    </p>
+  </div>
+
+</body>
+</html>

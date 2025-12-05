@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 2 - operar</title>
+</head>
+<body>
+  <h2>Ejercicio 2: operar con funciones (suma, resta, multiplicación...)</h2>
+  <button onclick="probarOperar()">Calcular</button>
+
+  <script>
+    function suma(a, b) {
+      return a + b;
+    }
+
+    function resta(a, b) {
+      return a - b;
+    }
+
+    function multiplicacion(a, b) {
+      return a * b;
+    }
+
+    // suma_mul = suma + multiplicación
+    function suma_mul(a, b) {
+      const resSuma = suma(a, b);
+      const resMult = multiplicacion(a, b);
+      return resSuma + resMult;
+    }
+
+    const sumamul = suma_mul; // por si el nombre lo usan así
+
+    function operar(a, b, operacion) {
+      return operacion(a, b);
+    }
+
+    function probarOperar() {
+      let a = parseFloat(prompt("Introduce el primer número:"));
+      let b = parseFloat(prompt("Introduce el segundo número:"));
+
+      let nombreOperacion = prompt(
+        "¿Qué operación quieres?\n" +
+        "Escribe: suma, resta, multiplicacion o suma_mul"
+      );
+
+      if (!nombreOperacion) {
+        alert("No has indicado operación.");
+        return;
+      }
+
+      nombreOperacion = nombreOperacion.toLowerCase().trim();
+
+      let operacion;
+
+      if (nombreOperacion === "suma") {
+        operacion = suma;
+      } else if (nombreOperacion === "resta") {
+        operacion = resta;
+      } else if (nombreOperacion === "multiplicacion") {
+        operacion = multiplicacion;
+      } else if (nombreOperacion === "suma_mul") {
+        operacion = suma_mul;
+      } else {
+        alert("Operación no válida.");
+        return;
+      }
+
+      let resultado = operar(a, b, operacion);
+      alert("Resultado: " + resultado);
+    }
+  </script>
+</body>
+</html>

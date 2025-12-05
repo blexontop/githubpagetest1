@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="es">
+    <!-- Formulario para selección de datos del flamenco -->
+    <div style="padding: 20px;">
+        <label for="paloSelect">Elige un palo flamenco:</label>
+        <select id="paloSelect">
+            <option value="">--Selecciona--</option>
+        </select>
+
+        <br><br>
+
+        <label for="datoSelect">Selecciona un dato:</label>
+        <select id="datoSelect">
+            <option value="">--Selecciona--</option>
+            <option value="compas">Compás</option>
+            <option value="tempo">Tempo</option>
+            <option value="tipoLetra">Tipo de letra</option>
+        </select>
+
+        <button id="mostrarDato">Mostrar dato</button>
+
+        <br><br>
+        <div id="info">
+            Información aparecerá aquí…
+        </div>
+    </div>
+
+    <!-- Dibujar el compás de 12 tiempos -->
+    <hr>
+    <h2>Subir nota: Compás de 12 tiempos</h2>
+    <div id="compas12">
+        <!-- Aquí dibujaremos los números del 1 al 12 con los tiempos fuertes en negrita -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 MiWeb | <a href="#">Sobre nosotros</a> | <a href="#">Enlaces</a> | <a href="#">Contacto</a></p>
+    </footer>
+
+    <script>
+        const palos = [
+            { nombre: "Soleá", compas: "12 tiempos", tempo: "lento", tipoLetra: "melancólicas, soledad, dolor" },
+            { nombre: "Alegrías", compas: "12 tiempos", tempo: "vivo/rápido", tipoLetra: "amor, fiesta, naturaleza" },
+            { nombre: "Bulerías", compas: "12 tiempos (con acentos únicos)", tempo: "muy rápida/dinámica", tipoLetra: "fiesta, improvisación" },
+            { nombre: "Tientos", compas: "4 tiempos", tempo: "lento", tipoLetra: "expresivo, emotivo" },
+            { nombre: "Tangos", compas: "4 tiempos", tempo: "bailable, marcado", tipoLetra: "desenfadada, festiva" },
+            { nombre: "Seguiriyas", compas: "12 tiempos (acentuaciones muy marcadas)", tempo: "lento", tipoLetra: "muerte, pérdida, sufrimiento" }
+        ];
+
+        const paloSelect = document.getElementById("paloSelect");
+        palos.forEach((palo, idx) => {
+            const opt = document.createElement("option");
+            opt.value = idx;
+            opt.textContent = palo.nombre;
+            paloSelect.appendChild(opt);
+        });
+
+        const infoDiv = document.getElementById("info");
+
+        document.getElementById("mostrarDato").addEventListener("click", () => {
+            const idx = paloSelect.value;
+            const dato = document.getElementById("datoSelect").value;
+            if (idx === "" || dato === "") {
+                alert("Selecciona palo y dato");
+                return;
+            }
+            const palo = palos[idx];
+            let texto = "";
+            if (dato === "compas") texto = `Compás de ${palo.nombre}: ${palo.compas}`;
+            if (dato === "tempo") texto = `Tempo de ${palo.nombre}: ${palo.tempo}`;
+            if (dato === "tipoLetra") texto = `Tipo de letra de ${palo.nombre}: ${palo.tipoLetra}`;
+            infoDiv.innerHTML = texto;
+        });
+
+        // Dibujar compás de 12 tiempos con los acentos fuertes en negrita
+        const compas12Div = document.getElementById("compas12");
+        const acentosFuertes = [1, 3, 5, 8, 11]; // ejemplo acentos para seguirí­yas
+        let htmlNums = "";
+        for (let i = 1; i <= 12; i++) {
+            if (acentosFuertes.includes(i)) {
+                htmlNums += `<span class="compas12"><strong>${i}</strong></span> `;
+            } else {
+                htmlNums += `<span>${i}</span> `;
+            }
+        }
+        compas12Div.innerHTML = htmlNums;
+
+    </script>
+</body>
+</html>

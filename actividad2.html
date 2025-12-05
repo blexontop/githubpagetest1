@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actividad 2 - Perfil</title>
+  <style>
+    /* 1. Variables CSS (custom properties) */
+    :root {
+      --principal: #4a8de3;
+      --secundario: hsl(255, 15%, 67%);
+      --acento: rgb(255, 180, 90);
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    /* 2. Contenedor perfil */
+    #perfil {
+      background-color: var(--secundario);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 360px;
+    }
+
+    /* 3. Clase nombre */
+    .nombre {
+      color: var(--principal);
+      font-size: 1.5em;
+      margin-bottom: 8px;
+    }
+
+    /* 6. Pseudoelemento ::before para puntito decorativo */
+    .nombre::before {
+      content: "• ";
+      color: var(--acento);
+    }
+
+    /* 4. Párrafo debajo en gris */
+    #perfil p {
+      color: rgba(0, 0, 0, 0.8);
+      margin-bottom: 14px;
+    }
+
+    /* 5. Botón con clase .boton */
+    .boton {
+      background-color: var(--acento);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .boton:hover {
+      filter: brightness(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="perfil">
+    <h2 class="nombre">Frederic Sadibou Sall</h2>
+    <p>Estudiante de Desarrollo de Aplicaciones Web. Apasionado por el frontend y el diseño.</p>
+    <button class="boton">Ver perfil completo</button>
+  </div>
+
+</body>
+</html>

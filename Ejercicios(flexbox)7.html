@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Grupo de Tarjetas</title>
+    <style>
+        body {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            height: 100vh;
+            margin: 0;
+        }
+        .col-izquierda {
+            width: 70%; /* La columna izquierda ocupa el 66% */
+            background-color: #0e7c74;
+            padding: 24px;
+            color: rgb(0, 0, 0);
+            height: 100vh; /* Aseguramos que ocupe todo el alto */
+        }
+        .col-derecha {
+            width: 33%; /* La columna derecha ocupa el 33% */
+            display: flex;
+            flex-direction: column; /* Colocamos las partes en columna */
+            gap: 20px;
+            padding: 24px;
+            height: 100vh; /* Aseguramos que ocupe todo el alto */
+        }
+        .parte {
+            background-color: #ffffff;
+            padding:20px;
+            box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
+            flex: 1; /* Esto permite que las dos partes ocupen el mismo espacio */
+        }
+    </style>
+</head>
+<body>
+    <div class="col-izquierda">
+        <h2>Columna izquierda</h2>
+    </div>
+    <div class="col-derecha">
+        <div class="parte">
+            <h3>Derecha parte alta</h3>
+        </div>
+        <div class="parte">
+            <h3>Derecha parte baja</h3>
+        </div>
+    </div>
+</body>
+</html>

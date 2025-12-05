@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MiWeb - Página Completa</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #064580;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .auth-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-links a {
+            background-color: #ffffff;
+            color: #0a8fdb;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            border: 2px solid #0a8fdb;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .auth-links a:hover {
+            background-color: #0252ff;
+            color: white;
+        }
+
+        section {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+            gap: 20px;
+            justify-items: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #064580;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card {
+            background-color: white;
+            width: 100%;
+            max-width: 300px; /* Max ancho de las tarjetas */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+        }
+
+        .card p {
+            margin: 0;
+        }
+
+        footer {
+            background-color: #064580;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">MiWeb</div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Artículos</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <div class="auth-links">
+            <a href="#">Entrar</a>
+            <a href="#">Registrarse</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section>
+        <h2>Últimos artículos</h2>
+        <div class="card">
+            <div class="card-body">
+                <p>Contenido de la tarjeta 1</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p>Contenido de la tarjeta 2</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p>Contenido de la tarjeta 3</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p>Contenido de la tarjeta 4</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 MiWeb | <a href="#">Sobre nosotros</a> | <a href="#">Enlaces</a> | <a href="#">Contacto</a></p>
+    </footer>
+
+</body>
+</html>

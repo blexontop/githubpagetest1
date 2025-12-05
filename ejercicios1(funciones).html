@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 1 - crearUsuario</title>
+</head>
+<body>
+  <h2>Ejercicio 1: crearUsuario</h2>
+  <button onclick="probarCrearUsuario()">Probar</button>
+
+  <script>
+    // Función crearUsuario con valores por defecto "desconocido"
+    function crearUsuario({ nombre = "desconocido", edad = "desconocido", pais = "desconocido" } = {}) {
+      return nombre + ", " + edad + " años, " + pais;
+    }
+
+    function probarCrearUsuario() {
+      let nombre = prompt("Introduce el nombre (deja vacío si no quieres poner nada):");
+      let edadTexto = prompt("Introduce la edad (deja vacío si no quieres poner nada):");
+      let pais = prompt("Introduce el país (deja vacío si no quieres poner nada):");
+
+      // Si el usuario deja algo vacío, lo mandamos como undefined para que salte el valor por defecto
+      let edad = edadTexto ? parseInt(edadTexto) : undefined;
+
+      let resultado = crearUsuario({ nombre, edad, pais });
+      alert("Resultado:\n" + resultado);
+    }
+  </script>
+</body>
+</html>

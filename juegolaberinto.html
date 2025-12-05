@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Laberinto visual</title>
+    <style>
+        /* cuadritos del laberinto */
+        .celda {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        .pared { background: #333; color: white; }
+        .camino { background: white; }
+        .inicio { background: lightgreen; }
+        .final { background: lightcoral; }
+    </style>
+</head>
+<body>
+
+<h2>Laberinto:</h2>
+<div id="lab"></div>
+
+<h2 id="resultado"></h2>
+
+<script>
+    // laberinto
+    const lab = [
+        ["S", " ", "X", " "],
+        ["X", " ", "X", " "],
+        [" ", " ", " ", " "],
+        ["X", "X", " ", "F"]
+    ];
+
+    // pintar laberinto en pantalla
+    const divLab = document.getElementById("lab");
+
+    for (let i = 0; i < lab.length; i++) {
+        for (let j = 0; j < lab[0].length; j++) {
+
+            let celda = document.createElement("div");
+            celda.classList.add("celda");
+
+            if (lab[i][j] === "X") celda.classList.add("pared");
+            if (lab[i][j] === " ") celda.classList.add("camino");
+            if (lab[i][j] === "S") celda.classList.add("inicio");
+            if (lab[i][j] === "F") celda.classList.add("final");
+
+            celda.textContent = lab[i][j];
+
+            divLab.appendChild(celda);
+        }
+        divLab.appendChild(document.createElement("br"));
+    }
+
+    // funcion recursiva
+    function resolver(l, x, y, visitado) {
+        if (x < 0 || y < 0 || x >= l.length || y >= l[0].length) return false;
+        if (l[x][y] === "X" || visitado[x][y]) return false;
+        if (l[x][y] === "F") return true;
+
+        visitado[x][y] = true;
+
+        return resolver(l, x+1, y, visitado) ||
+               resolver(l, x-1, y, visitado) ||
+               resolver(l, x, y+1, visitado) ||
+               resolver(l, x, y-1, visitado);
+    }
+
+    // buscar S
+    let sx = 0, sy = 0;
+
+    for (let i = 0; i < lab.length; i++) {
+        for (let j = 0; j < lab[0].length; j++) {
+            if (lab[i][j] === "S") { sx = i; sy = j; }
+        }
+    }
+
+    const visitado = Array.from({length: lab.length}, () =>
+        Array(lab[0].length).fill(false)
+    );
+
+    const salida = resolver(lab, sx, sy, visitado);
+
+    document.getElementById("resultado").innerText =
+        "¿Hay salida? " + salida;
+</script>
+
+</body>
+</html>

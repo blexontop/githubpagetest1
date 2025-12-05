@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Ejercicio 2 examen t2 y 3 </title>
+</head>
+<body>
+    <h2>Ejercicio 2 (estructura del Map para JavaScript)</h2>
+
+    <script>
+        // Creamos un mapa con información de las asignaturas/módulos de DAW
+        const modulos = new Map([
+            ["DWEC" , "Desarrollo Web en Entorno Cliente"],
+            ["DIW"  , "Diseño de Interfaces Web"],
+            ["DAW"  , "Despliegue de Aplicaciones Web"],
+            ["DWS"  , "Desarrollo Web en Entorno Servidor"],
+            ["FOL"  , "Formación y Orientación Laboral"],
+            ["PCOP" , "Python"],
+            ["ING"  , "Inglés"],
+            ["OPT"  , "Optativa"]
+        ]);
+
+        // a) Número de módulos
+        document.write("<b>a)</b> Número de módulos: " + modulos.size + "<br><br>");
+
+        // b) Contenido completo del mapa (abreviatura > nombre)
+        document.write("<b>b)</b> Contenido del mapa: <br>");
+        modulos.forEach((nombre, abreviatura) => {
+            document.write(abreviatura + " > " + nombre + "<br>");
+        });
+        document.write("<br>");
+
+        // c) Solo las abreviaturas de los módulos (las claves)
+        document.write("<b>c)</b> Abreviaturas de los módulos: <br>");
+        for (let abreviatura of modulos.keys()) {
+            document.write(abreviatura + "<br>");
+        }
+        document.write("<br>");
+
+        // d) Solo los nombres completos de los módulos (los valores)
+        document.write("<b>d)</b> Nombres completos de los módulos: <br>");
+        for (let nombre of modulos.values()) {
+            document.write(nombre + "<br>");
+        }
+        document.write("<br>");
+
+        // e) Utilizamos has() para ver si existe el módulo DAW
+        const existeDAW = modulos.has("DAW");
+        document.write("<b>e)</b> ¿Existe el módulo 'DAW'? " + existeDAW + "<br><br>");
+
+        // f) Si existe DAW, cambiamos su nombre añadiendo " 2"
+        if (existeDAW) {
+            const nombreAc
