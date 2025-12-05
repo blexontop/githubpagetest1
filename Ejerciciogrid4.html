@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo de Tarjetas</title>
+    <style>
+        .card-set {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+            padding: 20px;
+        }
+        .card {
+            display: grid;
+            grid-template-rows: 40px 1fr 30px; 
+            background-color: #f5f5f5;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            min-height: 350px; 
+        }
+        .header, .footer {
+            background-color: #8db7d3;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-set">
+        <div class="card">
+            <div class="header">
+                <h2>Título</h2>
+            </div>
+            <div class="content">
+                <p>Contenido 1</p>
+            </div>
+            <div class="footer">
+                <h4>Pie</h4>
+            </div>
+        </div>
+        <div class="card">
+            <div class="header">
+                <h2>Título</h2>
+            </div>
+            <div class="content">
+                <p>Contenido 2</p>
+            </div>
+            <div class="footer">
+                <h4>Pie</h4>
+            </div>
+        </div>
+        <div class="card">
+            <div class="header">
+                <h2>Título</h2>
+            </div>
+            <div class="content">
+                <p>Contenido 3</p>
+            </div>
+            <div class="footer">
+                <h4>Pie</h4>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

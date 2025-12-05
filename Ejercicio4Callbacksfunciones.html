@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Callbacks y funciones en línea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result-container {
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .example {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 4 - Callbacks y funciones en línea</h1>
+    <div class="container">
+        <button id="callbacksButton">Procesar Tareas</button>
+        <div id="result" class="result-container"></div>
+        <div id="example" class="example"></div>
+    </div>
+
+    <script>
+        function procesarTareas(tareas, callbackFinal) {
+            let tareasCompletadas = [];
+            let tareasPendientes = tareas.length;
+
+            tareas.forEach(tarea => {
+                setTimeout(() => {
+                    console.log(`Tarea ${tarea.id} completada`);
+                    tareasCompletadas.push(tarea.id);
+                    tareasPendientes--;
+
+                    if (tareasPendientes === 0) {
+                        callbackFinal(tareasCompletadas);
+                    }
+                }, tarea.duracion);
+            });
+        }
+
+        function mostrarResultado() {
+            const tareas = [
+                { id: 'A', duracion: 300 },
+                { id: 'B', duracion: 100 },
+                { id: 'C', duracion: 200 }
+            ];
+
+            procesarTareas(tareas, (resultado) => {
+                document.getElementById('result').style.display = 'block';
+                document.getElementById('result').innerHTML = `Tareas completadas en orden: ${resultado.join(', ')}`;
+            });
+        }
+
+        document.getElementById('callbacksButton').addEventListener('click', mostrarResultado);
+        document.getElementById('example').textContent = `Ejemplo de entrada: [{id: 'A', duracion: 300}, {id: 'B', duracion: 100}, {id: 'C', duracion: 200}]`;
+    </script>
+</body>
+</html>

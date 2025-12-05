@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo de Tarjetas</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: 2fr 1fr; 
+            gap: 20px;
+            background-color: #0e7c74; 
+            padding: 20px;
+        }
+        .left-column {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .right-column {
+            display: grid;
+            grid-template-rows: 1fr 1fr; 
+            gap: 10px;
+        }
+        .row {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid lightgray; 
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-column">
+        <h2>Columna Izquierda</h2>
+    </div>
+    <div class="right-column">
+        <div class="row">
+            <p>Fila 1</p>
+        </div>
+        <div class="row">
+            <p>Fila 2</p>
+        </div>
+    </div>
+</body>
+</html>

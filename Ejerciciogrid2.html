@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Vertical</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 20px;
+        }
+        .sidebar {
+            background-color: rgba(0, 75, 236, 0.8);
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            border-bottom: 1px solid gray;
+            padding: 10px;
+        }
+        .content {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li>Menú 1</li>
+            <li>Menú 2</li>
+            <li>Menú 3</li>
+            <li>Menú 4</li>
+            <li>Menú 5</li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>Contenido</h2>
+        <p>Este es el contenido principal de la página.</p>
+    </div>
+</body>
+</html>

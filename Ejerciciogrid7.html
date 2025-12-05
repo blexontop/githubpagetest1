@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header con GRID</title>
+    <style>
+        header {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr; /* Tres partes: logo, menú, enlaces */
+            align-items: center; /* Centra verticalmente */
+            background-color: #062e79;
+            color: white;
+            padding: 10px 20px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+        }
+        .nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-size: 1rem;
+        }
+        .auth {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .auth a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .auth a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MiWeb</div>
+        <div class="nav">
+            <a href="#">Inicio</a>
+            <a href="#">Artículos</a>
+            <a href="#">Contacto</a>
+        </div>
+        <div class="auth">
+            <a href="#">Entrar</a>
+            <a href="#">Registro</a>
+        </div>
+    </header>
+</body>
+</html>

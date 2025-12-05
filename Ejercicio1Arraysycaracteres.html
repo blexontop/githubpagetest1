@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Arrays y Caracteres</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result-container {
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .example {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 1 - Arrays y Caracteres</h1>
+    <div class="container">
+        <div class="input-container">
+            <input type="text" id="inputWords" placeholder="Ingresa un array de palabras (ej. hola, Mundo, árbol)" />
+        </div>
+        <button id="transformButton">Transformar Palabras y Contar Vocales</button>
+        <div id="result" class="result-container"></div>
+        <div id="example" class="example"></div>
+    </div>
+
+    <script>
+        function capitalizarYContarVocales(words) {
+            const palabrasCapitalizadas = words.map(word => {
+                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            });
+
+            const totalVocales = words.join('').toLowerCase().split('').filter(char => 'aeiou'.includes(char)).length;
+
+            return {
+                palabras: palabrasCapitalizadas,
+                totalVocales: totalVocales
+            };
+        }
+
+        function mostrarResultados() {
+            const input = document.getElementById('inputWords').value.trim();
+            if (input === "") {
+                alert("Por favor, ingresa algunas palabras.");
+                return;
+            }
+
+            const words = input.split(',');
+            const resultado = capitalizarYContarVocales(words);
+
+            const resultContainer = document.getElementById('result');
+            resultContainer.style.display = 'block';
+            resultContainer.innerHTML = `
+                <p><strong>Palabras Capitalizadas:</strong> ${resultado.palabras.join(', ')}</p>
+                <p><strong>Total de Vocales:</strong> ${resultado.totalVocales}</p>
+            `;
+        }
+
+        document.getElementById('transformButton').addEventListener('click', mostrarResultados);
+
+        document.getElementById('example').textContent = `Ejemplo de entrada: ["hola", "mUndo", "árbol", "PIrrAmiDe"]`;
+    </script>
+</body>
+</html>

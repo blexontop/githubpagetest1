@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celdas Interiores Combinadas</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 50% 50%; 
+            grid-template-rows: auto auto; 
+            gap: 10px;
+        }
+        .tarjeta {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tarjeta.e, .tarjeta.b {
+            grid-column: span 1;
+        }
+        
+        .tarjeta.c {
+            grid-column: span 1; 
+        }
+        
+        .tarjeta.d {
+            grid-column: span 2; 
+        }
+        
+        .tarjeta.a {
+            grid-column: span 2; 
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="tarjeta e">Tarjeta E (50%)</div>
+        <div class="tarjeta b">Tarjeta B (50%)</div>
+        <div class="tarjeta c">Tarjeta C (25%)</div>
+        <div class="tarjeta d">Tarjeta D (75%)</div>
+        <div class="tarjeta a">Tarjeta A (100%)</div>
+    </div>
+</body>
+</html>
